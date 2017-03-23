@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#BDAD8C">
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView1">
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:stretchColumns="1">
+            <TextView
+                android:text="Aquí va tu pregunta"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:id="@+id/pregunta" />
+            <RadioGroup
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Opciones"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="15dp">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="OpcionA"
+                    android:id="@+id/opcionA"
+                    android:layout_marginLeft="60dp" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion B"
+                    android:id="@+id/OpcionB"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="20dp" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion C"
+                    android:id="@+id/OpcionC"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="25dp" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion D"
+                    android:id="@+id/OpcionD"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="22dp" />
+            </RadioGroup>
+            <Button
+                android:id="@+id/bEnviar"
+                android:text="Siguiente"
+                android:textColor="#000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"                
+                android:layout_marginTop="80dp" />
+        </TableLayout>
+    </ScrollView>
+</LinearLayout>

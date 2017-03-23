@@ -38,34 +38,38 @@ namespace preparate
 
             // Create your application here
             SetContentView(Resource.Layout.Crear_Perfil);
+
+
+            
+
             bValidar = FindViewById<Button>(Resource.Id.ok);
 
-            Spinner spinner1 = FindViewById<Spinner>(Resource.Id.spinner1);
+            //Spinner spinner1 = FindViewById<Spinner>(Resource.Id.spinner1);
 
-            spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-            var adapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.listaEscuelas, Android.Resource.Layout.SimpleSpinnerItem);
+            //spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            //var adapter = ArrayAdapter.CreateFromResource(
+            //        this, Resource.Array.listaEscuelas, Android.Resource.Layout.SimpleSpinnerItem);
 
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner1.Adapter = adapter;
+            //adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            //spinner1.Adapter = adapter;
 
-            Spinner spinner2 = FindViewById<Spinner>(Resource.Id.spinner2);
+            //Spinner spinner2 = FindViewById<Spinner>(Resource.Id.spinner2);
 
-            spinner2.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-            var adapter2 = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.listaExamen, Android.Resource.Layout.SimpleSpinnerItem);
+            //spinner2.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            //var adapter2 = ArrayAdapter.CreateFromResource(
+            //        this, Resource.Array.listaExamen, Android.Resource.Layout.SimpleSpinnerItem);
 
-            adapter2.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner2.Adapter = adapter2;
+            //adapter2.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            //spinner2.Adapter = adapter2;
 
-            Spinner spinner3 = FindViewById<Spinner>(Resource.Id.spinner3);
+            //Spinner spinner3 = FindViewById<Spinner>(Resource.Id.spinner3);
 
-            spinner3.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-            var adapter3 = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.listaCarrera, Android.Resource.Layout.SimpleSpinnerItem);
+            //spinner3.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            //var adapter3 = ArrayAdapter.CreateFromResource(
+            //        this, Resource.Array.listaCarrera, Android.Resource.Layout.SimpleSpinnerItem);
 
-            adapter3.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner3.Adapter = adapter3;
+            //adapter3.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            //spinner3.Adapter = adapter3;
 
             //bValidar.Click += BValidar_Click;
             bValidar.Click += BValidar_Click;
@@ -141,9 +145,9 @@ namespace preparate
         public void obtener_datos()
         {
             #region Obtiene los datos de los textbox
-            tNombre = FindViewById<EditText>(Resource.Id.tNombre);
-            tApellidos = FindViewById<EditText>(Resource.Id.tApellidos);
-            tusuario = FindViewById<EditText>(Resource.Id.tusuario);            
+            //tNombre = FindViewById<EditText>(Resource.Id.tNombre);
+            //tApellidos = FindViewById<EditText>(Resource.Id.tApellidos);
+            //tusuario = FindViewById<EditText>(Resource.Id.tusuario);            
             tContra1 = FindViewById<EditText>(Resource.Id.tContra1);
             tContra2 = FindViewById<EditText>(Resource.Id.tContra2);
 

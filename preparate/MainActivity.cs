@@ -12,7 +12,7 @@ namespace preparate
         {
             base.OnCreate(bundle);
             //Display Splash Screen for 4 Sec
-            Thread.Sleep(4000);
+            Thread.Sleep(2000);
             //Start Activity1 Activity
             StartActivity(typeof(Crear_Perfil));
         }

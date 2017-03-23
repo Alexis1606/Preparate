@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="Hello">Hello World, Click Me!</string>
   <string name="SpinEscuela">Elige una escuela</string>
-  <string-array name="listaEscuelas">
-    <item>UVM</item>
-    <item>UNITEC</item>
-    <item>TEC DE MONTERREY</item>    
-  </string-array>
-
-  <string name="SpinExamen">Elige un Examen</string>
-  <string-array name="listaExamen">
-    <item>EGEL</item>
-    <item>EXIL</item>
-  </string-array>
-
-  <string name="SpinCarrera">Elige una carrera</string>
-  <string-array name="listaCarrera">
-    <item>Ingeniería en Sist. Computacionales</item>
-    <item>Ingeniería industrial</item>
-  </string-array>
+  <string name="ApplicationName">preparate</string>
+  <string name="sample_show_log">Show Log</string>
+  <string name="sample_hide_log">Hide Log</string>  
 </resources>

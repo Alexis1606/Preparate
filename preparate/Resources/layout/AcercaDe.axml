@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"              
-    android:background="#D22D13">
+    android:layout_height="match_parent"
+    android:background="#BDAD8C">
     <TextView
         android:text="Acerca De Prepárate EGEL"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -21,7 +21,7 @@
         android:layout_marginTop="30dp"
         android:id="@+id/textView3" />
     <TextView
-        android:text="Prepárate EGEL S.A de C.V para uso educacional:"
+        android:text="Prepárate EGEL S.A de C.V para uso educacional."
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,11 +29,20 @@
         android:layout_marginTop="20dp"
         android:id="@+id/textView4" />
     <TextView
+        android:text="Correo Electronico: Preparate@egel.edu.mx"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView7" />
+    <TextView
         android:text="Contácto: 01(55)44534567"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="20dp"
         android:id="@+id/textView5" />
     <TextView
         android:text="Todos los derechos reservados ©"
@@ -41,6 +50,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:id="@+id/textView6" />
 </LinearLayout>
