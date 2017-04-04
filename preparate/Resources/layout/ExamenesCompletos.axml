@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="5dp"
             android:id="@+id/txtTiempo"
             android:visibility="visible" />
       <TableRow
@@ -49,6 +49,23 @@
             android:text="INICIAR"
             android:id="@+id/bEmpezar" />
       </TableRow>
+
+      <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+                android:text="Cantidad De Preguntas"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textCantidad"
+                android:layout_gravity="center" />
+        <Spinner
+             android:id="@+id/spinner2"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:prompt="@string/SpinCantidadPreg" />
+      </TableRow>
+
+
       <TextView
           android:text="Aquí va tu pregunta"
           android:textAppearance="?android:attr/textAppearanceMedium"

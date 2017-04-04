@@ -4,31 +4,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#BDAD8C">
-    <TextView
-        android:text="Únete a una clase"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:id="@+id/unirse"
-        android:layout_marginTop="150dp" />
-    <EditText
-        android:id="@+id/tClase"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_background"
-        android:textColor="@android:color/black"
-        android:cursorVisible="true"
-        android:gravity="center"
-        android:textCursorDrawable="@android:color/black"
-        android:layout_marginTop="40dp" />
-    <Button
-        android:id="@+id/bUnirse"
-        android:text="UNIRSE"
-        android:textColor="#000"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="80dp" />
+  <TextView
+   android:text="Únete a una clase"
+   android:textAppearance="?android:attr/textAppearanceMedium"
+   android:layout_width="match_parent"
+   android:gravity="center"
+   android:textColor="#FFFFFF"
+   android:layout_height="wrap_content"
+   android:id="@+id/unirse" />
+  <EditText
+      android:id="@+id/tClase"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@android:drawable/editbox_background"
+      android:textColor="@android:color/black"
+      android:cursorVisible="true"
+      android:gravity="center"
+      android:layout_below="@id/unirse"
+      android:textCursorDrawable="@android:color/black"
+      android:layout_marginTop="10dp" />
+  <Button
+      android:id="@+id/bUnirse"
+      android:text="UNIRSE"
+     android:textColor="#FFFFFF"
+      android:layout_below="@id/tClase"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:layout_marginTop="20dp" />
+  <ImageView
+      android:src="@drawable/Acerca"
+      android:layout_height="80dp"
+      android:id="@+id/bAcerca"
+      android:layout_below="@id/bUnirse"
+      android:layout_marginTop="50dp"
+      android:layout_width="100dp"
+      android:layout_gravity="center" />
+  <TextView
+      android:text="Acerca De"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:gravity="center"
+      android:textColor="#FFFFFF"
+      android:layout_height="wrap_content"
+      android:id="@+id/TextAcerca" />
+  <ImageView
+      android:src="@drawable/AvisodePrivacidad"
+      android:id="@+id/bAviso"
+      android:layout_gravity="center"
+      android:layout_width="100dp"
+      android:layout_height="80dp" />
+  <TextView
+      android:text="Aviso De Privacidad"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:gravity="center"
+      android:layout_height="wrap_content"
+      android:textColor="#FFFFFF"
+      android:id="@+id/TextAviso" />
+
 </LinearLayout>

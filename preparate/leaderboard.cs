@@ -12,14 +12,14 @@ using Android.Widget;
 
 namespace preparate
 {
-    [Activity(Label = "Resultado")]
-    public class Resultado : Activity
+    [Activity(Label = "leaderboard")]
+    public class leaderboard : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Resultado);
 
+            // Create your application here
         }
     }
 }

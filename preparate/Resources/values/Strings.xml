@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="Hello">Hello World, Click Me!</string>
-  <string name="SpinEscuela">Elige una escuela</string>
+  <string name="SpinTiempo">Elige el tiempo</string>
+  <string-array name="listaTiempo">
+    <item>60</item>
+    <item>100</item>
+    <item>180</item>
+  </string-array>
+  <string name="SpinCantidadPreg">Cantidad de Preguntas</string>
+  <string-array name="listaCantidadPreg">
+    <item>30</item>
+    <item>50</item>
+    <item>100</item>
+    <item>150</item>
+    <item>200</item>
+  </string-array>
+
   <string name="ApplicationName">preparate</string>
   <string name="sample_show_log">Show Log</string>
-  <string name="sample_hide_log">Hide Log</string>  
+  <string name="sample_hide_log">Hide Log</string>
 </resources>

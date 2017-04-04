@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace preparate 
+namespace preparate
 {
     [Activity(Label = "Crear Perfil", Icon = "@drawable/Icon")]
 
@@ -19,14 +19,14 @@ namespace preparate
         EditText tNombre;
         EditText tApellidos;
         EditText tusuario;
-        
+
         EditText tContra1;
         EditText tContra2;
         Button bValidar;
 
         String nombre;
         string apellidos;
-        string usuario;        
+        string usuario;
         string contra1;
         string contra2;
 
@@ -40,7 +40,7 @@ namespace preparate
             SetContentView(Resource.Layout.Crear_Perfil);
 
 
-            
+
 
             bValidar = FindViewById<Button>(Resource.Id.ok);
 
@@ -84,8 +84,8 @@ namespace preparate
         }
 
         private void BValidar_Click(object sender, EventArgs e)
-      {
-      StartActivity(typeof(MenuPrincipal));
+        {
+            StartActivity(typeof(MenuPrincipal));
         }
 
         //private void BValidar_Click(object sender, EventArgs e)
@@ -154,7 +154,7 @@ namespace preparate
             nombre = tNombre.Text;
             apellidos = tApellidos.Text;
             usuario = tusuario.Text;
-            
+
             contra1 = tContra1.Text;
             contra2 = tContra2.Text;
 

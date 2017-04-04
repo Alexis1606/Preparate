@@ -13,8 +13,8 @@ using System.Timers;
 
 namespace preparate
 {
-    [Activity(Label = "Quiz")]
-    public class Quiz : Activity
+    [Activity(Label = "ExamenesCompletos")]
+    public class ExamenesCompletos : Activity
     {
         Button bEnviar;
         Button bEmpezar;
@@ -22,8 +22,10 @@ namespace preparate
         RadioGroup Opciones;
         Button Enviar;
         Spinner spinner1;
+        Spinner spinner2;
         TextView textSegundos;
         TextView txtTiempo;
+        TextView textCantidad;
         Timer timer;
         TextView txtSelecciona;
         int mins = 0, secs = 0, milliseconds = 1;
@@ -32,7 +34,7 @@ namespace preparate
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.Quiz);
+            SetContentView(Resource.Layout.ExamenesCompletos);
 
             spinner1 = FindViewById<Spinner>(Resource.Id.spinner1);
             spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
@@ -40,6 +42,13 @@ namespace preparate
                     this, Resource.Array.listaTiempo, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner1.Adapter = adapter;
+
+            spinner2 = FindViewById<Spinner>(Resource.Id.spinner2);
+            spinner2.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            var adapter2 = ArrayAdapter.CreateFromResource(
+                    this, Resource.Array.listaCantidadPreg, Android.Resource.Layout.SimpleSpinnerItem);
+            adapter2.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinner2.Adapter = adapter2;
 
             bEnviar = FindViewById<Button>(Resource.Id.bEnviar);
 
@@ -54,6 +63,7 @@ namespace preparate
             Opciones = FindViewById<RadioGroup>(Resource.Id.Opciones);
             textSegundos = FindViewById<TextView>(Resource.Id.textSegundos);
             txtTiempo = FindViewById<TextView>(Resource.Id.txtTiempo);
+            textCantidad = FindViewById<TextView>(Resource.Id.textCantidad);
             txtSelecciona = FindViewById<TextView>(Resource.Id.txtSelecciona);
         }
 
@@ -63,9 +73,11 @@ namespace preparate
             Opciones.Visibility = ViewStates.Visible;
             bEnviar.Visibility = ViewStates.Visible;
             spinner1.Visibility = ViewStates.Invisible;
+            spinner2.Visibility = ViewStates.Invisible;
             bEmpezar.Visibility = ViewStates.Invisible;
             textSegundos.Visibility = ViewStates.Invisible;
             txtSelecciona.Visibility = ViewStates.Invisible;
+            textCantidad.Visibility = ViewStates.Invisible;
             timer = new Timer();
             timer.Interval = 1; //milliseconds
             timer.Elapsed += Timer_Elapsed;

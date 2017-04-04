@@ -20,17 +20,17 @@ namespace preparate
         //CAMARA
         ImageView perfil;
         int count = 1;
-        
+
         //
 
         GridView gridView;
         string[] gridViewString = {
-            "Quiz","Examen","Ajustes","Acerca de"
+            "Quiz","Examen","LeaderBoard","Configuración"
              //"Location","Sound","Note","List",
               //"Location","Sound","Note","List"
         };
         int[] imageId = {
-            Resource.Drawable.Quiz,Resource.Drawable.Examen,Resource.Drawable.Ajustes,Resource.Drawable.Acerca
+            Resource.Drawable.Quiz,Resource.Drawable.Examen,Resource.Drawable.leaderBoard,Resource.Drawable.Ajustes
              //Resource.Drawable.location,Resource.Drawable.sound,Resource.Drawable.note,Resource.Drawable.list,
               //Resource.Drawable.location,Resource.Drawable.sound,Resource.Drawable.note,Resource.Drawable.list
         };
@@ -49,11 +49,11 @@ namespace preparate
             SupportActionBar.Title = "Menú Principal";
             SupportActionBar.SetLogo(Resource.Drawable.Home);
 
-           
 
-            perfil = FindViewById<ImageView>(Resource.Id.imageView1);
 
-            perfil.Click +=  perfil_Click;
+            perfil = FindViewById<ImageView>(Resource.Id.IconoPerfil);
+
+            perfil.Click += perfil_Click;
 
 
             CustomGridViewAdapter adapter = new CustomGridViewAdapter(this, gridViewString, imageId);
@@ -77,59 +77,30 @@ namespace preparate
         private void perfil_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(VerPerfil));
-
-            //Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
-            //Android.App.AlertDialog alerDialog = builder.Create();
-            ////Titulo
-            //alerDialog.SetTitle("PERFIL");
-            ////Icono
-            //alerDialog.SetIcon(Resource.Drawable.Perfil);
-            ////Pregunta
-            //alerDialog.SetMessage("Elige Una opción");
-            //alerDialog.SetButton("Ver Perfil", (s, ev) =>
-            //{ 
-            //    StartActivity(typeof(VerPerfil));
-            //});
-            //alerDialog.SetButton3("Cambiar Foto", (s, ev) =>
-            //{
-                
-            //    Intent intent = new Intent(MediaStore.ActionImageCapture);
-            //    StartActivityForResult(intent, 0);
-            //    //StartActivity(typeof(MenuPrincipal));
-            //});
-            //alerDialog.Show();
-
         }
 
         private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var listView = sender as ListView;
             var l = gridViewString[e.Position];
-            //Android.Widget.Toast.MakeText(this, l, Android.Widget.ToastLength.Short).Show();
             if (l == "Quiz")
             {
-                StartActivity(typeof(Quiz));
+                StartActivity(typeof(Lista_De_Examenes));
             }
             else
             if (l == "Examen")
             {
-                //StartActivity(typeof());
+                StartActivity(typeof(ListaExamenesCompletos));
             }
             else
-                if (l == "Ajustes")
+                if (l == "LeaderBoard")
+            {
+                StartActivity(typeof(leaderboard));
+            }
+            else
+                if (l == "Configuración")
             {
                 StartActivity(typeof(Configuracion));
-            }
-            else
-                if (l == "Acerca de")
-            {
-                StartActivity(typeof(AcercaDe));
-            }
-
-            else
-                if (l == "Acerca de")
-            {
-                //StartActivity(typeof());
             }
 
         }

@@ -13,7 +13,7 @@ namespace preparate
     [Activity(Label = "Perfil")]
     public class VerPerfil : Activity
     {
-         ImageView perfil;
+        ImageView perfil;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -42,6 +42,8 @@ namespace preparate
             MenuInflater.Inflate(Resource.Menu.actionbar_main, menu);
             return base.OnCreateOptionsMenu(menu);
         }
+
+
         private void perfil_Click(object sender, EventArgs e)
         {
             Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
