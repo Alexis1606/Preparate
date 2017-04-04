@@ -11,7 +11,7 @@ using Android.Widget;
 
 namespace preparate
 {
-    [Activity(Label = "Configuración")]
+    [Activity(Label = "Configuracion")]
     public class Configuracion : Activity
     {
 

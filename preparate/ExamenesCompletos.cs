@@ -13,7 +13,7 @@ using System.Timers;
 
 namespace preparate
 {
-    [Activity(Label = "Examen")]
+    [Activity(Label = "ExamenesCompletos")]
     public class ExamenesCompletos : Activity
     {
         Button bEnviar;
