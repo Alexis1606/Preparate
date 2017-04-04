@@ -19,8 +19,7 @@ namespace preparate
         Button bEnviar;
         Button bEmpezar;
         TextView pregunta;
-        RadioGroup Opciones;
-        Button Enviar;
+        RadioGroup Opciones;        
         Spinner spinner1;
         TextView textSegundos;
         TextView txtTiempo;

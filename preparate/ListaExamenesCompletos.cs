@@ -11,7 +11,7 @@ using Android.Widget;
 
 namespace preparate
 {
-    [Activity(Label = "Quiz")]
+    [Activity(Label = "Examen")]
 
 
     public class ListaExamenesCompletos : Activity
