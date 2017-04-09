@@ -31,8 +31,6 @@ namespace API0
             res = dr[0].ToString();
             return res;
         }
-
-        
         public static DataTable ExecuteStoredProcedure(string ConnectionString,string stored,Parameter[] parameters)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
@@ -51,12 +49,13 @@ namespace API0
             con.Close();
             return dt;
         }
-
         public static string FirstDataFromTable(string ConnectionString,string stored, Parameter[] parameters)
         {
             DataTable dt = ExecuteStoredProcedure(ConnectionString,stored, parameters);
             return FirstDataFromTable(dt);
         }
+
+
 
     }
 }
