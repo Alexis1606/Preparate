@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -24,14 +25,32 @@ namespace API0
             return Utilities.FirstDataFromTable(con, "InsertExamen", p);
         }
 
-        public static void Deletexamen(int id)
+        //public static void Deletexamen(int id)
+        //{
+        //    string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+        //    Parameter[] p = new Parameter[] {
+
+        //         new Parameter("@ID", id)
+        //    };
+        //    Console.WriteLine(Utilities.ExecuteStoredProcedure(con, "DeleteExamen", p));
+        //}
+        public static int baja_examen(int id)
         {
             string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
-            Parameter[] p = new Parameter[] {
-
-                 new Parameter("@ID", id)
+            Classes.Parameter[] p = new Classes.Parameter[]
+            {
+                new Classes.Parameter("@ID",id)
             };
-            Console.WriteLine(Utilities.ExecuteStoredProcedure(con, "DeleteExamen", p));
+            try
+            {
+                return Convert.ToInt32(MSSql.FirstDataFromTable(con, "DeleteExamen", p));
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+
         }
+
     }
 }

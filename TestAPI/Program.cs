@@ -37,7 +37,7 @@ namespace TestAPI
             Console.WriteLine("18.- Baja tipo pregunta");
             Console.WriteLine("19.- Alta tema pregunta");
             Console.WriteLine("20.- Baja tema pregunta");
-            Console.WriteLine("21.- ver tema pregunta"); // en configuraci[on de examen poder seleccionar unicamente de que tema se quieren preguntas
+            Console.WriteLine("21.- ver temas pregunta"); // en configuraci[on de examen poder seleccionar unicamente de que tema se quieren preguntas
             Console.WriteLine("22.- Mostrar tabla respuestas usuarios");// solo como muestra de que funciona
             Console.WriteLine("Examenes");
             Console.WriteLine("23.- Insertar tipo examen");
@@ -171,13 +171,26 @@ namespace TestAPI
                     Console.WriteLine("Tipo Pregunta eliminada");
                     break;
                 case 19:
-
+                    Console.WriteLine("Ingresa el tema");
+                    Console.WriteLine("El id del tema es: " + Tema.alta_tema(Console.ReadLine()));
                     break;
                 case 20:
-
+                    Console.WriteLine("Ingresa el id del tema a borrar");
+                    switch (Tema.baja_tema(Convert.ToInt32(Console.ReadLine())))
+                    {
+                        case 1:
+                            Console.WriteLine("Se borró exitosamente el tema");
+                            break;
+                        case 0:
+                            Console.WriteLine("Error al el tema");
+                            break;
+                    }
                     break;
                 case 21:
-
+                    foreach(Tema t in Tema.obtener_Temas())
+                    {
+                        Console.WriteLine("id: " + t.id + "\tDescripcion: " + t.descripcion + "\n");
+                    }
                     break;
                 case 22:
 
@@ -211,7 +224,17 @@ namespace TestAPI
                     break;
 
                 case 26:
-
+                    Console.WriteLine("Ingresa el id del Examen a borrar");
+                    switch (Examen.baja_examen(Convert.ToInt32(Console.ReadLine())))
+                    {
+                        case 1:
+                            Console.WriteLine("Se borró exitosamente el examen");
+                            break;
+                        case 0:
+                            Console.WriteLine("Error al el tema");
+                            break;
+                    }
+                    break;
                     break;
                 case 27:
                     Console.WriteLine("Ingresa la Descrición del Certificador");
