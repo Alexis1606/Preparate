@@ -139,7 +139,11 @@ namespace TestAPI
                     Console.WriteLine("Pantalla eliminada");
                     break;
                 case 11:
-
+                    Console.WriteLine("Ingresa el rol");
+                    foreach(int pantalla in Pantalla.PantallasPorRol(Convert.ToInt32(Console.ReadLine())))
+                    {
+                        Console.WriteLine(pantalla + "");
+                    }
                     break;
                 case 12:
 

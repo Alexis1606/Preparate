@@ -37,9 +37,9 @@ namespace API0
             ArrayList t = new ArrayList();
             int[] res;
             string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
-            Parameter[] p = new Parameter[] {
+            Classes.Parameter[] p = new Classes.Parameter[] {
 
-                 new Parameter("@idRol", idRol)
+                 new Classes.Parameter("@idRol", idRol)
             };
             foreach(DataRow dr in MSSql.ExecuteStoredProcedure(con, "selectPantallaPorRol", p).Rows)
             {
