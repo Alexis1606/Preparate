@@ -1,12 +1,14 @@
-﻿  using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Classes;
+using System.Configuration;
 
 namespace API0
 {
-    class Pregunta
+    public class Pregunta
     {
         string pregunta;
         string[] opciones;
@@ -16,18 +18,50 @@ namespace API0
         {
 
         }
-
-        void obtenerAleatorio()
+        public static int altaPregunta(String pregunta,string[] opciones,int rcorrecta,int tipoPregunta,String ayuda,int tema, string urlImagen)
         {
-
+            Classes.Parameter[] p = new Classes.Parameter[opciones.Length+6];
+            p[0] = new Classes.Parameter("@Pregunta", pregunta);
+            p[1] = new Classes.Parameter("@Respuesta_Correcta", rcorrecta);
+            p[2] = new Classes.Parameter("@ID_Tipo_Pregunta", tipoPregunta);
+            p[3] = new Classes.Parameter("@Ayuda", ayuda);
+            p[4] = new Classes.Parameter("@ID_Tema", tema);
+            p[5] = new Classes.Parameter("@Imagen", pregunta);
+            for (int i = 0; i < opciones.Length; i++)
+            {
+               
+                    p[i+6] = new Classes.Parameter("@Opcion" + (i+1), opciones[i]);
+               
+            }
+            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            return Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertPreguntas", p));
         }
-        void obtenerAleatorio(int examen)
+        public static int altaPregunta(String pregunta,string[] opciones,int rcorrecta,int tipoPregunta,String ayuda,int tema)
         {
+            Classes.Parameter[] p = new Classes.Parameter[opciones.Length + 5];
+            p[0] = new Classes.Parameter("@Pregunta", pregunta);
+            p[1] = new Classes.Parameter("@Respuesta_Correcta", rcorrecta);
+            p[2] = new Classes.Parameter("@ID_Tipo_Pregunta", tipoPregunta);
+            p[3] = new Classes.Parameter("@Ayuda", ayuda);
+            p[4] = new Classes.Parameter("@ID_Tema", tema);
+            for (int i = 0; i < opciones.Length; i++)
+            {
 
+                p[i + 5] = new Classes.Parameter("@Opcion" + (i + 1), opciones[i]);
+
+            }
+            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            return Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertPreguntas", p));
         }
-
-
-
+        public static int baja(int id)
+        {
+            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            Classes.Parameter[] p = new Classes.Parameter[]
+            {
+                new Classes.Parameter("@ID",id)
+            };
+            return Convert.ToInt32(MSSql.FirstDataFromTable(con, "DeletePreguntas", p));
+        }
 
     }
 }

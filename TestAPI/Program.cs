@@ -32,7 +32,7 @@ namespace TestAPI
             Console.WriteLine("13.- Baja pregunta");
             Console.WriteLine("14.- Pregunta aleatoria(solo mostrar)");//no la va a poder contestar
             Console.WriteLine("15.- Contestar pregunta sin dato (Mostrar -> validar respuesta -> Guardar respuesta usuario)");//para todos los tipos de examen//se va a validar el tipo de pregunta y con esto es la forma en que se muestra
-            Console.WriteLine("16.- Contestar pregunta con dato (Mostrar -> validar respuesta -> Guardar respuesta usuario)");//para todos los tipos de examen
+            Console.WriteLine("16.- Contestar pregunta con dato (Mostrar -> validar respuesta -> Guardar respuesta usuario -> mostrar ayuda)");//para todos los tipos de examen
             Console.WriteLine("17.- Alta tipo pregunta");
             Console.WriteLine("18.- Baja tipo pregunta");
             Console.WriteLine("19.- Alta tema pregunta");
@@ -146,10 +146,29 @@ namespace TestAPI
                     }
                     break;
                 case 12:
+                    Console.WriteLine("Ingresa el n[umero de opciones");
+                    String[] opciones = new string[Convert.ToInt32(Console.ReadLine())];
+                    Console.WriteLine("pregunta: ");
+                    String pregunta = Console.ReadLine();
+                    for(int i = 0; i < opciones.Length; i++)
+                    {
+                        Console.WriteLine("Opcion " + (i + 1));
+                        opciones[i] = Console.ReadLine();
+                    }
+                    Console.WriteLine("Opcion correcta(numero): ");
+                    int rcorrecta = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Tipo pregunta(numero): ");
+                    int tpregunta = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Ayuda: ");
+                    String ayuda = Console.ReadLine();
+                    Console.WriteLine("tema(numero): ");
+                    int tema = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine(Pregunta.altaPregunta(pregunta, opciones, rcorrecta, tpregunta, ayuda, tema));
 
                     break;
                 case 13:
-
+                    Console.WriteLine("Ingresa el id de la pregunta a eliminar");
+                    Console.WriteLine(Pregunta.baja(Convert.ToInt32(Console.ReadLine())));
                     break;
                 case 14:
 
