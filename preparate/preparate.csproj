@@ -279,6 +279,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\AvisodePrivacidad.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API0\API0.csproj">
+      <Project>{23c95b25-72bb-474e-8925-5105dc2ff5ae}</Project>
+      <Name>API0</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
