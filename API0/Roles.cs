@@ -11,7 +11,7 @@ namespace API0
     {
         public static string InsertRol (int id, string desc)
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Parameter[] p = new Parameter[] {
 
                  new Parameter("@ID", id),
@@ -22,7 +22,7 @@ namespace API0
 
         public static void DeleteRol(int id)
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Parameter[] p = new Parameter[] {
 
                  new Parameter("@ID", id)
@@ -32,7 +32,7 @@ namespace API0
 
         public static void SelectAllRoles()
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Parameter[] p = new Parameter[] {
             };
             Console.WriteLine(Utilities.ExecuteStoredProcedure(con, "SelectAllRoles", p)); 
@@ -40,7 +40,7 @@ namespace API0
 
         public static void RolUsuario(int ID)
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Parameter[] p = new Parameter[] {
 
                  new Parameter("@ID", ID)

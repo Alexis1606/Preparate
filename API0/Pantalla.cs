@@ -14,7 +14,7 @@ namespace API0
     {
         public static string InsertPantalla(int ID, string desc)
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Parameter[] p = new Parameter[] {
 
                  new Parameter("@ID", ID),
@@ -25,7 +25,7 @@ namespace API0
 
         public static void DeletePantalla(int id)
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Parameter[] p = new Parameter[] {
 
                  new Parameter("@ID", id)
@@ -36,7 +36,7 @@ namespace API0
         {
             ArrayList t = new ArrayList();
             int[] res;
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Classes.Parameter[] p = new Classes.Parameter[] {
 
                  new Classes.Parameter("@idRol", idRol)
