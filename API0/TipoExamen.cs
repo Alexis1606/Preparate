@@ -11,7 +11,7 @@ namespace API0
     {
         public static string InsertTipoExamen(string desc)
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Parameter[] p = new Parameter[] {
 
                  new Parameter("@Desc", desc)
@@ -21,7 +21,7 @@ namespace API0
 
         public static void DeleteTipoExamen(int id)
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Parameter[] p = new Parameter[] {
 
                  new Parameter("@ID", id)

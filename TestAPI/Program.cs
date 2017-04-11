@@ -67,7 +67,7 @@ namespace TestAPI
                     Console.WriteLine("Ingresa el Fecha Nacimiento");
                     DateTime Fecha_Nacimiento =Convert.ToDateTime(Console.ReadLine());
                     Console.WriteLine("Ingresa la contraseña");
-                    string Password_Hash = Utilities.encrypt(Console.ReadLine());
+                    string Password_Hash = Console.ReadLine();
                     Console.WriteLine("Ingresa el Correo");
                     string Correo = Console.ReadLine();
                     Console.WriteLine("Ingresa 1 = Hombre 0 = Mujer");

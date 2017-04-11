@@ -23,7 +23,7 @@ namespace API0
 
         public static string alta_tema(string descripcion)
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Classes.Parameter[] p = new Classes.Parameter[]
             {
                 new Classes.Parameter("@Desc",descripcion)
@@ -33,7 +33,7 @@ namespace API0
 
         public static int baja_tema(int id)
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Classes.Parameter[] p = new Classes.Parameter[]
             {
                 new Classes.Parameter("@ID",id)
@@ -53,7 +53,7 @@ namespace API0
         {
             ArrayList temp = new ArrayList();
             Tema[] t ;
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Classes.Parameter[] p = new Classes.Parameter[]
             {
             };

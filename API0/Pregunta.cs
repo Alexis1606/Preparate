@@ -33,7 +33,7 @@ namespace API0
                     p[i+6] = new Classes.Parameter("@Opcion" + (i+1), opciones[i]);
                
             }
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             return Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertPreguntas", p));
         }
         public static int altaPregunta(String pregunta,string[] opciones,int rcorrecta,int tipoPregunta,String ayuda,int tema)
@@ -50,12 +50,12 @@ namespace API0
                 p[i + 5] = new Classes.Parameter("@Opcion" + (i + 1), opciones[i]);
 
             }
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             return Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertPreguntas", p));
         }
         public static int baja(int id)
         {
-            string con = ConfigurationManager.ConnectionStrings["Preparate"].ToString();
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
             Classes.Parameter[] p = new Classes.Parameter[]
             {
                 new Classes.Parameter("@ID",id)
