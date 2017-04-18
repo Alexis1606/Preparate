@@ -94,7 +94,7 @@ namespace TestAPI
                     Console.WriteLine("Ingresa el pass del usuario");
                     string pass = Utilities.encrypt(Console.ReadLine());
                     Console.WriteLine("Hola usuario ");
-                    User.Login(correo,pass);
+                    User.login(correo,pass);
                    
                     break;
                 case 4:

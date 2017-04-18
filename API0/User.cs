@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Classes;
 
 namespace API0
 {
@@ -52,19 +53,6 @@ namespace API0
         }
 
 
-        public static void Login(string correo, string pass)
-        {
-            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
-            Parameter[] p = new Parameter[] {
-
-                 new Parameter("@Correo", correo),
-                 new Parameter("@Pass", pass)
-            };
-
-            Console.WriteLine(Utilities.FirstDataFromTable(con, "LoginUsuarios", p));
-
-        }
-
         public static void SelectAlUsers(int ID)
         {
             string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
@@ -82,6 +70,19 @@ namespace API0
             return res;
         }
 
+        public static int login(string mail, string password)
+        {
+            int res = 0;
+            password = Utilities.encrypt(password);
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
+            Classes.Parameter[] p = new Classes.Parameter[] {
+
+                 new Classes.Parameter("@correo", mail),
+                 new Classes.Parameter("@pwdHash", mail)
+            };
+            res = Convert.ToInt32(Classes.MSSql.FirstDataFromTable(con, "SelectByIDUsuarios", p));
+            return res;
+        }
 
     }
 }
