@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FBFBFB">
+  <ScrollView
+      android:minWidth="25px"
+      android:minHeight="25px"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/scrollView1">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1">
+      <EditText
+          android:inputType="textPersonName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/txtNombre"
+          android:background="@drawable/edit_text_style"
+          android:layout_marginLeft="15dp"
+          android:layout_marginRight="15dp"
+          android:layout_marginTop="25dp"
+          android:hint="Nombre" />
+      <EditText
+          android:inputType="textPersonName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/txtApellidos"
+          android:background="@drawable/edit_text_style"
+          android:layout_marginLeft="15dp"
+          android:layout_marginRight="15dp"
+          android:layout_marginTop="25dp"
+          android:hint="Apellidos" />
+      <EditText
+          android:inputType="textEmailAddress"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/txtEmail"
+          android:background="@drawable/edit_text_style"
+          android:layout_marginLeft="15dp"
+          android:layout_marginRight="15dp"
+          android:layout_marginTop="25dp"
+          android:hint="Correo Electronico" />
+      <EditText
+          android:inputType="date"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/txtFechaNac"
+          android:background="@drawable/edit_text_style"
+          android:layout_marginLeft="15dp"
+          android:layout_marginRight="15dp"
+          android:layout_marginTop="25dp"
+          android:hint="Fecha de Nacimiento dd/mm/aaaa" />
+      <TextView
+          android:text="Género:"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="79.5dp"
+          android:layout_height="wrap_content"
+          android:id="@+id/textoGenero"
+          android:layout_marginBottom="0.0dp" />
+      <RadioGroup
+          android:minWidth="25px"
+          android:minHeight="25px"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/Genero"
+          android:layout_marginTop="25dp"
+          android:layout_marginLeft="15dp"
+          android:background="#F2F2F2">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Masculino"
+            android:textColor="#000"
+            android:id="@+id/GeneroMasculino" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Femenino"
+            android:textColor="#000"
+            android:id="@+id/GeneroFemenino" />
+      </RadioGroup>
+      <TextView
+          android:text="Contraseña:"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="99.5dp"
+          android:layout_height="wrap_content"
+          android:id="@+id/textView4"
+          android:layout_marginBottom="0.0dp" />
+      <EditText
+          android:inputType="textPassword"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/tContra1" />
+      <TextView
+          android:text="Confimar Contraseña:"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textView5"
+          android:layout_marginBottom="0.0dp" />
+      <EditText
+          android:inputType="textPassword"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/tContra2" />
+      <Button
+          android:id="@+id/ok"
+          android:text="MODIFICAR"
+          android:textColor="#000"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="60dp"
+          android:background="#BDAD8C"
+          android:layout_marginTop="30dp"
+          android:layout_marginRight="60dp" />
+    </TableLayout>
+  </ScrollView>
+</LinearLayout>

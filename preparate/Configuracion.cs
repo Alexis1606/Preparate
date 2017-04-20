@@ -14,10 +14,11 @@ namespace preparate
     [Activity(Label = "Configuracion")]
     public class Configuracion : Activity
     {
-
+        ImageView Modificar;
         ImageView Acerca;
-        ImageView Aviso;
+        ImageView Aviso;        
         Button bUnirse;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -25,9 +26,17 @@ namespace preparate
             bUnirse = FindViewById<Button>(Resource.Id.bUnirse);
             Acerca = FindViewById<ImageView>(Resource.Id.bAcerca);
             Aviso = FindViewById<ImageView>(Resource.Id.bAviso);
+            Modificar = FindViewById<ImageView>(Resource.Id.bModificar);
             Acerca.Click += Acerca_Click;
             Aviso.Click += Aviso_Click;
             bUnirse.Click += bUnirse_Click;
+            Modificar.Click += bModificar_Click;
+
+        }
+
+        private void bModificar_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(ModificarPerfil));
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
