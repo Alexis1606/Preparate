@@ -33,11 +33,11 @@
         android:layout_marginTop="5dp" />
     <ImageView
         android:src="@drawable/Modificar"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:id="@+id/bModificar"
         android:layout_below="@id/bUnirse"
         android:layout_marginTop="30dp"
-        android:layout_width="100dp"
+        android:layout_width="60dp"
         android:layout_gravity="center" />
     <TextView
         android:text="Modificar Datos"
@@ -51,8 +51,8 @@
         android:src="@drawable/Acerca"
         android:id="@+id/bAcerca"
         android:layout_gravity="center"
-        android:layout_width="100dp"
-        android:layout_height="80dp" />
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
     <TextView
         android:text="Acerca De"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -65,8 +65,8 @@
         android:src="@drawable/AvisodePrivacidad"
         android:id="@+id/bAviso"
         android:layout_gravity="center"
-        android:layout_width="100dp"
-        android:layout_height="80dp" />
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
     <TextView
         android:text="Aviso De Privacidad"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -75,4 +75,13 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:id="@+id/TextAviso" />
+    <TextView
+        android:text="Cerrar Sesión"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCerrarSesion"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:layout_marginTop="40dp" />
 </LinearLayout>

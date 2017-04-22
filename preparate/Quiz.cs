@@ -109,7 +109,7 @@ namespace preparate
             //Icono
             alerDialog.SetIcon(Resource.Drawable.CopaGanador);
             //Pregunta
-            alerDialog.SetMessage("Haz Obtenido: " + "100" + " Puntos en " + "20" + " Segundos");
+            alerDialog.SetMessage("Haz Obtenido: " + "100" + " Puntos");
             alerDialog.SetButton("ACEPTAR", (se, eve) =>
             {
 

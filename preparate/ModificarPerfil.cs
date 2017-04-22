@@ -12,9 +12,24 @@ using Android.Widget;
 
 namespace preparate
 {
-    [Activity(Label = "Modificar Datos")]
+    [Activity(Label = "Modificar Datos", Icon = "@drawable/Icon")]
     public class ModificarPerfil : Activity
     {
+        EditText txtNombre;
+        EditText txtApellidos;
+        EditText txtEmail;
+        EditText txtFechaNac;
+        TextView textoGenero;
+        RadioButton GeneroMasculino;
+        EditText tContra1;
+        EditText tContra2;
+        Button bValidar;
+        //String nombre;
+        //string apellidos;
+        //string usuario;
+        string contra1;
+        string contra2;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

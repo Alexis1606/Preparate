@@ -14,7 +14,8 @@ namespace preparate
             //Display Splash Screen for 4 Sec
             Thread.Sleep(2000);
             //Start Activity1 Activity
-            StartActivity(typeof(Crear_Perfil));
+            //StartActivity(typeof(Crear_Perfil));
+            StartActivity(typeof(MenuPrincipal));
         }
     }
 }
