@@ -17,6 +17,10 @@ namespace preparate
             base.OnCreate(bundle);
             //Display Splash Screen for 4 Sec
             Thread.Sleep(2000);
+
+            // quitar esta linea cuando ya se tenga el login
+            appCode.ChangeLoginStatus(this, 0);
+
             try
             {
                 ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
