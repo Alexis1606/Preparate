@@ -17,8 +17,13 @@ namespace preparate
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            EditText Correo;
+            EditText Contrasena;
+            
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Acceder);
+            Contrasena = FindViewById<EditText>(Resource.Id.txtPassword);
+
             // Create your application here
         }
     }

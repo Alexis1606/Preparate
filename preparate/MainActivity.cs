@@ -30,7 +30,7 @@ namespace preparate
                     goToLogin();
                 }else
                 {
-                    StartActivity(typeof(Crear_Perfil));
+                    StartActivity(typeof(MenuPrincipal));
                 }
             }
             catch (Exception ex)
@@ -44,7 +44,7 @@ namespace preparate
         private void goToLogin()
         {
             //aqui va el c[odigo para llevar a la  poantalla de login
-            StartActivity(typeof(MenuPrincipal));
+            StartActivity(typeof(Select_Registro));
         }
     }
 }
