@@ -17,7 +17,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -97,6 +97,7 @@
     <Compile Include="ListaExamenesCompletos.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MenuPrincipal.cs" />
+    <Compile Include="ModificarPerfil.cs" />
     <Compile Include="Quiz.cs" />
     <Compile Include="Resources\adapter\adapter_listview.cs" />
     <Compile Include="Resources\clases\cls_ListView.cs" />
@@ -159,6 +160,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ListaExamenesCompletos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ModificarPerfil.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -284,6 +288,9 @@
       <Project>{23c95b25-72bb-474e-8925-5105dc2ff5ae}</Project>
       <Name>API0</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Modificar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
