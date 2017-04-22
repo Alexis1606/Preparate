@@ -34,7 +34,7 @@ namespace preparate
 
             // Create your application here
 
-            API0.User.login(mail, password);
+            API0.User.login(Correo.Text, Contrasena.Text);
         }
 
         private void bAcceder_Click(object sender, EventArgs e)
@@ -47,12 +47,22 @@ namespace preparate
                 numUsuario = API0.User.login(correo2, contrasena2);
                 if (numUsuario == 0)
                 {
-                    ///APPDIALOG: ENVIAR MENSAJE QUE ESTA MAL
+                    Android.App.AlertDialog.Builder build = new AlertDialog.Builder(this);
+                    AlertDialog alertDialog = build.Create();
+                    alertDialog.SetTitle("Mensaje");
+                    alertDialog.SetIcon(Android.Resource.Drawable.IcDialogAlert);
+                    alertDialog.SetMessage("Parece que hubo un error al intentar iniciar sesión");
+                    alertDialog.SetButton("OK", (s, ev) =>
+                    {
+                        StartActivity(typeof(Acceder));
+                    });
+                    alertDialog.Show();
                 }
                 else
                 {
                     appCode.ChangeLoginStatus(this, 1);
                     appCode.SaveUser(this, numUsuario);
+                    StartActivity(typeof(MenuPrincipal));
                 }
             }
         }
