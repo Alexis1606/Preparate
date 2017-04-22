@@ -24,6 +24,7 @@ namespace preparate
         Spinner spinner1;
         TextView textSegundos;
         TextView txtTiempo;
+        TextView Validar;
         Timer timer;
         TextView txtSelecciona;
         int mins = 0, secs = 0, milliseconds = 1;
@@ -55,6 +56,7 @@ namespace preparate
             textSegundos = FindViewById<TextView>(Resource.Id.textSegundos);
             txtTiempo = FindViewById<TextView>(Resource.Id.txtTiempo);
             txtSelecciona = FindViewById<TextView>(Resource.Id.txtSelecciona);
+            Validar = FindViewById<TextView>(Resource.Id.txtValidar);
         }
 
         private void Empezar_Click(object sender, EventArgs e)
@@ -64,6 +66,7 @@ namespace preparate
             bEnviar.Visibility = ViewStates.Visible;
             spinner1.Visibility = ViewStates.Invisible;
             bEmpezar.Visibility = ViewStates.Invisible;
+            Validar.Visibility = ViewStates.Invisible;
             textSegundos.Visibility = ViewStates.Invisible;
             txtSelecciona.Visibility = ViewStates.Invisible;
             timer = new Timer();
@@ -99,6 +102,7 @@ namespace preparate
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
+            Validar.Visibility = ViewStates.Visible;
             timer.Stop();
             //StartActivity(typeof(Resultado));
             Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
