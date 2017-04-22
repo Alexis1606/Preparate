@@ -33,6 +33,8 @@ namespace preparate
             bAcceder.Click += bAcceder_Click;
 
             // Create your application here
+
+            API0.User.login(mail, password);
         }
 
         private void bAcceder_Click(object sender, EventArgs e)
