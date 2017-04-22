@@ -34,7 +34,6 @@ namespace preparate
 
             // Create your application here
 
-            API0.User.login(Correo.Text, Contrasena.Text);
         }
 
         private void bAcceder_Click(object sender, EventArgs e)

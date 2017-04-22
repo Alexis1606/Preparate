@@ -3,42 +3,40 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#FBFBFB">  
+    android:background="#FBFBFB">
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:stretchColumns="1">
-     
-      <EditText
-          android:inputType="textEmailAddress"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/txtEmail"
-          android:background="@drawable/edit_text_style"
-          android:layout_marginLeft="15dp"
-          android:layout_marginRight="15dp"
-          android:layout_marginTop="25dp"
-          android:hint="Correo Electrónico" />
-      <EditText
-                  android:inputType="textPersonName"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/txtPassword"
-                  android:background="@drawable/edit_text_style"
-                  android:layout_marginLeft="15dp"
-                  android:layout_marginRight="15dp"
-                  android:layout_marginTop="25dp"
-                  android:hint="Contraseña" />
-      <Button
-          android:id="@+id/OK"
-          android:text="ACCEDER"
-          android:textColor="#000"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="60dp"
-          android:background="#BDAD8C"
-          android:layout_marginTop="30dp"
-          android:layout_marginRight="60dp" />
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtEmail"
+            android:background="@drawable/edit_text_style"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="25dp"
+            android:hint="Correo Electrónico" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPassword"
+            android:background="@drawable/edit_text_style"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="25dp"
+            android:hint="Contraseña" />
+        <Button
+            android:id="@+id/OK"
+            android:text="ACCEDER"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:background="#BDAD8C"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp" />
     </TableLayout>
-  
 </LinearLayout>
