@@ -15,7 +15,7 @@ namespace preparate
             Thread.Sleep(2000);
             //Start Activity1 Activity
             //StartActivity(typeof(Crear_Perfil));
-            StartActivity(typeof(MenuPrincipal));
+            StartActivity(typeof(Select_Registro));
         }
     }
 }

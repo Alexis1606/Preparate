@@ -18,6 +18,7 @@ namespace preparate
         ImageView Acerca;
         ImageView Aviso;        
         Button bUnirse;
+        TextView CerrarSesion;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,10 +28,35 @@ namespace preparate
             Acerca = FindViewById<ImageView>(Resource.Id.bAcerca);
             Aviso = FindViewById<ImageView>(Resource.Id.bAviso);
             Modificar = FindViewById<ImageView>(Resource.Id.bModificar);
+            CerrarSesion = FindViewById<TextView>(Resource.Id.txtCerrarSesion);
             Acerca.Click += Acerca_Click;
             Aviso.Click += Aviso_Click;
             bUnirse.Click += bUnirse_Click;
             Modificar.Click += bModificar_Click;
+            CerrarSesion.Click += CerrarSesion_Click;
+
+        }
+
+        private void CerrarSesion_Click(object sender, EventArgs e)
+        {
+            Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alerDialog = builder.Create();
+            //Titulo
+            alerDialog.SetTitle("SESIÓN");
+            //Icono
+            alerDialog.SetIcon(Resource.Drawable.Icon);
+            //Pregunta
+            alerDialog.SetMessage("¿Estás Seguro?");
+            alerDialog.SetButton("NO", (s, ev) =>
+            {
+                StartActivity(typeof(Configuracion));
+            });
+            alerDialog.SetButton3("Si", (s, ev) =>
+            {
+                //StartActivity(typeof(MenuTemp));
+
+            });
+            alerDialog.Show();
 
         }
 
