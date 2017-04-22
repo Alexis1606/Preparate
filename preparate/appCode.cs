@@ -15,5 +15,13 @@ namespace preparate
             editor.Apply();
         }
 
+        public static void SaveUser(Context c, int user)
+        {
+            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(c);
+            ISharedPreferencesEditor editor = prefs.Edit();
+            editor.PutInt("user", user);
+            editor.Apply();
+        }
+
     }
 }

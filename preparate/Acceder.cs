@@ -25,6 +25,8 @@ namespace preparate
             Contrasena = FindViewById<EditText>(Resource.Id.txtPassword);
 
             // Create your application here
+
+            API0.User.login(mail, password);
         }
     }
 }
