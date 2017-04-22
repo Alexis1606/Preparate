@@ -80,7 +80,7 @@ namespace API0
                  new Classes.Parameter("@correo", mail),
                  new Classes.Parameter("@pwdHash", mail)
             };
-            res = Convert.ToInt32(Classes.MSSql.FirstDataFromTable(con, "SelectByIDUsuarios", p));
+            res = Convert.ToInt32(Classes.MSSql.FirstDataFromTable(con, "LoginUsuarios", p));
             return res;
         }
 
