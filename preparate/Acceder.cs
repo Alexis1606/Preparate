@@ -29,7 +29,7 @@ namespace preparate
             SetContentView(Resource.Layout.Acceder);
             Correo = FindViewById<EditText>(Resource.Id.txtEmail);
             Contrasena = FindViewById<EditText>(Resource.Id.txtPassword);
-            bAcceder = FindViewById<Button>(Resource.Id.txtAcceder);
+            bAcceder = FindViewById<Button>(Resource.Id.OK);
             bAcceder.Click += bAcceder_Click;
 
             // Create your application here

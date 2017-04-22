@@ -19,7 +19,7 @@ namespace preparate
             Thread.Sleep(2000);
 
             // quitar esta linea cuando ya se tenga el login
-            appCode.ChangeLoginStatus(this, 0);
+            //appCode.ChangeLoginStatus(this, 0);
 
             try
             {

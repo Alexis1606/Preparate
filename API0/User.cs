@@ -78,7 +78,7 @@ namespace API0
             Classes.Parameter[] p = new Classes.Parameter[] {
 
                  new Classes.Parameter("@correo", mail),
-                 new Classes.Parameter("@pwdHash", mail)
+                 new Classes.Parameter("@pwdHash", password)
             };
             res = Convert.ToInt32(Classes.MSSql.FirstDataFromTable(con, "LoginUsuarios", p));
             return res;
