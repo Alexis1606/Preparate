@@ -14,7 +14,7 @@ namespace API0
         public string Nombre;
         public string Apellido_Parterno;
         public string Apellido_Materno;
-        public DateTime Fecha_Nacimiento;
+        public string Fecha_Nacimiento;
         private string Password_Hash;
         public string Correo;
         public int Genero;
@@ -34,8 +34,19 @@ namespace API0
             DataRow dr = dt.Rows[0];
             this.Nombre = dr["nombre"].ToString();
             this.Apellido_Parterno = dr["apellidos"].ToString();
-            this.Fecha_Nacimiento = Convert.ToDateTime(dr["fecha_nacimiento"].ToString());
-            this.Genero = Convert.ToInt32(dr["genero"].ToString());
+            this.Correo=dr["correo"].ToString();
+            this.Fecha_Nacimiento = dr["fecha_nacimiento"].ToString();
+
+            String prueba=dr["genero"].ToString();
+            if (dr["genero"].ToString()=="False")
+            {
+                this.Genero = 0;
+            }
+            else
+            {
+                this.Genero = 1;
+            }
+            //this.Genero = Convert.ToInt32(dr["genero"].ToString());
         }
 
         public static string InsertUser(string nombre, string apellido_paterno, string apellido_materno, DateTime fecha_nacimiento, string password_hash, string correo, int genero, int id_rol, int id_estatus, string hash_foto)
@@ -106,11 +117,11 @@ namespace API0
 
             Parameter[] p = new Parameter[] {
                  new Parameter("@id", id),
-                 new Parameter("@Nombre", nombre),
-                 new Parameter("@Apellido_Paterno", apellido_paterno),
-                 new Parameter("@Fecha", fecha_nacimiento),
-                 new Parameter("@Correo", correo),
-                 new Parameter("@Genero", genero),
+                 new Parameter("@nombre", nombre),
+                 new Parameter("@apellido_Paterno", apellido_paterno),
+                 new Parameter("@fecha", fecha_nacimiento),
+                 new Parameter("@correo", correo),
+                 new Parameter("@genero", genero),
                  
             };
 

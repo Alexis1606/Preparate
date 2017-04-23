@@ -23,14 +23,15 @@ namespace preparate
         Button txtFechaNac;
         TextView textoGenero;
         RadioButton GeneroMasculino;
-        EditText tContra1;
-        EditText tContra2;
+        RadioButton GeneroFemenino;
+        //EditText tContra1;
+        //EditText tContra2;
         Button bValidar;
         //String nombre;
         //string apellidos;
         //string usuario;
-        string contra1;
-        string contra2;
+        //string contra1;
+        //string contra2;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -50,21 +51,24 @@ namespace preparate
             txtFechaNac.Click += txtFecha_Click;
             textoGenero = FindViewById<TextView>(Resource.Id.textoGenero);
             GeneroMasculino = FindViewById<RadioButton>(Resource.Id.GeneroMasculino);
+            GeneroFemenino = FindViewById<RadioButton>(Resource.Id.GeneroFemenino);
             bValidar = FindViewById<Button>(Resource.Id.ok);
             bValidar.Click += BValidar_Click;
 
             txtNombre.Text = Datos.Nombre;
             txtApellidos.Text = Datos.Apellido_Parterno;
             txtEmail.Text = Datos.Correo;
-            txtFechaNac.Text = Datos.Correo;
+            txtFechaNac.Text = Datos.Fecha_Nacimiento;
 
             if (Datos.Genero ==0)
             {
                 GeneroMasculino.Checked = true;
+                GeneroFemenino.Checked = false;
             }
             else
             {
                 GeneroMasculino.Checked = false;
+                GeneroFemenino.Checked = true;
             }            
 
         }
@@ -80,10 +84,10 @@ namespace preparate
 
         private void BValidar_Click(object sender, EventArgs e)
         {
-            obtener_datos();
+            //obtener_datos();
             int genero;
 
-            if (validar_contra() && validar_EditText(txtNombre) && validar_EditText(txtApellidos) && validar_EditText(txtEmail) && txtFechaNac.Text != "")
+            if (validar_EditText(txtNombre) && validar_EditText(txtApellidos) && validar_EditText(txtEmail) && txtFechaNac.Text != "")
             {
                 if (GeneroMasculino.Checked)
                 {
@@ -100,7 +104,8 @@ namespace preparate
 
                     ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
                     int user = prefs.GetInt("user", 0);
-                    User.UpdatetUser(user,txtNombre.Text, txtApellidos.Text, Convert.ToDateTime(txtFechaNac.Text), txtEmail.Text, genero);
+                    
+                    API0.User.UpdatetUser(user,txtNombre.Text, txtApellidos.Text, Convert.ToDateTime(txtFechaNac.Text), txtEmail.Text, genero);
                     Android.App.AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     AlertDialog alertDialog = builder.Create();
                     alertDialog.SetTitle("REGISTRO");
@@ -123,38 +128,9 @@ namespace preparate
             }
         }
 
-        public void obtener_datos()
-        {
-            #region Obtiene los datos de los textbox
-            tContra1 = FindViewById<EditText>(Resource.Id.tContra1);
-            tContra2 = FindViewById<EditText>(Resource.Id.tContra2);
-            contra1 = tContra1.Text;
-            contra2 = tContra2.Text;
-            #endregion
-        }
 
-        public bool validar_contra()
-        {
-            bool v = false;
-            if (contra1 == contra2)
-                v = true;
-            else
-            {
-                tContra1.SetBackgroundColor(Android.Graphics.Color.Red);
-                tContra2.SetBackgroundColor(Android.Graphics.Color.Red);
-                Android.App.AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                AlertDialog alertDialog = builder.Create();
-                alertDialog.SetTitle("Mensaje");
-                alertDialog.SetIcon(Android.Resource.Drawable.IcDialogAlert);
-                alertDialog.SetMessage("Las contraseñas NO coinciden, Intentalo de nuevo.");
-                alertDialog.SetButton("OK", (s, ev) =>
-                {
 
-                });
-                alertDialog.Show();
-            }
-            return v;
-        }
+      
 
 
         public bool validar_EditText(EditText t)
