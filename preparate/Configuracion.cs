@@ -53,7 +53,9 @@ namespace preparate
             });
             alerDialog.SetButton3("Si", (s, ev) =>
             {
-                //StartActivity(typeof(MenuTemp));
+                appCode.ChangeLoginStatus(this, 0);
+                appCode.SaveUser(this, 0);
+                StartActivity(typeof(MainActivity));
 
             });
             alerDialog.Show();
