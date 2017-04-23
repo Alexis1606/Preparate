@@ -40,12 +40,9 @@ namespace preparate
             txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
             txtFechaNac = FindViewById<Button>(Resource.Id.txtFechaNac);
             txtFechaNac.Click += txtFecha_Click;
-
-
             textoGenero = FindViewById<TextView>(Resource.Id.textoGenero);
             GeneroMasculino = FindViewById<RadioButton>(Resource.Id.GeneroMasculino);
             bValidar = FindViewById<Button>(Resource.Id.ok);
-
             bValidar.Click += BValidar_Click;
         }
 
@@ -76,7 +73,7 @@ namespace preparate
 
                 try
                 {
-                    API0.User.InsertUser(txtNombre.Text, txtApellidos.Text, "", Convert.ToDateTime(txtFechaNac.Text), tContra1.Text, txtEmail.Text, genero, 1, 1, "a");
+                    //API0.User.InsertUser(txtNombre.Text, txtApellidos.Text, "", Convert.ToDateTime(txtFechaNac.Text), tContra1.Text, txtEmail.Text, genero, 1, 1, "a");
 
                     Android.App.AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     AlertDialog alertDialog = builder.Create();
