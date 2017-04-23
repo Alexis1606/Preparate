@@ -11,16 +11,32 @@ namespace API0
 {
     public class User
     {
-        private string Nombre;
-        private string Apellido_Parterno;
-        private string Apellido_Materno;
-        private DateTime Fecha_Nacimiento;
+        public string Nombre;
+        public string Apellido_Parterno;
+        public string Apellido_Materno;
+        public DateTime Fecha_Nacimiento;
         private string Password_Hash;
-        private string Correo;
-        private int Genero;
+        public string Correo;
+        public int Genero;
         private int ID_Rol;
         private int ID_Estatus;
         private string Hash_Foto;
+
+
+        public User(int id)
+        {
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
+
+            Classes.Parameter[] p = new Classes.Parameter[] {
+                 new Classes.Parameter("@id", id)
+            };
+            DataTable dt = MSSql.ExecuteStoredProcedure(con, "sp_getUserInfo",p);
+            DataRow dr = dt.Rows[0];
+            this.Nombre = dr["nombre"].ToString();
+            this.Apellido_Parterno = dr["apellidos"].ToString();
+            this.Fecha_Nacimiento = Convert.ToDateTime(dr["fecha_nacimiento"].ToString());
+            this.Genero = Convert.ToInt32(dr["genero"].ToString());
+        }
 
         public static string InsertUser(string nombre, string apellido_paterno, string apellido_materno, DateTime fecha_nacimiento, string password_hash, string correo, int genero, int id_rol, int id_estatus, string hash_foto)
         {
@@ -82,6 +98,22 @@ namespace API0
             };
             res = Convert.ToInt32(Classes.MSSql.FirstDataFromTable(con, "LoginUsuarios", p));
             return res;
+        }
+
+        public static string UpdatetUser(string nombre, string apellido_paterno, DateTime fecha_nacimiento, string correo, int genero)
+        {
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
+
+            Parameter[] p = new Parameter[] {
+                 new Parameter("@Nombre", nombre),
+                 new Parameter("@Apellido_Paterno", apellido_paterno),
+                 new Parameter("@Fecha", fecha_nacimiento),
+                 new Parameter("@Correo", correo),
+                 new Parameter("@Genero", genero),
+                 
+            };
+
+            return Utilities.FirstDataFromTable(con, "sp_updateInfo", p);
         }
 
     }
