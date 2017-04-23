@@ -18,7 +18,7 @@ namespace preparate
         EditText txtNombre;
         EditText txtApellidos;
         EditText txtEmail;
-        EditText txtFechaNac;
+        Button txtFechaNac;
         TextView textoGenero;
         RadioButton GeneroMasculino;        
         EditText tContra1;
@@ -38,7 +38,7 @@ namespace preparate
             txtNombre = FindViewById<EditText>(Resource.Id.txtNombre);
             txtApellidos = FindViewById<EditText>(Resource.Id.txtApellidos);
             txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
-            txtFechaNac = FindViewById<EditText>(Resource.Id.txtFechaNac);
+            txtFechaNac = FindViewById<Button>(Resource.Id.txtFechaNac);
             txtFechaNac.Click += txtFecha_Click;
 
 
@@ -63,7 +63,7 @@ namespace preparate
             obtener_datos();
             int genero;
 
-            if (validar_contra() && validar_EditText(txtNombre) && validar_EditText(txtApellidos) && validar_EditText(txtEmail) && validar_EditText(txtFechaNac))                   
+            if (validar_contra() && validar_EditText(txtNombre) && validar_EditText(txtApellidos) && validar_EditText(txtEmail) && txtFechaNac.Text!="")                   
                 {
                 if (GeneroMasculino.Checked)
                 {

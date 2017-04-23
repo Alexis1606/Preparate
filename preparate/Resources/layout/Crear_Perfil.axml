@@ -43,17 +43,20 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="25dp"
-                android:hint="Correo Electronico" />
-            <EditText
-                android:inputType="date"
+                android:hint="Correo Electrónico" />
+            <Button
+                android:id="@+id/txtFechaNac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtFechaNac"
+                android:textColor="@android:color/black"
+                android:cursorVisible="true"
                 android:background="@drawable/edit_text_style"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="25dp"
-                android:hint="Fecha de Nacimiento dd/mm/aaaa" />
+                android:hint="Fecha de Nacimiento"
+                android:textCursorDrawable="@android:color/black"
+                android:enabled="true" />
             <TextView
                 android:text="Género:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
