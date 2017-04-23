@@ -2012,8 +2012,8 @@ namespace preparate
 			// aapt resource value: 0x7f0a0095
 			public const int media_actions = 2131361941;
 			
-			// aapt resource value: 0x7f0a00b0
-			public const int menu = 2131361968;
+			// aapt resource value: 0x7f0a00b2
+			public const int menu = 2131361970;
 			
 			// aapt resource value: 0x7f0a001c
 			public const int middle = 2131361820;
@@ -2069,8 +2069,8 @@ namespace preparate
 			// aapt resource value: 0x7f0a0099
 			public const int right_side = 2131361945;
 			
-			// aapt resource value: 0x7f0a00af
-			public const int sample_content_fragment = 2131361967;
+			// aapt resource value: 0x7f0a00b1
+			public const int sample_content_fragment = 2131361969;
 			
 			// aapt resource value: 0x7f0a00ae
 			public const int sample_main_layout = 2131361966;
@@ -2273,8 +2273,14 @@ namespace preparate
 			// aapt resource value: 0x7f0a006a
 			public const int txtNombre = 2131361898;
 			
+			// aapt resource value: 0x7f0a00af
+			public const int txtNombrePerfil = 2131361967;
+			
 			// aapt resource value: 0x7f0a0057
 			public const int txtPassword = 2131361879;
+			
+			// aapt resource value: 0x7f0a00b0
+			public const int txtPuntajePerfil = 2131361968;
 			
 			// aapt resource value: 0x7f0a0077
 			public const int txtSelecciona = 2131361911;

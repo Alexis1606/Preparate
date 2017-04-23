@@ -14,6 +14,8 @@ namespace preparate
     public class VerPerfil : Activity
     {
         ImageView perfil;
+        TextView Nombre;
+        TextView Puntaje;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -23,9 +25,9 @@ namespace preparate
             SlidingTabsFragment fragment = new SlidingTabsFragment();
             transaction.Replace(Resource.Id.sample_content_fragment, fragment);
             transaction.Commit();
-
             perfil = FindViewById<ImageView>(Resource.Id.fotoPerfil);
-
+            Nombre = FindViewById<TextView>(Resource.Id.txtNombrePerfil);
+            Puntaje = FindViewById<TextView>(Resource.Id.txtPuntajePerfil);
             perfil.Click += perfil_Click;
 
         }
@@ -36,14 +38,15 @@ namespace preparate
             Bitmap bitmap = (Bitmap)data.Extras.Get("data");
             perfil.SetImageBitmap(bitmap);
         }
-        //SLIDING TAB
+
+        //Opciones ...
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.actionbar_main, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
-
+        //Al dar click en la foto
         private void perfil_Click(object sender, EventArgs e)
         {
             Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);

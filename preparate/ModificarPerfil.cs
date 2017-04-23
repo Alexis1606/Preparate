@@ -9,6 +9,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Util;
+using API0;
+using Android.Preferences;
 
 namespace preparate
 {
@@ -32,9 +34,15 @@ namespace preparate
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState);
 
+            base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ModificarPerfil);
+
+            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            int user = prefs.GetInt("user", 0);
+            User Datos = new User(user);
+            
+
             txtNombre = FindViewById<EditText>(Resource.Id.txtNombre);
             txtApellidos = FindViewById<EditText>(Resource.Id.txtApellidos);
             txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
@@ -44,6 +52,21 @@ namespace preparate
             GeneroMasculino = FindViewById<RadioButton>(Resource.Id.GeneroMasculino);
             bValidar = FindViewById<Button>(Resource.Id.ok);
             bValidar.Click += BValidar_Click;
+
+            txtNombre.Text = Datos.Nombre;
+            txtApellidos.Text = Datos.Apellido_Parterno;
+            txtEmail.Text = Datos.Correo;
+            txtFechaNac.Text = Datos.Correo;
+
+            if (Datos.Genero ==0)
+            {
+                GeneroMasculino.Checked = true;
+            }
+            else
+            {
+                GeneroMasculino.Checked = false;
+            }            
+
         }
 
         private void txtFecha_Click(object sender, EventArgs e)
@@ -75,6 +98,9 @@ namespace preparate
                 {
                     //API0.User.InsertUser(txtNombre.Text, txtApellidos.Text, "", Convert.ToDateTime(txtFechaNac.Text), tContra1.Text, txtEmail.Text, genero, 1, 1, "a");
 
+                    ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+                    int user = prefs.GetInt("user", 0);
+                    User.UpdatetUser(user,txtNombre.Text, txtApellidos.Text, Convert.ToDateTime(txtFechaNac.Text), txtEmail.Text, genero);
                     Android.App.AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     AlertDialog alertDialog = builder.Create();
                     alertDialog.SetTitle("REGISTRO");
@@ -192,7 +218,7 @@ namespace preparate
     //    }
 
 
-//    }
+    //}
 
 
 }

@@ -5,48 +5,49 @@
     android:layout_height="match_parent"
     android:background="#F6E9BA"
     android:id="@+id/sample_main_layout">
-  <TextView
-      android:text="CARLOS FLORES"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:textSize="30dp"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:gravity="center"
-      android:layout_marginTop="5dp"
-      android:id="@+id/nombre" />
-  <TableRow
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-    <ImageView
-         android:src="@drawable/VerPerfilCamara"
-         android:layout_height="150dp"
-         android:id="@+id/fotoPerfil"
-         android:layout_marginTop="10dp"
-         android:layout_width="150dp"
-         android:layout_gravity="left"
-         android:minHeight="200dp"
-         android:minWidth="200dp" />
-    <ImageView
-          android:src="@drawable/CopaGanador"
-          android:id="@+id/copa"
-          android:layout_width="150dp"
-          android:layout_weight="1"
-      
-          android:layout_height="150dp" />
     <TextView
-        android:layout_width="wrap_content"
+        android:text="CARLOS FLORES"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="100 %"
-      
-        android:textSize="40dp" />
-  </TableRow>
-  <View
-      android:layout_width="match_parent"
-      android:layout_height="1dp"
-      android:background="@android:color/darker_gray" />
-  <FrameLayout
-      android:id="@+id/sample_content_fragment"
-      android:layout_weight="2"
-      android:layout_width="match_parent"
-      android:layout_height="0px" />
+        android:gravity="center"
+        android:layout_marginTop="3dp"
+        android:id="@+id/txtNombrePerfil" />
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/VerPerfilCamara"
+            android:layout_height="150dp"
+            android:id="@+id/fotoPerfil"
+            android:layout_marginTop="10dp"
+            android:layout_width="130dp"
+            android:layout_gravity="left"
+            android:minHeight="200dp"
+            android:minWidth="200dp" />
+        <ImageView
+            android:src="@drawable/CopaGanador"
+            android:id="@+id/copa"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp" />
+      <TextView
+            android:id="@+id/txtPuntajePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100 %"
+            android:textSize="40dp"
+            android:layout_marginTop="50dp" />
+    </TableRow>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+    <FrameLayout
+        android:id="@+id/sample_content_fragment"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0px" />
 </LinearLayout>

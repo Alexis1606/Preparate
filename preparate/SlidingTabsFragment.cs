@@ -39,9 +39,9 @@ namespace preparate
 
             public SamplePagerAdapter() : base()
             {
-                items.Add("Examen Rapido");
-                items.Add("Examen Completo");
-                items.Add("Estadisticas");
+                items.Add("Exámen Rápido");
+                items.Add("Exámen Completo");
+                items.Add("Estadísticas");
             }
 
             public override int Count

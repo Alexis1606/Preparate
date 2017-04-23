@@ -100,11 +100,12 @@ namespace API0
             return res;
         }
 
-        public static string UpdatetUser(string nombre, string apellido_paterno, DateTime fecha_nacimiento, string correo, int genero)
+        public static string UpdatetUser(int  id, string nombre, string apellido_paterno, DateTime fecha_nacimiento, string correo, int genero)
         {
             string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
 
             Parameter[] p = new Parameter[] {
+                 new Parameter("@id", id),
                  new Parameter("@Nombre", nombre),
                  new Parameter("@Apellido_Paterno", apellido_paterno),
                  new Parameter("@Fecha", fecha_nacimiento),
