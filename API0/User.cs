@@ -118,7 +118,7 @@ namespace API0
             Parameter[] p = new Parameter[] {
                  new Parameter("@id", id),
                  new Parameter("@nombre", nombre),
-                 new Parameter("@apellido_Paterno", apellido_paterno),
+                 new Parameter("@apellido", apellido_paterno),
                  new Parameter("@fecha", fecha_nacimiento),
                  new Parameter("@correo", correo),
                  new Parameter("@genero", genero),
