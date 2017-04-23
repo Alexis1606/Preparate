@@ -12,6 +12,7 @@ using Android.Widget;
 
 namespace preparate
 {
+    //
     [Activity(Label = "Acceder")]
     public class Acceder : Activity
     {
