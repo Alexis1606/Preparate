@@ -7,6 +7,14 @@
     <item>100</item>
     <item>180</item>
   </string-array>
+  <string name="SpinTiempo3">Elige el tiempo 3</string>
+  <string-array name="listaTiempo3">
+    <item>300</item>
+    <item>600</item>
+    <item>1200</item>
+    <item>2400</item>
+    <item>4800</item>
+  </string-array>
   <string name="SpinCantidadPreg">Cantidad de Preguntas</string>
   <string-array name="listaCantidadPreg">
     <item>30</item>

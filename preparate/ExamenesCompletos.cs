@@ -20,12 +20,13 @@ namespace preparate
         Button bEmpezar;
         TextView pregunta;
         RadioGroup Opciones;
-        Button Enviar;
-        Spinner spinner1;
+        Button Enviar;        
         Spinner spinner2;
+        Spinner spinner3;
         TextView textSegundos;
         TextView txtTiempo;
         TextView textCantidad;
+        TextView Validar;
         Timer timer;
         TextView txtSelecciona;
         int mins = 0, secs = 0, milliseconds = 1;
@@ -36,12 +37,12 @@ namespace preparate
 
             SetContentView(Resource.Layout.ExamenesCompletos);
 
-            spinner1 = FindViewById<Spinner>(Resource.Id.spinner1);
-            spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            spinner3 = FindViewById<Spinner>(Resource.Id.spinner3);
+            spinner3.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.listaTiempo, Android.Resource.Layout.SimpleSpinnerItem);
+                    this, Resource.Array.listaTiempo3, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner1.Adapter = adapter;
+            spinner3.Adapter = adapter;
 
             spinner2 = FindViewById<Spinner>(Resource.Id.spinner2);
             spinner2.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
@@ -65,6 +66,7 @@ namespace preparate
             txtTiempo = FindViewById<TextView>(Resource.Id.txtTiempo);
             textCantidad = FindViewById<TextView>(Resource.Id.textCantidad);
             txtSelecciona = FindViewById<TextView>(Resource.Id.txtSelecciona);
+            Validar = FindViewById<TextView>(Resource.Id.txtValidar);
         }
 
         private void Empezar_Click(object sender, EventArgs e)
@@ -72,12 +74,13 @@ namespace preparate
             pregunta.Visibility = ViewStates.Visible;
             Opciones.Visibility = ViewStates.Visible;
             bEnviar.Visibility = ViewStates.Visible;
-            spinner1.Visibility = ViewStates.Invisible;
-            spinner2.Visibility = ViewStates.Invisible;
+            spinner3.Visibility = ViewStates.Invisible;
+            spinner2.Visibility = ViewStates.Invisible;            
             bEmpezar.Visibility = ViewStates.Invisible;
             textSegundos.Visibility = ViewStates.Invisible;
             txtSelecciona.Visibility = ViewStates.Invisible;
             textCantidad.Visibility = ViewStates.Invisible;
+            Validar.Visibility = ViewStates.Invisible;
             timer = new Timer();
             timer.Interval = 1; //milliseconds
             timer.Elapsed += Timer_Elapsed;
@@ -111,6 +114,7 @@ namespace preparate
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
+            Validar.Visibility = ViewStates.Visible;
             timer.Stop();
             //StartActivity(typeof(Resultado));
             Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
@@ -121,7 +125,7 @@ namespace preparate
             //Icono
             alerDialog.SetIcon(Resource.Drawable.CopaGanador);
             //Pregunta
-            alerDialog.SetMessage("Haz Obtenido: " + "100" + " Puntos en " + "20" + " Segundos");
+            alerDialog.SetMessage("Haz Obtenido: " + "100" + " Puntos");
             alerDialog.SetButton("ACEPTAR", (se, eve) =>
             {
 
