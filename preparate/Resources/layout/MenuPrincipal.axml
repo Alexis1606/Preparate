@@ -6,40 +6,49 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-     android:background="@drawable/fondo_degradado">
-  <android.support.v7.widget.Toolbar
-      android:id="@+id/toolbar"
-      android:fitsSystemWindows="true"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:minHeight="?attr/actionBarSize"
-      android:background="?attr/colorPrimary"
-      android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-      local:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-  <RelativeLayout
-      android:padding="16dp"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content">
-    <ImageView
-        android:src="@drawable/VerPerfil"
-        android:id="@+id/IconoPerfil"
-        android:gravity="center"
-        android:layout_height="150dp"
-        android:layout_width="wrap_content" />
-    <TextView
-        android:text="PERFIL"
-        android:gravity="center"
-        android:id="@+id/textPerfil"
+    android:background="@drawable/fondo_degradado">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_below="@id/IconoPerfil"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-    <GridView
-        android:id="@+id/grid_view_image_text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnWidth="120dp"
-        android:layout_marginTop="120dp"
-        android:numColumns="auto_fit" />
-  </RelativeLayout>
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        local:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    
+    <RelativeLayout
+        android:padding="16dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+      <Button
+        android:text="test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+        android:id="@+id/test"
+        android:layout_marginRight="94.5dp"
+        android:layout_marginBottom="17.5dp" />
+        <ImageView
+            android:src="@drawable/VerPerfil"
+            android:id="@+id/IconoPerfil"
+            android:gravity="center"
+            android:layout_height="150dp"
+            android:layout_width="wrap_content" />
+        <TextView
+            android:text="PERFIL"
+            android:gravity="center"
+            android:id="@+id/textPerfil"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_below="@id/IconoPerfil"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <GridView
+            android:id="@+id/grid_view_image_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnWidth="120dp"
+            android:layout_marginTop="120dp"
+            android:numColumns="auto_fit" />
+    </RelativeLayout>
 </LinearLayout>
