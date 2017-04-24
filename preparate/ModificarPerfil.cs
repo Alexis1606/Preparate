@@ -23,16 +23,9 @@ namespace preparate
         Button txtFechaNac;
         TextView textoGenero;
         RadioButton GeneroMasculino;
-        RadioButton GeneroFemenino;
-        //EditText tContra1;
-        //EditText tContra2;
+        RadioButton GeneroFemenino;        
         Button bValidar;
-        //String nombre;
-        //string apellidos;
-        //string usuario;
-        //string contra1;
-        //string contra2;
-
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
 
@@ -108,9 +101,9 @@ namespace preparate
                     API0.User.UpdatetUser(user,txtNombre.Text, txtApellidos.Text, Convert.ToDateTime(txtFechaNac.Text), txtEmail.Text, genero);
                     Android.App.AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     AlertDialog alertDialog = builder.Create();
-                    alertDialog.SetTitle("REGISTRO");
+                    alertDialog.SetTitle("ACTUALIZACIÓN");
                     alertDialog.SetIcon(Resource.Drawable.Icon);
-                    alertDialog.SetMessage("Registro Exitoso");
+                    alertDialog.SetMessage("Actualización Correcta");
                     alertDialog.SetButton("OK", (s, ev) =>
                     {
                         StartActivity(typeof(MenuPrincipal));

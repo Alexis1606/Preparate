@@ -7,6 +7,8 @@ using Android.Widget;
 using Android.OS;
 using Android.Graphics;
 using Android.Provider;
+using Android.Preferences;
+using API0;
 
 namespace preparate
 {
@@ -21,6 +23,11 @@ namespace preparate
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.VerPerfil);
 
+            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            int user = prefs.GetInt("user", 0);
+            User Datos = new User(user);
+
+
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             SlidingTabsFragment fragment = new SlidingTabsFragment();
             transaction.Replace(Resource.Id.sample_content_fragment, fragment);
@@ -30,6 +37,8 @@ namespace preparate
             Puntaje = FindViewById<TextView>(Resource.Id.txtPuntajePerfil);
             perfil.Click += perfil_Click;
 
+            Nombre.Text = Datos.Nombre.ToUpper();
+            
         }
         //ver foto
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
