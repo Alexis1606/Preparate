@@ -25,13 +25,13 @@ namespace preparate
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.ListaExamenesCompletos);
 
-            ExamenesCompletos.Add(new cls_ListView(1, "PREPARACIÓN", "CENEVAL"));
-            ExamenesCompletos.Add(new cls_ListView(2, "PREPARACIÓN", "EXIL"));
-            ExamenesCompletos.Add(new cls_ListView(3, "INGRESO", "UNAM"));
-            ExamenesCompletos.Add(new cls_ListView(4, "INGRESO", "IPN"));
-            ExamenesCompletos.Add(new cls_ListView(5, "INGRESO", "UAM"));
-            ExamenesCompletos.Add(new cls_ListView(6, "CERTIFICACIÓN", "CCNA"));
-            ExamenesCompletos.Add(new cls_ListView(7, "CERTIFICACIÓN", "ORACLE"));
+            ExamenesCompletos.Add(new cls_ListView(1, "CENEVAL", "PREPARACIÓN"));
+            ExamenesCompletos.Add(new cls_ListView(2, "EXIL", "PREPARACIÓN"));
+            ExamenesCompletos.Add(new cls_ListView(3, "UNAM", "INGRESO"));
+            ExamenesCompletos.Add(new cls_ListView(4, "IPN", "INGRESO"));
+            ExamenesCompletos.Add(new cls_ListView(5, "UAM", "INGRESO"));
+            ExamenesCompletos.Add(new cls_ListView(6, "CCNA", "CERTIFICACIÓN"));
+            ExamenesCompletos.Add(new cls_ListView(7, "ORACLE", "CERTIFICACIÓN"));
             ExamenesCompletos.Add(new cls_ListView(8, "PENDIENTE 8", "PENDIENTE 8"));
 
             ListView lwExamenes = FindViewById<ListView>(Resource.Id.lwExamenes);
@@ -46,15 +46,34 @@ namespace preparate
             var listView = sender as ListView;
             var l = ExamenesCompletos[e.Position];
             Android.Widget.Toast.MakeText(this, l.tipodeExamen, Android.Widget.ToastLength.Short).Show();
-            if (l.tipodeExamen == "PREPARACIÓN")
+            
+            if (l.tipodeExamen == "CENEVAL")
             {
                 StartActivity(typeof(ExamenesCompletos));
             }
-            if (l.tipodeExamen == "INGRESO")
+            if (l.tipodeExamen == "EXIL")
             {
                 StartActivity(typeof(ExamenesCompletos));
             }
-            if (l.tipodeExamen == "CERTIFICACIÓN")
+            if (l.tipodeExamen == "UNAM")
+            {
+                StartActivity(typeof(ExamenesCompletos));
+            }
+
+            if (l.tipodeExamen == "IPN")
+            {
+                StartActivity(typeof(ExamenesCompletos));
+            }
+            if (l.tipodeExamen == "UAM")
+            {
+                StartActivity(typeof(ExamenesCompletos));
+            }
+            if (l.tipodeExamen == "CCNA")
+            {
+                StartActivity(typeof(ExamenesCompletos));
+            }
+
+            if (l.tipodeExamen == "ORACLE")
             {
                 StartActivity(typeof(ExamenesCompletos));
             }

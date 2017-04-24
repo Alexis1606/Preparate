@@ -25,13 +25,13 @@ namespace preparate
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.ListaExamenes);
 
-            Quiz.Add(new cls_ListView(1, "PREPARACIÓN", "CENEVAL"));
-            Quiz.Add(new cls_ListView(2, "PREPARACIÓN", "EXIL"));
-            Quiz.Add(new cls_ListView(3, "INGRESO", "UNAM"));
-            Quiz.Add(new cls_ListView(4, "INGRESO", "IPN"));
-            Quiz.Add(new cls_ListView(5, "INGRESO", "UAM"));
-            Quiz.Add(new cls_ListView(6, "CERTIFICACIÓN", "CCNA"));
-            Quiz.Add(new cls_ListView(7, "CERTIFICACIÓN", "ORACLE"));
+            Quiz.Add(new cls_ListView(1, "CENEVAL", "PREPARACIÓN"));
+            Quiz.Add(new cls_ListView(2, "EXIL", "PREPARACIÓN"));
+            Quiz.Add(new cls_ListView(3, "UNAM", "INGRESO"));
+            Quiz.Add(new cls_ListView(4, "IPN", "INGRESO"));
+            Quiz.Add(new cls_ListView(5, "UAM", "INGRESO"));
+            Quiz.Add(new cls_ListView(6, "CCNA", "CERTIFICACIÓN"));
+            Quiz.Add(new cls_ListView(7, "ORACLE", "CERTIFICACIÓN"));
             Quiz.Add(new cls_ListView(8, "PENDIENTE 8", "PENDIENTE 8"));
 
             ListView lwExamenes = FindViewById<ListView>(Resource.Id.lwExamenes);
@@ -46,15 +46,34 @@ namespace preparate
             var listView = sender as ListView;
             var l = Quiz[e.Position];
             Android.Widget.Toast.MakeText(this, l.tipodeExamen, Android.Widget.ToastLength.Short).Show();
-            if (l.tipodeExamen == "PREPARACIÓN")
+            
+            if (l.tipodeExamen == "CENEVAL")
             {
                 StartActivity(typeof(Quiz));
             }
-            if (l.tipodeExamen == "INGRESO")
+            if (l.tipodeExamen == "EXIL")
             {
                 StartActivity(typeof(Quiz));
             }
-            if (l.tipodeExamen == "CERTIFICACIÓN")
+            if (l.tipodeExamen == "UNAM")
+            {
+                StartActivity(typeof(Quiz));
+            }
+                        
+            if (l.tipodeExamen == "IPN")
+            {
+                StartActivity(typeof(Quiz));
+            }
+            if (l.tipodeExamen == "UAM")
+            {
+                StartActivity(typeof(Quiz));
+            }
+            if (l.tipodeExamen == "CCNA")
+            {
+                StartActivity(typeof(Quiz));
+            }
+
+            if (l.tipodeExamen == "ORACLE")
             {
                 StartActivity(typeof(Quiz));
             }
