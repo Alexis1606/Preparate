@@ -55,13 +55,14 @@ namespace preparate
 
             if (Datos.Genero ==0)
             {
-                GeneroMasculino.Checked = true;
-                GeneroFemenino.Checked = false;
+                GeneroMasculino.Checked = false;
+                GeneroFemenino.Checked = true;
             }
             else
             {
-                GeneroMasculino.Checked = false;
-                GeneroFemenino.Checked = true;
+                GeneroMasculino.Checked = true;
+                GeneroFemenino.Checked = false;
+                
             }            
 
         }
