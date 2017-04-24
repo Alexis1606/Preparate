@@ -47,6 +47,7 @@
     <Compile Include="Certificadores.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Examen.cs" />
+    <Compile Include="Materia.cs" />
     <Compile Include="Pantalla.cs" />
     <Compile Include="Parameter.cs" />
     <Compile Include="Pregunta.cs" />

@@ -115,6 +115,7 @@
     <Compile Include="SlidingTabsFragment.cs" />
     <Compile Include="SlidingTabStrip.cs" />
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="VerPerfil.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +177,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Acceder.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Test.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

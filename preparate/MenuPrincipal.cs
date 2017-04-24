@@ -17,6 +17,9 @@ namespace preparate
     [Activity(Label = "MenuPrincipal", Icon = "@drawable/icon", Theme = "@style/MyTheme")]
     public class MenuPrincipal : AppCompatActivity
     {
+
+
+        Button test;
         //CAMARA
         ImageView perfil;
         int count = 1;
@@ -40,8 +43,10 @@ namespace preparate
         {
             base.OnCreate(bundle);
 
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.MenuPrincipal);
+
 
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -49,11 +54,14 @@ namespace preparate
             SupportActionBar.Title = "Menú Principal";
             SupportActionBar.SetLogo(Resource.Drawable.Home);
 
-
+            test = FindViewById<Button>(Resource.Id.test);
+            test.Click += test_click;
 
             perfil = FindViewById<ImageView>(Resource.Id.IconoPerfil);
 
             perfil.Click += perfil_Click;
+
+
 
 
             CustomGridViewAdapter adapter = new CustomGridViewAdapter(this, gridViewString, imageId);
@@ -63,6 +71,11 @@ namespace preparate
             //gridView.ItemClick += (s, e) => {
             //    Toast.MakeText(this, "GridView Item: " + gridViewString[e.Position], ToastLength.Short).Show();
             //};
+        }
+
+        private void test_click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(Test));
         }
 
 
