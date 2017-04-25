@@ -19,7 +19,7 @@
             android:layout_marginTop="25dp"
             android:hint="Correo Electrónico" />
         <EditText
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtPassword"
