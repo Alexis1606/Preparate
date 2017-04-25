@@ -85,9 +85,7 @@ namespace preparate
             base.OnActivityResult(requestCode, resultCode, data);
             Bitmap bitmap = (Bitmap)data.Extras.Get("data");
             perfil.SetImageBitmap(bitmap);
-
-
-
+            
             ContextWrapper cw = new ContextWrapper(this.ApplicationContext);
 
             var fileName = cw.GetDir("imgDir", FileCreationMode.Private).ToString() + "/profile.png";

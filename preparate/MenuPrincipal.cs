@@ -11,6 +11,8 @@ using Android.Widget;
 using Android.Support.V7.App;
 using Android.Graphics;
 using Android.Provider;
+using Android.Preferences;
+using System.IO;
 
 namespace preparate
 {
@@ -71,6 +73,46 @@ namespace preparate
             //gridView.ItemClick += (s, e) => {
             //    Toast.MakeText(this, "GridView Item: " + gridViewString[e.Position], ToastLength.Short).Show();
             //};
+
+
+
+
+            try
+            {
+                ISharedPreferences preferencess = PreferenceManager.GetDefaultSharedPreferences(this);
+                string path = preferencess.GetString("Profile_picture", "");
+
+                Android.Net.Uri uri = Android.Net.Uri.FromFile(new Java.IO.File(path));
+
+                System.IO.Stream input = this.ContentResolver.OpenInputStream(uri);
+                Byte[] pictByteArray;
+                //Use bitarray to use less memory                    
+                byte[] buffer = new byte[16 * 1024];
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    int read;
+                    while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        ms.Write(buffer, 0, read);
+                    }
+                    pictByteArray = ms.ToArray();
+                }
+
+                input.Close();
+
+                //Get file information
+                BitmapFactory.Options options = new BitmapFactory.Options { InJustDecodeBounds = true };
+                Bitmap bitmap = BitmapFactory.DecodeByteArray(pictByteArray, 0, pictByteArray.Length);
+                perfil.SetImageBitmap(bitmap);
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
         }
 
         private void test_click(object sender, EventArgs e)
