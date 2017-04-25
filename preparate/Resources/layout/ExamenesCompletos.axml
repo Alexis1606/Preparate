@@ -6,8 +6,8 @@
     android:gravity="center_vertical|left"
     android:background="#BDAD8C">
     <ScrollView
-        android:minWidth="25px"
-        android:minHeight="25px"
+        android:minWidth="20px"
+        android:minHeight="20px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView1">
@@ -20,8 +20,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="1dp"
+                android:gravity="center"                
                 android:id="@+id/pregunta"
                 android:visibility="visible" />
             <RadioGroup
