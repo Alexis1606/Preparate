@@ -85,6 +85,15 @@ namespace Administrador {
         protected global::System.Web.UI.WebControls.TextBox txtOpc7;
         
         /// <summary>
+        /// txtOpc8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOpc8;
+        
+        /// <summary>
         /// txtOpc9 control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,24 @@ namespace Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOpc10;
+        
+        /// <summary>
+        /// txtUrlImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUrlImg;
+        
+        /// <summary>
+        /// txtAyuda control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAyuda;
         
         /// <summary>
         /// DDLTipo control.
@@ -121,6 +148,15 @@ namespace Administrador {
         protected global::System.Web.UI.WebControls.DropDownList DDLExamen;
         
         /// <summary>
+        /// DDLTema control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLTema;
+        
+        /// <summary>
         /// btnEnviar control.
         /// </summary>
         /// <remarks>
@@ -128,5 +164,23 @@ namespace Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEnviar;
+        
+        /// <summary>
+        /// txtTema control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTema;
+        
+        /// <summary>
+        /// btnEnviarTema control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEnviarTema;
     }
 }
