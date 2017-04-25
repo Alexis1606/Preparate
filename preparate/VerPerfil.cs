@@ -9,6 +9,8 @@ using Android.Graphics;
 using Android.Provider;
 using Android.Preferences;
 using API0;
+using Java.IO;
+using System.IO;
 
 namespace preparate
 {
@@ -38,6 +40,43 @@ namespace preparate
             perfil.Click += perfil_Click;
 
             Nombre.Text = Datos.Nombre.ToUpper();
+
+            try
+            {
+                ISharedPreferences preferencess = PreferenceManager.GetDefaultSharedPreferences(this);
+                string path = preferencess.GetString("Profile_picture","");
+
+                Android.Net.Uri uri = Android.Net.Uri.FromFile(new Java.IO.File(path));
+
+                System.IO.Stream input = this.ContentResolver.OpenInputStream(uri);
+                Byte[] pictByteArray;
+                //Use bitarray to use less memory                    
+                byte[] buffer = new byte[16 * 1024];
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    int read;
+                    while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        ms.Write(buffer, 0, read);
+                    }
+                    pictByteArray = ms.ToArray();
+                }
+
+                input.Close();
+
+                //Get file information
+                BitmapFactory.Options options = new BitmapFactory.Options { InJustDecodeBounds = true };
+                Bitmap bitmap = BitmapFactory.DecodeByteArray(pictByteArray, 0, pictByteArray.Length);
+                perfil.SetImageBitmap(bitmap);
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
             
         }
         //ver foto
@@ -46,7 +85,33 @@ namespace preparate
             base.OnActivityResult(requestCode, resultCode, data);
             Bitmap bitmap = (Bitmap)data.Extras.Get("data");
             perfil.SetImageBitmap(bitmap);
-        }
+
+
+
+            ContextWrapper cw = new ContextWrapper(this.ApplicationContext);
+
+            var fileName = cw.GetDir("imgDir", FileCreationMode.Private).ToString() + "/profile.png";
+            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            ISharedPreferencesEditor editor = prefs.Edit();
+            editor.PutString("Profile_picture", fileName.ToString());
+            editor.Apply();
+
+            try
+            {
+                var os1 = new FileStream(fileName, FileMode.Truncate);
+                os1.Close();
+            }
+            catch (Exception ex)
+            {
+                int x = 0;
+            }
+            using (var os = new FileStream(fileName, FileMode.OpenOrCreate))
+            {
+                bitmap.Compress(Bitmap.CompressFormat.Jpeg, 95, os);
+                os.Close();
+            }
+            
+        } 
 
         //Opciones ...
         public override bool OnCreateOptionsMenu(IMenu menu)
