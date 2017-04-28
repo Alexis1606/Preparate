@@ -70,9 +70,17 @@
                         <asp:TextBox ID="txtOpc7" runat="server" TextMode="MultiLine" Height="40px" Width="208px"></asp:TextBox>
                     </td>
                 </tr>
-                 <tr>
+                <tr>
                     <td align="right">
                         <strong>Opc 8</strong>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtOpc8" runat="server" TextMode="MultiLine" Height="40px" Width="208px"></asp:TextBox>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="right">
+                        <strong>Opc 9</strong>
                     </td>
                     <td>
                         <asp:TextBox ID="txtOpc9" runat="server" TextMode="MultiLine" Height="40px" Width="208px"></asp:TextBox>
@@ -86,14 +94,31 @@
                         <asp:TextBox ID="txtOpc10" runat="server" TextMode="MultiLine" Height="40px" Width="208px"></asp:TextBox>
                     </td>
                 </tr>
+                 <tr>
+                    <td align="right">
+                        <strong>Url Imagen</strong>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtUrlImg" runat="server" Width="208px"></asp:TextBox>
+                    </td>
+                </tr>
+                  <tr>
+                    <td align="right">
+                        <strong>Ayuda</strong>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtAyuda" runat="server" Width="208px"></asp:TextBox>
+                    </td>
+                </tr>
                 <tr>
                     <td align="right">
-                        <strong>Tipo</strong>
+                        <strong>Tipo de pregunta </strong>
                     </td>
                     <td>
                         <asp:DropDownList ID="DDLTipo" runat="server">
                         </asp:DropDownList>
                     </td>
+                    <td>No Utilizar verdadero-falso</td>
                 </tr>
                  <tr>
                     <td align="right">
@@ -105,10 +130,34 @@
                     </td>
                 </tr>
                 <tr>
+                    <td align="right">
+                        <strong>Tema</strong>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="DDLTema" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
                     <td align="right">&nbsp;
                     </td>
                     <td align="right">
-                        <asp:Button ID="btnEnviar" runat="server" Text="Enviar" OnClick="btnEnviar_Click" />
+                        <asp:Button ID="btnEnviar" runat="server" Text="Guardar" OnClick="btnEnviar_Click" />
+                    </td>
+                </tr>
+                  <tr>
+                    <td align="right">
+                        <strong>Agregar Tema</strong>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtTema" runat="server" Width="208px"></asp:TextBox>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="right">&nbsp;
+                    </td>
+                    <td align="right">
+                        <asp:Button ID="btnEnviarTema" runat="server" Text="Guardar" OnClick="btnEnviarTema_Click" />
                     </td>
                 </tr>
             </table>
