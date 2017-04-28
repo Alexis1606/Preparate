@@ -3,8 +3,18 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:gravity="center_vertical|left"
-    android:background="#BDAD8C">
+    android:background="#BDAD8C"
+    android:gravity="center_vertical|left">
+    <ImageView
+        
+        android:layout_height="150dp"
+        android:id="@+id/ImagenQuiz"
+        android:gravity="center"
+        android:layout_width="200dp"
+        android:minWidth="200dp"
+        android:minHeight="200dp"
+        
+        android:layout_gravity="center" />
     <ScrollView
         android:minWidth="25px"
         android:minHeight="25px"
@@ -19,17 +29,29 @@
                 android:text="Aquí va tu pregunta"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"                
+                android:gravity="center"
                 android:id="@+id/pregunta"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:layout_height="wrap_content" />
+
+          <EditText
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TextboxQuiz"
+                android:background="@drawable/edit_text_style"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"          
+                android:visibility="invisible"
+                android:layout_marginTop="3dp"/>
+          
             <RadioGroup
                 android:minWidth="25px"
                 android:minHeight="25px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Opciones"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="1dp"
                 android:visibility="visible"
                 android:layout_marginLeft="10dp">
                 <RadioButton
@@ -52,14 +74,14 @@
                     android:text="Opcion C"
                     android:id="@+id/OpcionC"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="25dp" />
+                    android:layout_marginTop="20dp" />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Opcion D"
                     android:id="@+id/OpcionD"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="22dp" />
+                    android:layout_marginTop="20dp" />
             </RadioGroup>
             <TextView
                 android:text="Correcto"

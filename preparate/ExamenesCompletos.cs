@@ -9,17 +9,18 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using System.Timers;
+using System.Timers;    
 
 namespace preparate
 {
-    [Activity(Label = "Examen Completo")]
+    [Activity(Label = "Exámen Completo")]
     public class ExamenesCompletos : Activity
     {
         Button bEnviar;
        // Button bEmpezar;
         TextView pregunta;
         RadioGroup Opciones;
+        EditText Respuesta;
         //Button Enviar;        
         //Spinner spinner2;
         //Spinner spinner3;
@@ -67,6 +68,7 @@ namespace preparate
             //textCantidad = FindViewById<TextView>(Resource.Id.textCantidad);
             //txtSelecciona = FindViewById<TextView>(Resource.Id.txtSelecciona);
             Validar = FindViewById<TextView>(Resource.Id.txtValidar);
+            Respuesta = FindViewById<EditText>(Resource.Id.TextboxExamen);
         }
 
         private void Empezar_Click(object sender, EventArgs e)

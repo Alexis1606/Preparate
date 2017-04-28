@@ -19,6 +19,7 @@ namespace preparate
         Button bEnviar;
         //Button bEmpezar;
         TextView pregunta;
+        EditText Respuesta;
         RadioGroup Opciones;
         //Button Enviar;
         //Spinner spinner1;
@@ -57,6 +58,7 @@ namespace preparate
             //txtTiempo = FindViewById<TextView>(Resource.Id.txtTiempo);
             //txtSelecciona = FindViewById<TextView>(Resource.Id.txtSelecciona);
             Validar = FindViewById<TextView>(Resource.Id.txtValidar);
+            Respuesta = FindViewById<EditText>(Resource.Id.TextboxQuiz);
         }
 
         private void Empezar_Click(object sender, EventArgs e)
