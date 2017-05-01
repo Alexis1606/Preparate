@@ -6,14 +6,12 @@
     android:background="#BDAD8C"
     android:gravity="center_vertical|left">
     <ImageView
-        
         android:layout_height="150dp"
         android:id="@+id/ImagenQuiz"
         android:gravity="center"
         android:layout_width="200dp"
         android:minWidth="200dp"
         android:minHeight="200dp"
-        
         android:layout_gravity="center" />
     <ScrollView
         android:minWidth="25px"
@@ -33,18 +31,16 @@
                 android:id="@+id/pregunta"
                 android:visibility="visible"
                 android:layout_height="wrap_content" />
-
-          <EditText
+            <EditText
                 android:inputType="textPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/TextboxQuiz"
                 android:background="@drawable/edit_text_style"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"          
+                android:layout_marginRight="15dp"
                 android:visibility="invisible"
-                android:layout_marginTop="3dp"/>
-          
+                android:layout_marginTop="3dp" />
             <RadioGroup
                 android:minWidth="25px"
                 android:minHeight="25px"
@@ -58,30 +54,92 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:text="OpcionA"
-                    android:id="@+id/opcionA"
+                    android:text="Opcion1"
+                    android:id="@+id/opcion1"
+                    android:visibility="invisible"
                     android:layout_marginLeft="20dp" />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Opcion B"
-                    android:id="@+id/OpcionB"
+                    android:text="Opcion2"
+                    android:id="@+id/Opcion2"
+                    android:layout_marginLeft="20dp"
+                    android:visibility="invisible"
+                    android:layout_marginTop="20dp" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion3"
+                    android:id="@+id/Opcion3"
+                    android:layout_marginLeft="20dp"
+                    android:visibility="invisible"
+                    android:layout_marginTop="20dp" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion4"
+                    android:id="@+id/Opcion4"
+                    android:layout_marginLeft="20dp"
+                    android:visibility="invisible"
+                    android:layout_marginTop="20dp" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion5"
+                    android:id="@+id/Opcion5"
+                    android:layout_marginLeft="20dp"
+                    android:visibility="invisible"
+                    android:layout_marginTop="20dp" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion6"
+                    android:id="@+id/Opcion6"
+                    android:layout_marginLeft="20dp"
+                    android:visibility="invisible"
+                    android:layout_marginTop="20dp" />
+                
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion7"
+                    android:id="@+id/Opcion7"
+                    android:layout_marginLeft="20dp"
+                    android:visibility="invisible"
+                    android:layout_marginTop="20dp" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion8"
+                    android:id="@+id/Opcion8"
+                    android:layout_marginLeft="20dp"
+                    android:visibility="invisible"
+                    android:layout_marginTop="20dp" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion9"
+                    android:id="@+id/Opcion9"
+                    android:visibility="invisible"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp" />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Opcion C"
-                    android:id="@+id/OpcionC"
+                    android:text="Opcion10"
+                    android:id="@+id/Opcion10"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp" />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Opcion D"
-                    android:id="@+id/OpcionD"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp" />
+                    android:layout_marginTop="20dp"
+                    android:visibility="invisible" />
+              <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Opcion11"
+                   android:id="@+id/Opcion11"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="20dp"
+                   android:visibility="invisible" />
+              
             </RadioGroup>
             <TextView
                 android:text="Correcto"

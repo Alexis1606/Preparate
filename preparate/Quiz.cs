@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using System.Timers;
+using API0;
 
 namespace preparate
 {
@@ -26,12 +27,18 @@ namespace preparate
         //TextView textSegundos;
 //        TextView txtTiempo;
         TextView Validar;
-  //      Timer timer;
+        //      Timer timer;
         //TextView txtSelecciona;
         //int mins = 0, secs = 0, milliseconds = 1;
-
+        Pregunta pre;
+        ImageView imagen;
+        RadioButton[] r;
+        int contPregunta;
+        int calificacion;
+        int examen;
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            examen = 1;
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Quiz);
@@ -59,6 +66,26 @@ namespace preparate
             //txtSelecciona = FindViewById<TextView>(Resource.Id.txtSelecciona);
             Validar = FindViewById<TextView>(Resource.Id.txtValidar);
             Respuesta = FindViewById<EditText>(Resource.Id.TextboxQuiz);
+            imagen = FindViewById<ImageView>(Resource.Id.ImagenQuiz);
+
+            pre = Pregunta.obtenerAleatoria(examen);
+            r = new RadioButton[]
+            {
+                FindViewById<RadioButton>(Resource.Id.opcion1),
+                FindViewById<RadioButton>(Resource.Id.Opcion2),
+                FindViewById<RadioButton>(Resource.Id.Opcion3),
+                FindViewById<RadioButton>(Resource.Id.Opcion4),
+                FindViewById<RadioButton>(Resource.Id.Opcion5),
+                FindViewById<RadioButton>(Resource.Id.Opcion6),
+                FindViewById<RadioButton>(Resource.Id.Opcion7),
+                FindViewById<RadioButton>(Resource.Id.Opcion8),
+                FindViewById<RadioButton>(Resource.Id.Opcion9),
+                FindViewById<RadioButton>(Resource.Id.Opcion10),
+                FindViewById<RadioButton>(Resource.Id.Opcion11)
+            };
+            mostrarPregunta(pre);
+            contPregunta = 0;
+            calificacion = 0;
         }
 
         private void Empezar_Click(object sender, EventArgs e)
@@ -104,25 +131,127 @@ namespace preparate
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
-            Validar.Visibility = ViewStates.Visible;
-            //timer.Stop();
-            //StartActivity(typeof(Resultado));
-            Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
-            Android.App.AlertDialog alerDialog = builder.Create();
+            //subir respuesta del usuario a base de datos
+            contPregunta++;
 
-            //Titulo
-            alerDialog.SetTitle("FELICITACIONES");
-            //Icono
-            alerDialog.SetIcon(Resource.Drawable.CopaGanador);
-            //Pregunta
-            alerDialog.SetMessage("Haz Obtenido: " + "100" + " Puntos");
-            alerDialog.SetButton("ACEPTAR", (se, eve) =>
+            if (contPregunta <= 10)
             {
+                int i;
+                for (i = 0; i < r.Length; i++)
+                {
+                    if (r[i].Selected || r[i].Checked)
+                        break;
+                }
+                if (i < r.Length)
+                {
 
-                StartActivity(typeof(MenuPrincipal));
-            });
-            alerDialog.Show();
+                    if (validarRespuesta(pre, i) == 1)
+                    {
+                        calificacion++;
+                        Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+                        Android.App.AlertDialog alerDialog = builder.Create();
+                        alerDialog.SetTitle("FELICITACIONES");
+                        //poner imagen de respuesta correcta
+                        //alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                        alerDialog.SetMessage("Felicidades, respuesta correcta");
+                        alerDialog.Show();
+                    }
+                    else
+                    {
+                        Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+                        Android.App.AlertDialog alerDialog = builder.Create();
+                        alerDialog.SetTitle("Respuesta incorrecta");
+                        //poner imagen de respuesta incorrecta
+                        //alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                        alerDialog.SetMessage(pre.ayuda);
+                        alerDialog.Show();
+                    }
+                    pre = Pregunta.obtenerAleatoria(examen);
+                    mostrarPregunta(pre);
+                    r[10].Visibility = ViewStates.Gone;
+                    r[10].Checked = true;
+                    r[10].Selected = true;
+                }
+                else
+                {
+                    Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+                    Android.App.AlertDialog alerDialog = builder.Create();
+                    alerDialog.SetTitle("Error");
+                    //poner imagen de seleccionar una opci[on
+                    //alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                    alerDialog.SetMessage("Debes seleccionar una opción");
+                    alerDialog.Show();
+                }
+
+            }else
+            {
+                Validar.Visibility = ViewStates.Visible;
+                //timer.Stop();
+                //StartActivity(typeof(Resultado));
+                Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alerDialog = builder.Create();
+
+                //Titulo
+                alerDialog.SetTitle("FELICITACIONES");
+                //Icono
+                alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                //Pregunta
+                alerDialog.SetMessage("Haz Obtenido: " + (calificacion*10) + " Puntos");
+                alerDialog.SetButton("ACEPTAR", (se, eve) =>
+                {
+
+                    StartActivity(typeof(MenuPrincipal));
+                });
+                alerDialog.Show();
+            }
+            
 
         }
+
+        private void mostrarPregunta(Pregunta p)
+        {
+            pregunta.Text = p.pregunta;
+            pregunta.Visibility = ViewStates.Visible;
+            switch (p.tipo)
+            {
+                case 3:
+                    Opciones.Visibility = ViewStates.Visible;
+                    Respuesta.Visibility = ViewStates.Gone;
+                    int i;
+                    for (i = 0; i < p.opciones.Length; i++)
+                    {
+                        r[i].Visibility = ViewStates.Visible;
+                        r[i].Text = p.opciones[i];
+                    }
+                    for(i = i; i < r.Length; i++)
+                    {
+                        r[i].Visibility = ViewStates.Gone;
+                    }
+
+
+                    break;
+                case 4:
+                    break;
+            }
+            if (p.imagen == "")
+            {
+                imagen.Visibility = ViewStates.Gone;
+            }else
+            {
+                imagen.Visibility = ViewStates.Visible;
+                imagen.SetImageURI(Android.Net.Uri.Parse(p.imagen));
+            }
+            
+        }
+
+        private int validarRespuesta(Pregunta p, int respuesta)
+        {
+            if (respuesta == p.opcCorrecta)
+                return 1;
+            else
+                return 0;
+        }
+
+
     }
 }
