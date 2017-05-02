@@ -49,24 +49,24 @@ namespace preparate
             
             if (l.tipodeExamen == "CENEVAL")
             {
-                StartActivity(typeof(Quiz));
+                //StartActivity(typeof(Quiz));
             }
             if (l.tipodeExamen == "EXIL")
             {
-                StartActivity(typeof(Quiz));
+            //    StartActivity(typeof(Quiz));
             }
             if (l.tipodeExamen == "UNAM")
             {
-                StartActivity(typeof(Quiz));
+              //  StartActivity(typeof(Quiz));
             }
                         
             if (l.tipodeExamen == "IPN")
             {
-                StartActivity(typeof(Quiz));
+                //StartActivity(typeof(Quiz));
             }
             if (l.tipodeExamen == "UAM")
             {
-                StartActivity(typeof(Quiz));
+                //StartActivity(typeof(Quiz));
             }
             if (l.tipodeExamen == "CCNA")
             {
@@ -75,7 +75,7 @@ namespace preparate
 
             if (l.tipodeExamen == "ORACLE")
             {
-                StartActivity(typeof(Quiz));
+//                StartActivity(typeof(Quiz));
             }
         }
 
