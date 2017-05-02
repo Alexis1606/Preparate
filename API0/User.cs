@@ -21,6 +21,7 @@ namespace API0
         private int ID_Rol;
         private int ID_Estatus;
         private string Hash_Foto;
+        private int Id;
 
 
         public User(int id)

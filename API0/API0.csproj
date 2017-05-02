@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Classes">
-      <HintPath>..\..\..\..\Desktop\Classes.dll</HintPath>
+      <HintPath>\\Mac\Home\Documents\Herramientas\Classes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

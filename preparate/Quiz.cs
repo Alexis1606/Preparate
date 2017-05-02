@@ -11,6 +11,8 @@ using Android.Views;
 using Android.Widget;
 using System.Timers;
 using API0;
+using Classes;
+using Android.Preferences;
 
 namespace preparate
 {
@@ -36,6 +38,11 @@ namespace preparate
         int contPregunta;
         int calificacion;
         int examen;
+        string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
+        bool correcta ;
+        int respusu = 0;
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             examen = 1;
@@ -137,6 +144,7 @@ namespace preparate
             if (contPregunta <= 10)
             {
                 int i;
+               
                 for (i = 0; i < r.Length; i++)
                 {
                     if (r[i].Selected || r[i].Checked)
@@ -155,6 +163,8 @@ namespace preparate
                         //alerDialog.SetIcon(Resource.Drawable.CopaGanador);
                         alerDialog.SetMessage("Felicidades, respuesta correcta");
                         alerDialog.Show();
+                        correcta = true;
+                        respusu = i;
                     }
                     else
                     {
@@ -165,6 +175,8 @@ namespace preparate
                         //alerDialog.SetIcon(Resource.Drawable.CopaGanador);
                         alerDialog.SetMessage(pre.ayuda);
                         alerDialog.Show();
+                        correcta = false;
+                        respusu = i;
                     }
                     pre = Pregunta.obtenerAleatoria(examen);
                     mostrarPregunta(pre);
@@ -204,7 +216,36 @@ namespace preparate
                 });
                 alerDialog.Show();
             }
-            
+
+            //---------------RespuestaUsuario
+            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            // ID de usuario
+            int userid = prefs.GetInt("user", 0);
+            User Datos = new User(userid);
+            String NOM = Datos.Nombre;
+            int preid = pre.idPregunta;
+            DateTime thisDay = DateTime.Today;
+            int respcorr = pre.opcCorrecta;
+
+            Classes.Parameter[] p = new Classes.Parameter[] {
+
+                new Classes.Parameter ("@ID_Usuario",userid),
+                new Classes.Parameter ("@ID_Pregunta",preid),
+                new Classes.Parameter ("@Fecha",thisDay),
+                new Classes.Parameter ("@Respuesta_Usuario",respusu),
+                new Classes.Parameter ("@Respuesta_Correcta",respcorr),
+                new Classes.Parameter ("@Tiempo",null),
+                new Classes.Parameter ("@Coorecta",correcta)
+
+            };
+
+           // int ID = Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p));
+
+
+            MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p);
+            respusu = 0;
+            //---------------RespuestaUsuario
+
 
         }
 
