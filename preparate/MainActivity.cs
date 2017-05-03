@@ -40,21 +40,26 @@ namespace preparate
 
                 if (connect == false)
                 {
+
                     Toast.MakeText(this, "Por favor, segurese de estar conectado a internet y vuelva a intentarlo.", ToastLength.Long).Show();
                     StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionSettings));
 
                 }
-
-
-                ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-                int Logged_status = prefs.GetInt("Logged_in", 0);
-                if (Logged_status == 0)
-                {
-                    goToLogin();
-                }else
-                {
-                    StartActivity(typeof(MenuPrincipal));
+                else{
+                    ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+                    int Logged_status = prefs.GetInt("Logged_in", 0);
+                    if (Logged_status == 0)
+                    {
+                        goToLogin();
+                    }
+                    else
+                    {
+                        StartActivity(typeof(MenuPrincipal));
+                    }
                 }
+
+
+               
             }
             catch (Exception ex)
             {
