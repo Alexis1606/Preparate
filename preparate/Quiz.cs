@@ -239,7 +239,7 @@ namespace preparate
 
             };
 
-           // int ID = Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p));
+            int ID = Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p));
 
 
             MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p);
