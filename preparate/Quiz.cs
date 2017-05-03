@@ -28,7 +28,7 @@ namespace preparate
         //Button Enviar;
         //Spinner spinner1;
         //TextView textSegundos;
-//        TextView txtTiempo;
+        //        TextView txtTiempo;
         TextView Validar;
         //      Timer timer;
         //TextView txtSelecciona;
@@ -40,7 +40,7 @@ namespace preparate
         int calificacion;
         int examen;
         string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
-        bool correcta ;
+        bool correcta;
         int respusu = 0;
 
 
@@ -50,6 +50,7 @@ namespace preparate
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Quiz);
+            correcta = false;
 
             //spinner1 = FindViewById<Spinner>(Resource.Id.spinner1);
             //spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
@@ -140,19 +141,20 @@ namespace preparate
         private void Aceptar_Click(object sender, EventArgs e)
         {
             //subir respuesta del usuario a base de datos
-            contPregunta++;
+            
 
-            if (contPregunta <= 10)
-            {
+            
                 int i;
-               
                 for (i = 0; i < r.Length; i++)
                 {
                     if (r[i].Selected || r[i].Checked)
                         break;
                 }
-                if (i < r.Length)
+                if (i < r.Length || pre.tipo == 4)
                 {
+                contPregunta++;
+                if (contPregunta <= 10)
+                    {
 
                     if (validarRespuesta(pre, i) == 1)
                     {
@@ -178,13 +180,65 @@ namespace preparate
                         alerDialog.Show();
                         correcta = false;
                         respusu = i;
-                    }
+					}
+					//---------------RespuestaUsuario
+					ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+					// ID de usuario
+					int userid = prefs.GetInt("user", 0);
+					User Datos = new User(userid);
+					String NOM = Datos.Nombre;
+					int preid = pre.idPregunta;
+					DateTime thisDay = DateTime.Today;
+					int respcorr = pre.opcCorrecta;
+
+					Classes.Parameter[] p = new Classes.Parameter[] {
+
+				        new Classes.Parameter ("@ID_Usuario",userid),
+				        new Classes.Parameter ("@ID_Pregunta",preid),
+				        new Classes.Parameter ("@Fecha",thisDay),
+				        new Classes.Parameter ("@Respuesta_Usuario",respusu),
+				        new Classes.Parameter ("@Respuesta_Correcta",respcorr),
+				        new Classes.Parameter ("@Tiempo",null),
+				        new Classes.Parameter ("@Coorecta",correcta)
+
+			        };
+
+					    // int ID = Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p));
+
+
+					MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p);
+					respusu = 0;
+					//---------------RespuestaUsuario
+
+
                     pre = Pregunta.obtenerAleatoria(examen);
                     mostrarPregunta(pre);
                     r[10].Visibility = ViewStates.Gone;
                     r[10].Checked = true;
                     r[10].Selected = true;
                 }
+                else
+                {
+                    Validar.Visibility = ViewStates.Visible;
+                    //timer.Stop();
+                    //StartActivity(typeof(Resultado));
+                    Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+                    Android.App.AlertDialog alerDialog = builder.Create();
+
+                    //Titulo
+                    alerDialog.SetTitle("FELICITACIONES");
+                    //Icono
+                    alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                    //Pregunta
+                    alerDialog.SetMessage("Haz Obtenido: " + (calificacion * 10) + " Puntos");
+                    alerDialog.SetButton("ACEPTAR", (se, eve) =>
+                    {
+
+                        StartActivity(typeof(MenuPrincipal));
+                    });
+                    alerDialog.Show();
+                }
+            }
                 else
                 {
                     Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
@@ -196,62 +250,16 @@ namespace preparate
                     alerDialog.Show();
                 }
 
-            }else
-            {
-                Validar.Visibility = ViewStates.Visible;
-                //timer.Stop();
-                //StartActivity(typeof(Resultado));
-                Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
-                Android.App.AlertDialog alerDialog = builder.Create();
-
-                //Titulo
-                alerDialog.SetTitle("FELICITACIONES");
-                //Icono
-                alerDialog.SetIcon(Resource.Drawable.CopaGanador);
-                //Pregunta
-                alerDialog.SetMessage("Haz Obtenido: " + (calificacion*10) + " Puntos");
-                alerDialog.SetButton("ACEPTAR", (se, eve) =>
-                {
-
-                    StartActivity(typeof(MenuPrincipal));
-                });
-                alerDialog.Show();
-            }
-
-            //---------------RespuestaUsuario
-            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            // ID de usuario
-            int userid = prefs.GetInt("user", 0);
-            User Datos = new User(userid);
-            String NOM = Datos.Nombre;
-            int preid = pre.idPregunta;
-            DateTime thisDay = DateTime.Today;
-            int respcorr = pre.opcCorrecta;
-
-            Classes.Parameter[] p = new Classes.Parameter[] {
-
-                new Classes.Parameter ("@ID_Usuario",userid),
-                new Classes.Parameter ("@ID_Pregunta",preid),
-                new Classes.Parameter ("@Fecha",thisDay),
-                new Classes.Parameter ("@Respuesta_Usuario",respusu),
-                new Classes.Parameter ("@Respuesta_Correcta",respcorr),
-                new Classes.Parameter ("@Tiempo",null),
-                new Classes.Parameter ("@Coorecta",correcta)
-
-            };
-
-           // int ID = Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p));
+           
 
 
-            MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p);
-            respusu = 0;
-            //---------------RespuestaUsuario
 
 
         }
 
         private void mostrarPregunta(Pregunta p)
         {
+            Respuesta.Text = "";
             pregunta.Text = p.pregunta;
             pregunta.Visibility = ViewStates.Visible;
             switch (p.tipo)
@@ -265,33 +273,55 @@ namespace preparate
                         r[i].Visibility = ViewStates.Visible;
                         r[i].Text = p.opciones[i];
                     }
-                    for(i = i; i < r.Length; i++)
+                    for (i = i; i < r.Length; i++)
                     {
                         r[i].Visibility = ViewStates.Gone;
                     }
 
 
                     break;
-                case 4:
+                case 2:
+                    Opciones.Visibility = ViewStates.Gone;
+                    Respuesta.Visibility = ViewStates.Visible;
+
                     break;
             }
             if (p.imagen == "")
             {
                 imagen.Visibility = ViewStates.Gone;
-            }else
+            }
+            else
             {
                 imagen.Visibility = ViewStates.Visible;
                 imagen.SetImageURI(Android.Net.Uri.Parse(p.imagen));
             }
-            
+
         }
 
         private int validarRespuesta(Pregunta p, int respuesta)
         {
-            if (respuesta == p.opcCorrecta)
-                return 1;
-            else
-                return 0;
+            int res = 0;
+            switch (pre.tipo)
+            {
+                case 3:
+                    if (respuesta == p.opcCorrecta)
+                        res = 1;
+                    else
+                        res = 0;
+                    break;
+                case 2:
+                    for(int i = 0; i < pre.opciones.Length; i++)
+                    {
+                        if (Respuesta.Text.ToUpper() == pre.opciones[i].ToUpper())
+                        {
+                            res = 1;
+                            correcta = true;
+                        }
+                    }
+                    break;
+            }
+            return res;
+            
         }
 
 
