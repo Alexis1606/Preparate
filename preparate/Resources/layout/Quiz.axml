@@ -5,6 +5,13 @@
     android:layout_height="fill_parent"
     android:background="#BDAD8C"
     android:gravity="center_vertical|left">
+    <TextView
+        android:text="1 de 10"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ContPreguntas"
+        android:layout_gravity="left" />
     <ImageView
         android:layout_height="150dp"
         android:id="@+id/ImagenQuiz"
@@ -98,7 +105,6 @@
                     android:layout_marginLeft="20dp"
                     android:visibility="invisible"
                     android:layout_marginTop="20dp" />
-                
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -131,15 +137,14 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:visibility="invisible" />
-              <RadioButton
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Opcion11"
-                   android:id="@+id/Opcion11"
-                   android:layout_marginLeft="20dp"
-                   android:layout_marginTop="20dp"
-                   android:visibility="invisible" />
-              
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion11"
+                    android:id="@+id/Opcion11"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="invisible" />
             </RadioGroup>
             <TextView
                 android:text="Correcto"

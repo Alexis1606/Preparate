@@ -21,7 +21,7 @@ namespace preparate
     {
 
 
-        Button test;
+        //Button test;
         //CAMARA
         ImageView perfil;
         int count = 1;
@@ -56,8 +56,8 @@ namespace preparate
             SupportActionBar.Title = "Menú Principal";
             SupportActionBar.SetLogo(Resource.Drawable.Home);
 
-            test = FindViewById<Button>(Resource.Id.test);
-            test.Click += test_click;
+            //test = FindViewById<Button>(Resource.Id.test);
+            //test.Click += test_click;
 
             perfil = FindViewById<ImageView>(Resource.Id.IconoPerfil);
 
@@ -115,10 +115,10 @@ namespace preparate
 
         }
 
-        private void test_click(object sender, EventArgs e)
-        {
-            StartActivity(typeof(Test));
-        }
+        //private void test_click(object sender, EventArgs e)
+        //{
+        //    StartActivity(typeof(Test));
+        //}
 
 
         //CAMARA
@@ -145,7 +145,14 @@ namespace preparate
             else
             if (l == "Examen")
             {
-                StartActivity(typeof(ListaExamenesCompletos));
+                //   StartActivity(typeof(ListaExamenesCompletos));
+                Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alerDialog = builder.Create();
+                alerDialog.SetTitle("Versión Pro");
+                //poner imagen de respuesta incorrecta
+                alerDialog.SetIcon(Resource.Drawable.Icon);
+                alerDialog.SetMessage("Obtén la versión PRO. Para poder acceder a cientos de preguntas");
+                alerDialog.Show();                
             }
             else
                 if (l == "LeaderBoard")

@@ -4,38 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#BDAD8C">
-    <TextView
-        android:text="Únete a una clase"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:layout_height="wrap_content"
-        android:id="@+id/unirse" />
-    <EditText
-        android:id="@+id/tClase"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_background"
-        android:textColor="@android:color/black"
-        android:cursorVisible="true"
-        android:gravity="center"
-        android:layout_below="@id/unirse"
-        android:textCursorDrawable="@android:color/black" />
-    <Button
-        android:id="@+id/bUnirse"
-        android:text="UNIRSE"
-        android:textColor="#FFFFFF"
-        android:layout_below="@id/tClase"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="5dp" />
+    
     <ImageView
         android:src="@drawable/Modificar"
         android:layout_height="60dp"
-        android:id="@+id/bModificar"
-        android:layout_below="@id/bUnirse"
+        android:id="@+id/bModificar"        
         android:layout_marginTop="30dp"
         android:layout_width="60dp"
         android:layout_gravity="center" />

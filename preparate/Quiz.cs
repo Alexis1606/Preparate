@@ -24,6 +24,7 @@ namespace preparate
         TextView pregunta;
         EditText Respuesta;
         RadioGroup Opciones;
+        TextView ContadorPreg;
         //Button Enviar;
         //Spinner spinner1;
         //TextView textSegundos;
@@ -74,7 +75,7 @@ namespace preparate
             Validar = FindViewById<TextView>(Resource.Id.txtValidar);
             Respuesta = FindViewById<EditText>(Resource.Id.TextboxQuiz);
             imagen = FindViewById<ImageView>(Resource.Id.ImagenQuiz);
-
+            ContadorPreg = FindViewById<TextView>(Resource.Id.ContPreguntas);
             pre = Pregunta.obtenerAleatoria(examen);
             r = new RadioButton[]
             {
@@ -140,7 +141,7 @@ namespace preparate
         {
             //subir respuesta del usuario a base de datos
             contPregunta++;
-
+            ContadorPreg.Text = contPregunta + "de 10";
             if (contPregunta <= 10)
             {
                 int i;
@@ -159,8 +160,8 @@ namespace preparate
                         Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
                         Android.App.AlertDialog alerDialog = builder.Create();
                         alerDialog.SetTitle("FELICITACIONES");
-                        //poner imagen de respuesta correcta
-                        //alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                        
+                        alerDialog.SetIcon(Resource.Drawable.Bien);
                         alerDialog.SetMessage("Felicidades, respuesta correcta");
                         alerDialog.Show();
                         correcta = true;
@@ -172,7 +173,7 @@ namespace preparate
                         Android.App.AlertDialog alerDialog = builder.Create();
                         alerDialog.SetTitle("Respuesta incorrecta");
                         //poner imagen de respuesta incorrecta
-                        //alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                        alerDialog.SetIcon(Resource.Drawable.Mal);
                         alerDialog.SetMessage(pre.ayuda);
                         alerDialog.Show();
                         correcta = false;

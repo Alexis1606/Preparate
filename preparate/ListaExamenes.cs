@@ -25,14 +25,14 @@ namespace preparate
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.ListaExamenes);
 
-            Quiz.Add(new cls_ListView(1, "CENEVAL", "PREPARACIÓN"));
-            Quiz.Add(new cls_ListView(2, "EXIL", "PREPARACIÓN"));
-            Quiz.Add(new cls_ListView(3, "UNAM", "INGRESO"));
-            Quiz.Add(new cls_ListView(4, "IPN", "INGRESO"));
-            Quiz.Add(new cls_ListView(5, "UAM", "INGRESO"));
+            //Quiz.Add(new cls_ListView(1, "CENEVAL", "PREPARACIÓN"));
+            //Quiz.Add(new cls_ListView(2, "EXIL", "PREPARACIÓN"));
+            //Quiz.Add(new cls_ListView(3, "UNAM", "INGRESO"));
+            //Quiz.Add(new cls_ListView(4, "IPN", "INGRESO"));
+            //Quiz.Add(new cls_ListView(5, "UAM", "INGRESO"));
             Quiz.Add(new cls_ListView(6, "CCNA", "CERTIFICACIÓN"));
             Quiz.Add(new cls_ListView(7, "ORACLE", "CERTIFICACIÓN"));
-            Quiz.Add(new cls_ListView(8, "PENDIENTE 8", "PENDIENTE 8"));
+            //Quiz.Add(new cls_ListView(8, "PENDIENTE 8", "PENDIENTE 8"));
 
             ListView lwExamenes = FindViewById<ListView>(Resource.Id.lwExamenes);
 
