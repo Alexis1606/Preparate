@@ -139,7 +139,7 @@ namespace preparate
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
-            //subir respuesta del usuario a base de datos
+            //subir respuesta del usuario a base de datos            
             contPregunta++;
             ContadorPreg.Text = contPregunta + "de 10";
             if (contPregunta <= 10)
