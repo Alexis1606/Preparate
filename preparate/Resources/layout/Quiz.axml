@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ContPreguntas"
-        android:layout_gravity="left" />
+        android:layout_gravity="right"
+        android:gravity="right" />
     <ImageView
         android:layout_height="150dp"
         android:id="@+id/ImagenQuiz"
