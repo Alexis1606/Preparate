@@ -1781,11 +1781,11 @@ namespace preparate
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a00b3
-			public const int BInicioSesion = 2131361971;
+			// aapt resource value: 0x7f0a00b4
+			public const int BInicioSesion = 2131361972;
 			
-			// aapt resource value: 0x7f0a00b2
-			public const int BotonRegistro = 2131361970;
+			// aapt resource value: 0x7f0a00b3
+			public const int BotonRegistro = 2131361971;
 			
 			// aapt resource value: 0x7f0a00a1
 			public const int ContPreguntas = 2131361953;
@@ -1802,8 +1802,8 @@ namespace preparate
 			// aapt resource value: 0x7f0a0085
 			public const int IconoPerfil = 2131361925;
 			
-			// aapt resource value: 0x7f0a00b1
-			public const int IconoRegistro = 2131361969;
+			// aapt resource value: 0x7f0a00b2
+			public const int IconoRegistro = 2131361970;
 			
 			// aapt resource value: 0x7f0a0075
 			public const int ImagenQuiz = 2131361909;
@@ -1811,35 +1811,35 @@ namespace preparate
 			// aapt resource value: 0x7f0a0058
 			public const int OK = 2131361880;
 			
-			// aapt resource value: 0x7f0a00ac
-			public const int Opcion10 = 2131361964;
-			
 			// aapt resource value: 0x7f0a00ad
-			public const int Opcion11 = 2131361965;
+			public const int Opcion10 = 2131361965;
 			
-			// aapt resource value: 0x7f0a00a4
-			public const int Opcion2 = 2131361956;
+			// aapt resource value: 0x7f0a00ae
+			public const int Opcion11 = 2131361966;
 			
 			// aapt resource value: 0x7f0a00a5
-			public const int Opcion3 = 2131361957;
+			public const int Opcion2 = 2131361957;
 			
 			// aapt resource value: 0x7f0a00a6
-			public const int Opcion4 = 2131361958;
+			public const int Opcion3 = 2131361958;
 			
 			// aapt resource value: 0x7f0a00a7
-			public const int Opcion5 = 2131361959;
+			public const int Opcion4 = 2131361959;
 			
 			// aapt resource value: 0x7f0a00a8
-			public const int Opcion6 = 2131361960;
+			public const int Opcion5 = 2131361960;
 			
 			// aapt resource value: 0x7f0a00a9
-			public const int Opcion7 = 2131361961;
+			public const int Opcion6 = 2131361961;
 			
 			// aapt resource value: 0x7f0a00aa
-			public const int Opcion8 = 2131361962;
+			public const int Opcion7 = 2131361962;
 			
 			// aapt resource value: 0x7f0a00ab
-			public const int Opcion9 = 2131361963;
+			public const int Opcion8 = 2131361963;
+			
+			// aapt resource value: 0x7f0a00ac
+			public const int Opcion9 = 2131361964;
 			
 			// aapt resource value: 0x7f0a007a
 			public const int OpcionB = 2131361914;
@@ -1862,8 +1862,8 @@ namespace preparate
 			// aapt resource value: 0x7f0a0077
 			public const int TextboxExamen = 2131361911;
 			
-			// aapt resource value: 0x7f0a00a2
-			public const int TextboxQuiz = 2131361954;
+			// aapt resource value: 0x7f0a00a3
+			public const int TextboxQuiz = 2131361955;
 			
 			// aapt resource value: 0x7f0a008b
 			public const int action0 = 2131361931;
@@ -1970,8 +1970,8 @@ namespace preparate
 			// aapt resource value: 0x7f0a0031
 			public const int contentPanel = 2131361841;
 			
-			// aapt resource value: 0x7f0a00b0
-			public const int copa = 2131361968;
+			// aapt resource value: 0x7f0a00b1
+			public const int copa = 2131361969;
 			
 			// aapt resource value: 0x7f0a0038
 			public const int custom = 2131361848;
@@ -2003,8 +2003,8 @@ namespace preparate
 			// aapt resource value: 0x7f0a003d
 			public const int expanded_menu = 2131361853;
 			
-			// aapt resource value: 0x7f0a00ae
-			public const int fotoPerfil = 2131361966;
+			// aapt resource value: 0x7f0a00af
+			public const int fotoPerfil = 2131361967;
 			
 			// aapt resource value: 0x7f0a0087
 			public const int grid_view_image_text = 2131361927;
@@ -2060,8 +2060,8 @@ namespace preparate
 			// aapt resource value: 0x7f0a008e
 			public const int media_actions = 2131361934;
 			
-			// aapt resource value: 0x7f0a00ba
-			public const int menu = 2131361978;
+			// aapt resource value: 0x7f0a00bb
+			public const int menu = 2131361979;
 			
 			// aapt resource value: 0x7f0a001c
 			public const int middle = 2131361820;
@@ -2072,8 +2072,8 @@ namespace preparate
 			// aapt resource value: 0x7f0a0020
 			public const int never = 2131361824;
 			
-			// aapt resource value: 0x7f0a00af
-			public const int nombre = 2131361967;
+			// aapt resource value: 0x7f0a00b0
+			public const int nombre = 2131361968;
 			
 			// aapt resource value: 0x7f0a000e
 			public const int none = 2131361806;
@@ -2093,8 +2093,8 @@ namespace preparate
 			// aapt resource value: 0x7f0a0071
 			public const int ok = 2131361905;
 			
-			// aapt resource value: 0x7f0a00a3
-			public const int opcion1 = 2131361955;
+			// aapt resource value: 0x7f0a00a4
+			public const int opcion1 = 2131361956;
 			
 			// aapt resource value: 0x7f0a0079
 			public const int opcionA = 2131361913;
@@ -2104,6 +2104,9 @@ namespace preparate
 			
 			// aapt resource value: 0x7f0a0076
 			public const int pregunta = 2131361910;
+			
+			// aapt resource value: 0x7f0a00a2
+			public const int progressBar1 = 2131361954;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int progress_circular = 2131361797;
@@ -2120,11 +2123,11 @@ namespace preparate
 			// aapt resource value: 0x7f0a0092
 			public const int right_side = 2131361938;
 			
-			// aapt resource value: 0x7f0a00b9
-			public const int sample_content_fragment = 2131361977;
+			// aapt resource value: 0x7f0a00ba
+			public const int sample_content_fragment = 2131361978;
 			
-			// aapt resource value: 0x7f0a00b6
-			public const int sample_main_layout = 2131361974;
+			// aapt resource value: 0x7f0a00b7
+			public const int sample_main_layout = 2131361975;
 			
 			// aapt resource value: 0x7f0a0015
 			public const int screen = 2131361813;
@@ -2192,11 +2195,11 @@ namespace preparate
 			// aapt resource value: 0x7f0a002f
 			public const int spacer = 2131361839;
 			
-			// aapt resource value: 0x7f0a00b4
-			public const int spinner1 = 2131361972;
-			
 			// aapt resource value: 0x7f0a00b5
-			public const int spinner2 = 2131361973;
+			public const int spinner1 = 2131361973;
+			
+			// aapt resource value: 0x7f0a00b6
+			public const int spinner2 = 2131361974;
 			
 			// aapt resource value: 0x7f0a0007
 			public const int split_action_bar = 2131361799;
@@ -2312,14 +2315,14 @@ namespace preparate
 			// aapt resource value: 0x7f0a0068
 			public const int txtNombre = 2131361896;
 			
-			// aapt resource value: 0x7f0a00b7
-			public const int txtNombrePerfil = 2131361975;
+			// aapt resource value: 0x7f0a00b8
+			public const int txtNombrePerfil = 2131361976;
 			
 			// aapt resource value: 0x7f0a0057
 			public const int txtPassword = 2131361879;
 			
-			// aapt resource value: 0x7f0a00b8
-			public const int txtPuntajePerfil = 2131361976;
+			// aapt resource value: 0x7f0a00b9
+			public const int txtPuntajePerfil = 2131361977;
 			
 			// aapt resource value: 0x7f0a0073
 			public const int txtTipo = 2131361907;

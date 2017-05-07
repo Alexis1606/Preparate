@@ -94,8 +94,7 @@ namespace preparate
 
                 catch (Exception ex)
                 {
-                    string x = ex.ToString();
-                    int x1 = 0;
+                 
                 }
             }
         }
