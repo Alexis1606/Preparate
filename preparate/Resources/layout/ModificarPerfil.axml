@@ -87,7 +87,6 @@
                     android:textColor="#000"
                     android:id="@+id/GeneroFemenino" />
             </RadioGroup>
-            
             <Button
                 android:id="@+id/ok"
                 android:text="MODIFICAR"

@@ -141,7 +141,7 @@ namespace preparate
         {
             //subir respuesta del usuario a base de datos            
             contPregunta++;
-            ContadorPreg.Text = contPregunta + "de 10";
+            ContadorPreg.Text = contPregunta + " de 10";
             if (contPregunta <= 10)
             {
                 int i;
