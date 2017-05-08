@@ -138,57 +138,51 @@ namespace preparate
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
-            //subir respuesta del usuario a base de datos            
-            //contPregunta++;
-            //ContadorPreg.Text = contPregunta + " de 10";
-            if (contPregunta < 9)
+            //validar si se contest[o la pregunta
+            int i;
+
+            for (i = 0; i < (r.Length-1); i++)
             {
-                int i;
-               
-                for (i = 0; i < r.Length; i++)
+                if (r[i].Selected || r[i].Checked)
+                    break;
+            }
+            //si content[o la pregunta
+            if (i < (r.Length -1))
+            {
+                Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alerDialog = builder.Create();
+                //valida si est[a bien la pregunta
+                if (validarRespuesta(pre, i) == 1)
                 {
-                    if (r[i].Selected || r[i].Checked)
-                        break;
+                    calificacion++;
+                    
+                    alerDialog.SetTitle("FELICITACIONES");
+                    alerDialog.SetIcon(Resource.Drawable.Bien);
+                    alerDialog.SetMessage("Felicidades, respuesta correcta");
+                    correcta = true;
+                    respusu = i;
                 }
-                if (i < r.Length)
+                else
                 {
+                    alerDialog.SetTitle("Respuesta incorrecta");
+                    alerDialog.SetIcon(Resource.Drawable.Mal);
+                    alerDialog.SetMessage(pre.ayuda);
+                    correcta = false;
+                    respusu = i;
+                }
+               
+                //guarda respuesta usuario
+                //---------------RespuestaUsuario
+                ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+                // ID de usuario
+                int userid = prefs.GetInt("user", 0);
+                User Datos = new User(userid);
+                String NOM = Datos.Nombre;
+                int preid = pre.idPregunta;
+                DateTime thisDay = DateTime.Today;
+                int respcorr = pre.opcCorrecta;
 
-                    if (validarRespuesta(pre, i) == 1)
-                    {
-                        calificacion++;
-                        Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
-                        Android.App.AlertDialog alerDialog = builder.Create();
-                        alerDialog.SetTitle("FELICITACIONES");
-                        
-                        alerDialog.SetIcon(Resource.Drawable.Bien);
-                        alerDialog.SetMessage("Felicidades, respuesta correcta");
-                        alerDialog.Show();
-                        correcta = true;
-                        respusu = i;
-                    }
-                    else
-                    {
-                        Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
-                        Android.App.AlertDialog alerDialog = builder.Create();
-                        alerDialog.SetTitle("Respuesta incorrecta");
-                      
-                        alerDialog.SetIcon(Resource.Drawable.Mal);
-                        alerDialog.SetMessage(pre.ayuda);
-                        alerDialog.Show();
-                        correcta = false;
-                        respusu = i;
-                    }
-                    //---------------RespuestaUsuario
-                    ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-                    // ID de usuario
-                    int userid = prefs.GetInt("user", 0);
-                    User Datos = new User(userid);
-                    String NOM = Datos.Nombre;
-                    int preid = pre.idPregunta;
-                    DateTime thisDay = DateTime.Today;
-                    int respcorr = pre.opcCorrecta;
-
-                    Classes.Parameter[] p = new Classes.Parameter[] {
+                Classes.Parameter[] p = new Classes.Parameter[] {
 
                         new Classes.Parameter ("@ID_Usuario",userid),
                         new Classes.Parameter ("@ID_Pregunta",preid),
@@ -197,63 +191,45 @@ namespace preparate
                         new Classes.Parameter ("@Respuesta_Correcta",respcorr),
                         new Classes.Parameter ("@Tiempo",null),
                         new Classes.Parameter ("@Coorecta",correcta)
-
                     };
-
-                    int ID = Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p));
-
-
-                    MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p);
-                    respusu = 0;
-                    //---------------RespuestaUsuario
-                    contPregunta++;
-                    ContadorPreg.Text = (contPregunta + 1) + " de 10";
-                    if (contPregunta < 10)
-                    {
-                        pre = Pregunta.obtenerAleatoria(examen);
-                        mostrarPregunta(pre);
-                        r[10].Visibility = ViewStates.Gone;
-                        r[10].Checked = true;
-                        r[10].Selected = true;
-                    }
-                   
-                    
-                }
-                else
+                int ID = Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p));
+                MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p);
+                respusu = 0;
+                //---------------RespuestaUsuario
+                //aumenta contador de pregunta
+                contPregunta++;
+                //valida si tiene que mostrar la soguiente
+                if (contPregunta < 10)
                 {
-                    Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
-                    Android.App.AlertDialog alerDialog = builder.Create();
-                    alerDialog.SetTitle("Error");
-                    alerDialog.SetMessage("Debes seleccionar una opción");
-                    alerDialog.Show();
+                    
+                    ContadorPreg.Text = (contPregunta + 1) + " de 10";
+                    pre = Pregunta.obtenerAleatoria(examen);
+                    mostrarPregunta(pre);
+                    r[10].Visibility = ViewStates.Gone;
+                    r[10].Checked = true;
+                    r[10].Selected = true;
+                }else
+                {
+                    Validar.Visibility = ViewStates.Visible;
+                    alerDialog.SetTitle("FELICITACIONES");
+                    alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                     alerDialog.SetMessage("Haz Obtenido: " + (calificacion * 10) + " Puntos");
+                    alerDialog.SetButton("ACEPTAR", (se, eve) =>
+                    {
+                        StartActivity(typeof(MenuPrincipal));
+                    });
                 }
-
-            }else
+                alerDialog.Show();
+            }//no contest[o la pregunta
+            else
             {
-                Validar.Visibility = ViewStates.Visible;
-                //timer.Stop();
-                //StartActivity(typeof(Resultado));
                 Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
                 Android.App.AlertDialog alerDialog = builder.Create();
-
-                //Titulo
-                alerDialog.SetTitle("FELICITACIONES");
-                //Icono
-                alerDialog.SetIcon(Resource.Drawable.CopaGanador);
-                //Pregunta
-                alerDialog.SetMessage("Haz Obtenido: " + (calificacion*10) + " Puntos");
-                alerDialog.SetButton("ACEPTAR", (se, eve) =>
-                {
-
-                    StartActivity(typeof(MenuPrincipal));
-                });
+                alerDialog.SetTitle("Error");
+                alerDialog.SetMessage("Debes seleccionar una opción");
                 alerDialog.Show();
             }
-
-     
-
-
-        }
+       }
 
         private void mostrarPregunta(Pregunta p)
         {
