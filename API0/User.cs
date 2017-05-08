@@ -66,7 +66,6 @@ namespace API0
                  new Parameter("@ID_Estatus", id_estatus),
                  new Parameter("@Hash_Foto", hash_foto)
             };
-            
             return Utilities.FirstDataFromTable(con, "InsertUsuarios", p);
         }
 

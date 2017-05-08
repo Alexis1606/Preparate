@@ -76,18 +76,33 @@ namespace preparate
 
                 try
                 {
-                    API0.User.InsertUser(txtNombre.Text, txtApellidos.Text, "", Convert.ToDateTime(txtFechaNac.Text), tContra1.Text, txtEmail.Text, genero, 1, 1, "a");
 
+                    string res =API0.User.InsertUser(txtNombre.Text, txtApellidos.Text, "", Convert.ToDateTime(txtFechaNac.Text), tContra1.Text, txtEmail.Text, genero, 1, 1, "a");
                     Android.App.AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     AlertDialog alertDialog = builder.Create();
                     alertDialog.SetTitle("REGISTRO");
-                    alertDialog.SetIcon(Resource.Drawable.Icon);
-                    alertDialog.SetMessage("Registro Exitoso");
-                    alertDialog.SetButton("OK", (s, ev) =>
+                    switch (res)
                     {
-                        StartActivity(typeof(MenuPrincipal));
-                    });
-                    alertDialog.Show();
+                        case "-2":
+                           txtEmail.SetBackgroundColor(Android.Graphics.Color.Red);
+                            alertDialog.SetMessage("La dirección de correo ya existe, por favor ingresa otra dirección ó inicia sesión.");
+                            alertDialog.SetButton("OK", (s, ev) =>
+                            {
+                            });
+                            alertDialog.Show();
+                            break;
+                        default:
+                           
+                            alertDialog.SetIcon(Resource.Drawable.Icon);
+                            alertDialog.SetMessage("Registro Exitoso");
+                            alertDialog.SetButton("OK", (s, ev) =>
+                            {
+                                StartActivity(typeof(MenuPrincipal));
+                            });
+                            alertDialog.Show();
+                            break;
+                    }
+                    
 
 
                 }

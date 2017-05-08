@@ -13,13 +13,7 @@
         android:id="@+id/ContPreguntas"
         android:layout_gravity="right"
         android:gravity="right" />
-    <ProgressBar
-        style="?android:attr/progressBarStyleSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/progressBar1" />
     <ImageView
-      
         android:id="@+id/ImagenQuiz"
         android:gravity="center"
         android:layout_width="0dp"
@@ -43,8 +37,7 @@
                 android:layout_height="wrp_content"
                 android:gravity="center"
                 android:id="@+id/pregunta"
-                android:visibility="visible"
-              />
+                android:visibility="visible" />
             <EditText
                 android:inputType="textPersonName"
                 android:layout_width="match_parent"
