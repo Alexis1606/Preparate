@@ -92,6 +92,7 @@ namespace preparate
             mostrarPregunta(pre);
             contPregunta = 0;
             calificacion = 0;
+            ContadorPreg.Text = (contPregunta + 1) + " de 10";
         }
 
         private void Empezar_Click(object sender, EventArgs e)
@@ -138,9 +139,9 @@ namespace preparate
         private void Aceptar_Click(object sender, EventArgs e)
         {
             //subir respuesta del usuario a base de datos            
-            contPregunta++;
-            ContadorPreg.Text = contPregunta + " de 10";
-            if (contPregunta <= 10)
+            //contPregunta++;
+            //ContadorPreg.Text = contPregunta + " de 10";
+            if (contPregunta < 9)
             {
                 int i;
                
@@ -170,26 +171,59 @@ namespace preparate
                         Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
                         Android.App.AlertDialog alerDialog = builder.Create();
                         alerDialog.SetTitle("Respuesta incorrecta");
-                        //poner imagen de respuesta incorrecta
+                      
                         alerDialog.SetIcon(Resource.Drawable.Mal);
                         alerDialog.SetMessage(pre.ayuda);
                         alerDialog.Show();
                         correcta = false;
                         respusu = i;
                     }
-                    pre = Pregunta.obtenerAleatoria(examen);
-                    mostrarPregunta(pre);
-                    r[10].Visibility = ViewStates.Gone;
-                    r[10].Checked = true;
-                    r[10].Selected = true;
+                    //---------------RespuestaUsuario
+                    ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+                    // ID de usuario
+                    int userid = prefs.GetInt("user", 0);
+                    User Datos = new User(userid);
+                    String NOM = Datos.Nombre;
+                    int preid = pre.idPregunta;
+                    DateTime thisDay = DateTime.Today;
+                    int respcorr = pre.opcCorrecta;
+
+                    Classes.Parameter[] p = new Classes.Parameter[] {
+
+                        new Classes.Parameter ("@ID_Usuario",userid),
+                        new Classes.Parameter ("@ID_Pregunta",preid),
+                        new Classes.Parameter ("@Fecha",thisDay),
+                        new Classes.Parameter ("@Respuesta_Usuario",respusu),
+                        new Classes.Parameter ("@Respuesta_Correcta",respcorr),
+                        new Classes.Parameter ("@Tiempo",null),
+                        new Classes.Parameter ("@Coorecta",correcta)
+
+                    };
+
+                    int ID = Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p));
+
+
+                    MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p);
+                    respusu = 0;
+                    //---------------RespuestaUsuario
+                    contPregunta++;
+                    ContadorPreg.Text = (contPregunta + 1) + " de 10";
+                    if (contPregunta < 10)
+                    {
+                        pre = Pregunta.obtenerAleatoria(examen);
+                        mostrarPregunta(pre);
+                        r[10].Visibility = ViewStates.Gone;
+                        r[10].Checked = true;
+                        r[10].Selected = true;
+                    }
+                   
+                    
                 }
                 else
                 {
                     Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
                     Android.App.AlertDialog alerDialog = builder.Create();
                     alerDialog.SetTitle("Error");
-                    //poner imagen de seleccionar una opci[on
-                    //alerDialog.SetIcon(Resource.Drawable.CopaGanador);
                     alerDialog.SetMessage("Debes seleccionar una opción");
                     alerDialog.Show();
                 }
@@ -216,34 +250,7 @@ namespace preparate
                 alerDialog.Show();
             }
 
-            //---------------RespuestaUsuario
-            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            // ID de usuario
-            int userid = prefs.GetInt("user", 0);
-            User Datos = new User(userid);
-            String NOM = Datos.Nombre;
-            int preid = pre.idPregunta;
-            DateTime thisDay = DateTime.Today;
-            int respcorr = pre.opcCorrecta;
-
-            Classes.Parameter[] p = new Classes.Parameter[] {
-
-                new Classes.Parameter ("@ID_Usuario",userid),
-                new Classes.Parameter ("@ID_Pregunta",preid),
-                new Classes.Parameter ("@Fecha",thisDay),
-                new Classes.Parameter ("@Respuesta_Usuario",respusu),
-                new Classes.Parameter ("@Respuesta_Correcta",respcorr),
-                new Classes.Parameter ("@Tiempo",null),
-                new Classes.Parameter ("@Coorecta",correcta)
-
-            };
-
-            int ID = Convert.ToInt32(MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p));
-
-
-            MSSql.FirstDataFromTable(con, "InsertRespuestasAlumnos", p);
-            respusu = 0;
-            //---------------RespuestaUsuario
+     
 
 
         }
@@ -307,8 +314,6 @@ namespace preparate
 
             return imageBitmap;
         }
-
-
         private int validarRespuesta(Pregunta p, int respuesta)
         {
             if (respuesta == p.opcCorrecta)
