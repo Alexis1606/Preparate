@@ -226,7 +226,7 @@ namespace preparate
                 Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
                 Android.App.AlertDialog alerDialog = builder.Create();
                 alerDialog.SetTitle("Error");
-                alerDialog.SetMessage("Debes seleccionar una opción");
+                alerDialog.SetMessage("Debes seleccionar una opción");        
                 alerDialog.Show();
             }
        }
