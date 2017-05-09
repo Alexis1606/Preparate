@@ -54,7 +54,7 @@ namespace preparate
                 return view == obj;
             }
 
-           public override Java.Lang.Object InstantiateItem(ViewGroup container, int position)
+            public override Java.Lang.Object InstantiateItem(ViewGroup container, int position)
             {
                 View view = LayoutInflater.From(container.Context).Inflate(Resource.Layout.pager_item, container, false);
                 container.AddView(view);
