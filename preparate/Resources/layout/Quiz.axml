@@ -34,7 +34,7 @@
                 android:text="Aquí va tu pregunta"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="wrap_content"
-                android:layout_height="wrp_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:id="@+id/pregunta"
                 android:visibility="visible" />
