@@ -14,23 +14,30 @@ using Android.Support.V4.View;
 
 namespace preparate
 {
+    
     public class SlidingTabsFragment : Fragment
     {
+     
+           
         private SlidingTabScrollView mSlidingTabScrollView;
         private ViewPager mViewPager;
 
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+
             return inflater.Inflate(Resource.Layout.fragment_sample, container, false);
+            
         }
 
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
             mSlidingTabScrollView = view.FindViewById<SlidingTabScrollView>(Resource.Id.sliding_tabs);
             mViewPager = view.FindViewById<ViewPager>(Resource.Id.viewpager);
-            mViewPager.Adapter = new SamplePagerAdapter();
-
+            mViewPager.Adapter = new SamplePagerAdapter();            
             mSlidingTabScrollView.ViewPager = mViewPager;
+
+
         }
 
         public class SamplePagerAdapter : PagerAdapter
@@ -47,6 +54,7 @@ namespace preparate
             public override int Count
             {
                 get { return items.Count; }
+
             }
 
             public override bool IsViewFromObject(View view, Java.Lang.Object obj)
@@ -56,12 +64,38 @@ namespace preparate
 
             public override Java.Lang.Object InstantiateItem(ViewGroup container, int position)
             {
+                
+
                 View view = LayoutInflater.From(container.Context).Inflate(Resource.Layout.pager_item, container, false);
                 container.AddView(view);
+
+                if (position == 0)
+                {
+                    TextView prueba = view.FindViewById<TextView>(Resource.Id.Prueba);
+                    prueba.Text = "Esta es la pestaña 1";
+                    TextView prueba2 = view.FindViewById<TextView>(Resource.Id.Prueba2);
+                    prueba2.Visibility = ViewStates.Invisible;
+                }
+
+
+                if (position == 1)
+                {
+                    TextView prueba = view.FindViewById<TextView>(Resource.Id.Prueba);
+                    prueba.Text = "Esta es la pestaña 2";
+                }
+
+                if (position == 2)
+                {
+                    TextView prueba = view.FindViewById<TextView>(Resource.Id.Prueba);
+                    prueba.Text = "Esta es la pestaña 3";
+                }
 
                 TextView txtTitle = view.FindViewById<TextView>(Resource.Id.item_title);
                 int pos = position + 1;
                 txtTitle.Text = pos.ToString();
+
+                
+                
 
                 return view;
             }

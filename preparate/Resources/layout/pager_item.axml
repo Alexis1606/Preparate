@@ -4,15 +4,64 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center">
-  <TextView
-      android:id="@+id/item_subtitle"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:text="Pagina:" />
-  <TextView
-      android:id="@+id/item_title"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textSize="80sp" />
+  <ScrollView
+       android:minWidth="25px"
+       android:minHeight="25px"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/scrollView1">
+    <TableLayout
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:stretchColumns="1">
+      <TextView
+          android:id="@+id/item_subtitle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:gravity="center"
+          android:text="Pagina:" />
+      <TextView
+          android:id="@+id/item_title"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:textSize="80sp" />
+      <TextView
+          android:id="@+id/Prueba"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:text="1er Lugar"/>
+      <TextView
+            android:id="@+id/Prueba2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="2o Lugar"/>
+      <TextView
+            android:id="@+id/Prueba3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="3er Lugar"/>
+      <TextView
+            android:id="@+id/Prueba4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="4o Lugar"/>
+      <TextView
+            android:id="@+id/Prueba5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="5o Lugar"/>
+    </TableLayout>
+  </ScrollView>
 </LinearLayout>
