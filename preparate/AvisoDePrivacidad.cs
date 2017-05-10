@@ -26,6 +26,18 @@ namespace preparate
             // Create your application here
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.regresar, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            StartActivity(typeof(Configuracion));
+            return base.OnOptionsItemSelected(item);
+        }
+
         private void Aceptar_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MenuPrincipal));

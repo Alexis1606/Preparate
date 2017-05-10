@@ -24,13 +24,13 @@ namespace preparate
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.actionbar_main, menu);
+            MenuInflater.Inflate(Resource.Menu.regresar, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            StartActivity(typeof(MenuPrincipal));
+            StartActivity(typeof(Configuracion));
             return base.OnOptionsItemSelected(item);
         }
 

@@ -67,6 +67,18 @@ namespace preparate
 
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.regresar, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {   
+                StartActivity(typeof(Configuracion));
+            return base.OnOptionsItemSelected(item);
+        }
+
         private void txtFecha_Click(object sender, EventArgs e)
         {
             DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
