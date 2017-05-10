@@ -73,6 +73,12 @@ namespace preparate
             return base.OnCreateOptionsMenu(menu);
         }
 
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            StartActivity(typeof(MenuPrincipal));
+            return base.OnOptionsItemSelected(item);
+        }
+
         //private void bUnirse_Click(object sender, EventArgs e)
         //{
         //    Android.App.AlertDialog.Builder build = new AlertDialog.Builder(this);

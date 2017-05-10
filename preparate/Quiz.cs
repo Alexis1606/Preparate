@@ -95,6 +95,20 @@ namespace preparate
             ContadorPreg.Text = (contPregunta + 1) + " de 10";
         }
 
+
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.actionbar_main, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            StartActivity(typeof(MenuPrincipal));
+            return base.OnOptionsItemSelected(item);
+        }
+
         private void Empezar_Click(object sender, EventArgs e)
         {
             pregunta.Visibility = ViewStates.Visible;
@@ -136,6 +150,8 @@ namespace preparate
 
         }
 
+        
+
         private void Aceptar_Click(object sender, EventArgs e)
         {
             //validar si se contest[o la pregunta
@@ -159,16 +175,28 @@ namespace preparate
                     alerDialog.SetTitle("FELICITACIONES");
                     alerDialog.SetIcon(Resource.Drawable.Bien);
                     alerDialog.SetMessage("Felicidades, respuesta correcta");
-                    correcta = true;
-                    respusu = i;
+                    alerDialog.SetButton("OK", (s, ev) =>
+                    {
+                        correcta = true;
+                        respusu = i;
+                    });
+                    
+
+
+                    
                 }
                 else
                 {
                     alerDialog.SetTitle("Respuesta incorrecta");
                     alerDialog.SetIcon(Resource.Drawable.Mal);
                     alerDialog.SetMessage(pre.ayuda);
-                    correcta = false;
-                    respusu = i;
+                    alerDialog.SetButton("OK", (s, ev) =>
+                    {
+                        correcta = false;
+                        respusu = i;
+                    });
+                    
+
                 }
                
                 //guarda respuesta usuario

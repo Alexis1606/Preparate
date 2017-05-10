@@ -22,11 +22,7 @@ namespace preparate
             // Create your application here
         }
 
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Menu.actionbar_main, menu);
-            return base.OnCreateOptionsMenu(menu);
-        }
+    
 
         //public override bool OnOptionsItemSelected(IMenuItem item)
         //{
