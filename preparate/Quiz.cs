@@ -105,7 +105,23 @@ namespace preparate
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            StartActivity(typeof(MenuPrincipal));
+            
+            Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alerDialog = builder.Create();
+            alerDialog.SetTitle("¡ Advertencia !");
+            alerDialog.SetIcon(Resource.Drawable.Icon);
+            alerDialog.SetMessage("¿Estás seguro que deseas salir?\nTodo tu progreso se perderá");
+            alerDialog.SetButton("No", (s, ev) =>
+            {
+                
+            });
+            alerDialog.SetButton3("Si", (s, ev) =>
+            {
+                StartActivity(typeof(Lista_De_Examenes));
+                
+
+            });
+            alerDialog.Show();
             return base.OnOptionsItemSelected(item);
         }
 

@@ -151,7 +151,7 @@ namespace preparate
                 alerDialog.SetTitle("Versión Pro");
                 //poner imagen de respuesta incorrecta
                 alerDialog.SetIcon(Resource.Drawable.Icon);
-                alerDialog.SetMessage("Obtén la versión PRO. Para poder acceder a cientos de preguntas");
+                alerDialog.SetMessage("Obtén la versión PRO.\nPara poder acceder a cientos de preguntas");
                 alerDialog.Show();                
             }
             else

@@ -1,8 +1,7 @@
 ﻿<menu xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:id="@+id/menu"
+  <item android:id="@+id/regresar"
         android:showAsAction="always"
-        android:title="Opciones"
-        android:icon="@drawable/Inicio"/>
+        android:title="regresar"
+        android:icon="@drawable/Back"/>
 </menu>
 
-  
