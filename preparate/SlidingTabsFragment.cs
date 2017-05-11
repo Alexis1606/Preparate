@@ -72,9 +72,7 @@ namespace preparate
                 if (position == 0)
                 {
                     TextView prueba = view.FindViewById<TextView>(Resource.Id.Prueba);
-                    prueba.Text = "Esta es la pestaña 1";
-                    TextView prueba2 = view.FindViewById<TextView>(Resource.Id.Prueba2);
-                    prueba2.Visibility = ViewStates.Invisible;
+                    prueba.Text = "Esta es la pestaña 1";                                        
                 }
 
 
@@ -87,7 +85,19 @@ namespace preparate
                 if (position == 2)
                 {
                     TextView prueba = view.FindViewById<TextView>(Resource.Id.Prueba);
-                    prueba.Text = "Esta es la pestaña 3";
+                    TextView prueba2 = view.FindViewById<TextView>(Resource.Id.Prueba2);
+                    TextView prueba3 = view.FindViewById<TextView>(Resource.Id.Prueba3);
+                    TextView prueba4 = view.FindViewById<TextView>(Resource.Id.Prueba4);
+                    TextView prueba5 = view.FindViewById<TextView>(Resource.Id.Prueba5);
+                    TextView prueba6 = view.FindViewById<TextView>(Resource.Id.Prueba6);
+                    TextView prueba7 = view.FindViewById<TextView>(Resource.Id.Prueba7);
+                    prueba.Visibility = ViewStates.Gone;
+                    prueba2.Visibility = ViewStates.Gone;
+                    prueba3.Visibility = ViewStates.Gone;
+                    prueba4.Visibility = ViewStates.Gone;
+                    prueba5.Visibility = ViewStates.Gone;
+                    prueba6.Visibility = ViewStates.Gone;
+                    prueba7.Text = "Esta es la pestaña 3";
                 }
 
                 TextView txtTitle = view.FindViewById<TextView>(Resource.Id.item_title);

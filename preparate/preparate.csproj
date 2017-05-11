@@ -48,7 +48,7 @@
   <ItemGroup>
     <Reference Include="Classes, Version=1.0.6305.28901, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Classes\Classes\Classes\bin\Debug\Classes.dll</HintPath>
+      <HintPath>..\Classes.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
