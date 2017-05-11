@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+  <ScrollView
+       android:minWidth="25px"
+       android:minHeight="25px"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/scrollView1">
+    <TableLayout
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:stretchColumns="1">
+      
+      <TextView
+          android:id="@+id/Estadistica1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:text="Estadistica 1"/>
+      <TextView
+            android:id="@+id/Estadistica2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Estadistica 2"/>
+      <TextView
+            android:id="@+id/Estadistica3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Estadistica 3"/>
+      <TextView
+            android:id="@+id/Estadistica4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Estadistica 5"/>
+      <TextView
+            android:id="@+id/Estadistica6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Estadistica 6"/>
+      <TextView
+            android:id="@+id/Estadistica7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Estadistica 7"/>
+    </TableLayout>
+  </ScrollView>
+</LinearLayout>

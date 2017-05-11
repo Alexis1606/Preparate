@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿//Funciona!!!
+using Android.App;
 using Android.Widget;
 using Android.OS;
 using Java.Lang;
@@ -40,10 +41,8 @@ namespace preparate
 
                 if (connect == false)
                 {
-
                     Toast.MakeText(this, "Por favor, segurese de estar conectado a internet y vuelva a intentarlo.", ToastLength.Long).Show();
                     StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionSettings));
-
                 }
                 else{
                     ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);

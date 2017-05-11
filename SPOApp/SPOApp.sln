@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPOApp", "SPOApp\SPOApp.csproj", "{E924BD8E-5C70-46DF-8976-8A9BE256B72A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPOAppWeb", "SPOAppWeb\SPOAppWeb.csproj", "{14D497FD-2583-401B-AFD9-5EEBE3606202}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E924BD8E-5C70-46DF-8976-8A9BE256B72A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E924BD8E-5C70-46DF-8976-8A9BE256B72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E924BD8E-5C70-46DF-8976-8A9BE256B72A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E924BD8E-5C70-46DF-8976-8A9BE256B72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E924BD8E-5C70-46DF-8976-8A9BE256B72A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E924BD8E-5C70-46DF-8976-8A9BE256B72A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{14D497FD-2583-401B-AFD9-5EEBE3606202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14D497FD-2583-401B-AFD9-5EEBE3606202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14D497FD-2583-401B-AFD9-5EEBE3606202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14D497FD-2583-401B-AFD9-5EEBE3606202}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

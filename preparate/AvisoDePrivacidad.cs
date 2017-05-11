@@ -15,12 +15,32 @@ namespace preparate
     [Activity(Label = "Nuestro Aviso De Privacidad")]
     public class AvisoDePrivacidad : Activity
     {
+        Button bAceptar;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AvisoDePrivacidad);
-
+            bAceptar = FindViewById<Button>(Resource.Id.bAceptar);
+            bAceptar.Click += Aceptar_Click;
             // Create your application here
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.regresar, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            StartActivity(typeof(Configuracion));
+            return base.OnOptionsItemSelected(item);
+        }
+
+        private void Aceptar_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(MenuPrincipal));
         }
     }
 }
