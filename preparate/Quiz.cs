@@ -256,8 +256,9 @@ namespace preparate
                 {
                     Validar.Visibility = ViewStates.Visible;
                     alerDialog.SetTitle("FELICITACIONES");
+                    alerDialog.CancelEvent += OnDialogCancel;
                     alerDialog.SetIcon(Resource.Drawable.CopaGanador);
-                     alerDialog.SetMessage("Haz Obtenido: " + (calificacion * 10) + " Puntos");
+                     alerDialog.SetMessage("Haz Obtenido: " + (calificacion) + " Puntos");
                     alerDialog.SetButton("ACEPTAR", (se, eve) =>
                     {
                         StartActivity(typeof(MenuPrincipal));
@@ -275,6 +276,11 @@ namespace preparate
             }
        }
 
+        private void OnDialogCancel(object sender, EventArgs eventArgs)
+        {
+            StartActivity(typeof(MenuPrincipal));
+            Finish();
+        }
         private void mostrarPregunta(Pregunta p)
         {
             pregunta.Text = p.pregunta;
