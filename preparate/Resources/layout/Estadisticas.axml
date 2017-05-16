@@ -14,84 +14,49 @@
           android:layout_width="fill_parent"
           android:layout_height="fill_parent"
           android:stretchColumns="1">
+      
       <TextView
-          android:id="@+id/item_subtitle"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textAppearance="?android:attr/textAppearanceLarge"
-          android:gravity="center"
-          android:text="Pagina:" />
-      <TextView
-          android:id="@+id/item_title"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:gravity="center"
-          android:textSize="80sp" />
-      <TextView
-          android:id="@+id/Prueba"
+          android:id="@+id/Estadistica1"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge"
-          android:text="1er Lugar"/>
+          android:text="Estadistica 1"/>
       <TextView
-            android:id="@+id/Prueba2"
+            android:id="@+id/Estadistica2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="2o Lugar"/>
+            android:text="Estadistica 2"/>
       <TextView
-            android:id="@+id/Prueba3"
+            android:id="@+id/Estadistica3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="3er Lugar"/>
+            android:text="Estadistica 3"/>
       <TextView
-            android:id="@+id/Prueba4"
+            android:id="@+id/Estadistica4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="4o Lugar"/>
+            android:text="Estadistica 5"/>
       <TextView
-            android:id="@+id/Prueba5"
+            android:id="@+id/Estadistica6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="5o Lugar"/>
-    <TextView
-            android:id="@+id/Prueba6"
+            android:text="Estadistica 6"/>
+      <TextView
+            android:id="@+id/Estadistica7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="6o Lugar"/>
-<TextView
-            android:id="@+id/Prueba7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="7o Lugar"/>
-<TextView
-            android:id="@+id/Prueba8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="8o Lugar"/>
-<TextView
-            android:id="@+id/Prueba9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="9o Lugar"/>
-
-    
+            android:text="Estadistica 7"/>
     </TableLayout>
   </ScrollView>
 </LinearLayout>

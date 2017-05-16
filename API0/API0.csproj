@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Classes">
-      <HintPath>\\Mac\Home\Documents\Herramientas\Classes.dll</HintPath>
+      <HintPath>..\..\Classes\Classes\Classes\bin\Debug\Classes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -47,6 +47,7 @@
     <Compile Include="Certificadores.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Examen.cs" />
+    <Compile Include="Leaderboard.cs" />
     <Compile Include="Materia.cs" />
     <Compile Include="Pantalla.cs" />
     <Compile Include="Parameter.cs" />

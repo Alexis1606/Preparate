@@ -109,13 +109,18 @@ namespace preparate
                 os.Close();
             }
             
-        } 
+        }
 
-        //Opciones ...
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.actionbar_main, menu);
             return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            StartActivity(typeof(MenuPrincipal));
+            return base.OnOptionsItemSelected(item);
         }
 
         //Al dar click en la foto

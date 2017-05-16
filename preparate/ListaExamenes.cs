@@ -41,6 +41,18 @@ namespace preparate
             lwExamenes.ItemClick += OnListItemClick;
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.actionbar_main, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            StartActivity(typeof(MenuPrincipal));
+            return base.OnOptionsItemSelected(item);
+        }
+
         protected void OnListItemClick(object sender, Android.Widget.AdapterView.ItemClickEventArgs e)
         {
             var listView = sender as ListView;

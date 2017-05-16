@@ -95,6 +95,36 @@ namespace preparate
             ContadorPreg.Text = (contPregunta + 1) + " de 10";
         }
 
+
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.regresar, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            
+            Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alerDialog = builder.Create();
+            alerDialog.SetTitle("¡ Advertencia !");
+            alerDialog.SetIcon(Resource.Drawable.Icon);
+            alerDialog.SetMessage("¿Estás seguro que deseas salir?\nTodo tu progreso se perderá");
+            alerDialog.SetButton("No", (s, ev) =>
+            {
+                
+            });
+            alerDialog.SetButton3("Si", (s, ev) =>
+            {
+                StartActivity(typeof(Lista_De_Examenes));
+                
+
+            });
+            alerDialog.Show();
+            return base.OnOptionsItemSelected(item);
+        }
+
         private void Empezar_Click(object sender, EventArgs e)
         {
             pregunta.Visibility = ViewStates.Visible;
@@ -136,6 +166,8 @@ namespace preparate
 
         }
 
+        
+
         private void Aceptar_Click(object sender, EventArgs e)
         {
             //validar si se contest[o la pregunta
@@ -159,16 +191,28 @@ namespace preparate
                     alerDialog.SetTitle("FELICITACIONES");
                     alerDialog.SetIcon(Resource.Drawable.Bien);
                     alerDialog.SetMessage("Felicidades, respuesta correcta");
-                    correcta = true;
-                    respusu = i;
+                    alerDialog.SetButton("OK", (s, ev) =>
+                    {
+                        correcta = true;
+                        respusu = i;
+                    });
+                    
+
+
+                    
                 }
                 else
                 {
                     alerDialog.SetTitle("Respuesta incorrecta");
                     alerDialog.SetIcon(Resource.Drawable.Mal);
                     alerDialog.SetMessage(pre.ayuda);
-                    correcta = false;
-                    respusu = i;
+                    alerDialog.SetButton("OK", (s, ev) =>
+                    {
+                        correcta = false;
+                        respusu = i;
+                    });
+                    
+
                 }
                
                 //guarda respuesta usuario
@@ -212,8 +256,9 @@ namespace preparate
                 {
                     Validar.Visibility = ViewStates.Visible;
                     alerDialog.SetTitle("FELICITACIONES");
+                    alerDialog.CancelEvent += OnDialogCancel;
                     alerDialog.SetIcon(Resource.Drawable.CopaGanador);
-                     alerDialog.SetMessage("Haz Obtenido: " + (calificacion * 10) + " Puntos");
+                     alerDialog.SetMessage("Haz Obtenido: " + (calificacion) + " Puntos");
                     alerDialog.SetButton("ACEPTAR", (se, eve) =>
                     {
                         StartActivity(typeof(MenuPrincipal));
@@ -231,6 +276,11 @@ namespace preparate
             }
        }
 
+        private void OnDialogCancel(object sender, EventArgs eventArgs)
+        {
+            StartActivity(typeof(MenuPrincipal));
+            Finish();
+        }
         private void mostrarPregunta(Pregunta p)
         {
             pregunta.Text = p.pregunta;
