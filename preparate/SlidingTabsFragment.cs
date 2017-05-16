@@ -11,6 +11,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V4.View;
+using Android.Preferences;
 
 namespace preparate
 {
@@ -23,12 +24,16 @@ namespace preparate
         private ViewPager mViewPager;
 
 
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
 
             return inflater.Inflate(Resource.Layout.fragment_sample, container, false);
             
         }
+
+
+
 
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
@@ -71,8 +76,11 @@ namespace preparate
 
                 if (position == 0)
                 {
+                    ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(container.Context);
+                    int  user = prefs.GetInt("user", 0);
+                    string respuestas = API0.Estadisticas.GetRespuestasCorrectasXUsuario(user);
                     TextView prueba = view.FindViewById<TextView>(Resource.Id.Prueba);
-                    prueba.Text = "Esta es la pestaña 1";                                        
+                    prueba.Text = respuestas;
                 }
 
 
