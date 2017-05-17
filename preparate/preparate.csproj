@@ -104,6 +104,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="MenuPrincipal.cs" />
     <Compile Include="ModificarPerfil.cs" />
+    <Compile Include="Oracle.cs" />
     <Compile Include="Quiz.cs" />
     <Compile Include="Resources\adapter\adapter_listview.cs" />
     <Compile Include="Resources\clases\cls_ListView.cs" />
@@ -180,6 +181,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Test.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Oracle.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

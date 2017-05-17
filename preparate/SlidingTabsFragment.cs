@@ -51,8 +51,8 @@ namespace preparate
 
             public SamplePagerAdapter() : base()
             {
-                items.Add("Estadísticas Quiz");
-                items.Add("Temas de Repaso");
+                items.Add("       Estadísticas Quiz       ");
+                items.Add("        Temas de Repaso        ");
             }
 
             public override int Count
