@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Classes">
-      <HintPath>..\..\Classes\Classes\Classes\bin\Debug\Classes.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\Classes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
