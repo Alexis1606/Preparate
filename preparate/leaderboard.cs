@@ -41,12 +41,21 @@ namespace preparate
             var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, items);
             s1.Adapter = adapter;
             s1.ItemSelected += spinner1_ItemSelected;
-
-
-
-
-
+                        
         }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.actionbar_main, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            StartActivity(typeof(MenuPrincipal));
+            return base.OnOptionsItemSelected(item);
+        }
+
         private void spinner1_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
 
