@@ -23,7 +23,7 @@ namespace API0
 
             foreach (DataRow dr in dt.Rows)
             {
-                res += dr[0].ToString() + "Preguntas Correctas en General"  + Environment.NewLine;
+                res += dr[0].ToString()  + Environment.NewLine;
             }
 
 
@@ -44,7 +44,7 @@ namespace API0
 
             foreach (DataRow dr in dt.Rows)
             {
-                res += "Examen " + dr[0].ToString() +  Environment.NewLine;
+                res += dr[0].ToString() +  Environment.NewLine;
             }
 
 
@@ -62,11 +62,11 @@ namespace API0
 
             };
 
-            DataTable dt = MSSql.ExecuteStoredProcedure(con, "GetExamenesHechos", p);
+            DataTable dt = MSSql.ExecuteStoredProcedure(con, "GetVecesRealizadasXExamen", p);
 
             foreach (DataRow dr in dt.Rows)
             {
-                res += dr[0].ToString() + " veces. " + Environment.NewLine;
+                res += dr[0].ToString() + Environment.NewLine;
             }
 
 
@@ -87,7 +87,7 @@ namespace API0
 
             foreach (DataRow dr in dt.Rows)
             {
-                res += dr[0].ToString() + dr[1].ToString() + " porcentaje. " + Environment.NewLine;
+                res += dr[0].ToString() + " " + dr[1].ToString() + " %" + Environment.NewLine;
             }
 
 
