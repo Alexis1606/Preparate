@@ -23,7 +23,27 @@ namespace API0
 
             foreach (DataRow dr in dt.Rows)
             {
-                res += dr[0].ToString() + "Preguntas Correctas en General"  + Environment.NewLine;
+                res += dr[0].ToString()  + Environment.NewLine;
+            }
+
+
+            return res;
+        }
+
+        public static string GetPrsentajeCorrectasXUsuario(int idUsuario)
+        {
+            string res = "";
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
+            Classes.Parameter[] p = new Classes.Parameter[]
+            {
+                new Classes.Parameter("@Id_Usuario",idUsuario)
+            };
+
+            DataTable dt = MSSql.ExecuteStoredProcedure(con, "GetPrsentajeCorrectasXUsuario", p);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                res += dr[0].ToString() + '%' + Environment.NewLine;
             }
 
 
@@ -44,7 +64,7 @@ namespace API0
 
             foreach (DataRow dr in dt.Rows)
             {
-                res += "Examen " + dr[0].ToString() +  Environment.NewLine;
+                res += dr[0].ToString() +  Environment.NewLine;
             }
 
 
@@ -62,11 +82,11 @@ namespace API0
 
             };
 
-            DataTable dt = MSSql.ExecuteStoredProcedure(con, "GetExamenesHechos", p);
+            DataTable dt = MSSql.ExecuteStoredProcedure(con, "GetVecesRealizadasXExamen", p);
 
             foreach (DataRow dr in dt.Rows)
             {
-                res += dr[0].ToString() + " veces. " + Environment.NewLine;
+                res += dr[0].ToString() + Environment.NewLine;
             }
 
 
@@ -87,7 +107,7 @@ namespace API0
 
             foreach (DataRow dr in dt.Rows)
             {
-                res += dr[0].ToString() + dr[1].ToString() + " porcentaje. " + Environment.NewLine;
+                res += dr[0].ToString() + " " + dr[1].ToString() + " %" + Environment.NewLine;
             }
 
 
