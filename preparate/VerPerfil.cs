@@ -40,6 +40,7 @@ namespace preparate
             Nombre = FindViewById<TextView>(Resource.Id.txtNombrePerfil);
             Puntaje = FindViewById<TextView>(Resource.Id.txtPuntajePerfil);
             perfil.Click += perfil_Click;
+            Puntaje.Text = API0.Estadisticas.GetPrsentajeCorrectasXUsuario(user);
 
             Nombre.Text = Datos.Nombre.ToUpper();
 

@@ -113,8 +113,8 @@ namespace preparate
 
                 if (position == 1)
                 {
-                   s1.RemoveViewInLayout(view.FindViewById<Spinner>(Resource.Id.spinner1));
-
+                   //s1.RemoveView(view.FindViewById<Spinner>(Resource.Id.spinner1));
+       
                     ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(container.Context);
                      user = prefs.GetInt("user", 0);
                     string respuestas = API0.Estadisticas.GetPorcentajeTemamenor80(user);

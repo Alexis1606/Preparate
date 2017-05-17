@@ -30,6 +30,26 @@ namespace API0
             return res;
         }
 
+        public static string GetPrsentajeCorrectasXUsuario(int idUsuario)
+        {
+            string res = "";
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
+            Classes.Parameter[] p = new Classes.Parameter[]
+            {
+                new Classes.Parameter("@Id_Usuario",idUsuario)
+            };
+
+            DataTable dt = MSSql.ExecuteStoredProcedure(con, "GetPrsentajeCorrectasXUsuario", p);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                res += dr[0].ToString() + '%' + Environment.NewLine;
+            }
+
+
+            return res;
+        }
+
 
         public static string GetExamenesHechos(int idUsuario)
         {
