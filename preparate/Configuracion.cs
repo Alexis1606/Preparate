@@ -16,9 +16,11 @@ namespace preparate
     {
         ImageView Modificar;
         ImageView Acerca;
-        ImageView Aviso;        
+        ImageView Aviso;
+        ImageView FeedBack;
         //Button bUnirse;
         TextView CerrarSesion;
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,13 +30,20 @@ namespace preparate
             Acerca = FindViewById<ImageView>(Resource.Id.bAcerca);
             Aviso = FindViewById<ImageView>(Resource.Id.bAviso);
             Modificar = FindViewById<ImageView>(Resource.Id.bModificar);
-            CerrarSesion = FindViewById<TextView>(Resource.Id.txtCerrarSesion);
+            FeedBack = FindViewById<ImageView>(Resource.Id.bFeedBack);
+            CerrarSesion = FindViewById<TextView>(Resource.Id.txtCerrarSesion);            
             Acerca.Click += Acerca_Click;
             Aviso.Click += Aviso_Click;
             //bUnirse.Click += bUnirse_Click;
             Modificar.Click += bModificar_Click;
             CerrarSesion.Click += CerrarSesion_Click;
+            FeedBack.Click += FeedBack_Click;
 
+        }
+
+        private void FeedBack_Click(object sender, EventArgs e)
+        {
+            //Abrir la encuesta
         }
 
         private void CerrarSesion_Click(object sender, EventArgs e)

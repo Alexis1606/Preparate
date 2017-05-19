@@ -20,13 +20,15 @@ namespace preparate
         ImageView perfil;
         TextView Nombre;
         TextView Puntaje;
+        int user = 0;
+        string RespuestaCorrecta = " ";
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.VerPerfil);
 
             ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            int user = prefs.GetInt("user", 0);
+            user = prefs.GetInt("user", 0);
             User Datos = new User(user);
 
 
@@ -38,6 +40,7 @@ namespace preparate
             Nombre = FindViewById<TextView>(Resource.Id.txtNombrePerfil);
             Puntaje = FindViewById<TextView>(Resource.Id.txtPuntajePerfil);
             perfil.Click += perfil_Click;
+            Puntaje.Text = API0.Estadisticas.GetPrsentajeCorrectasXUsuario(user);
 
             Nombre.Text = Datos.Nombre.ToUpper();
 
@@ -109,13 +112,22 @@ namespace preparate
                 os.Close();
             }
             
-        } 
+        }
 
-        //Opciones ...
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.actionbar_main, menu);
             return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            StartActivity(typeof(MenuPrincipal));
+            return base.OnOptionsItemSelected(item);
+        }
+
+        public void RespuestasCorrectas() {
+            RespuestaCorrecta = API0.Estadisticas.GetRespuestasCorrectasXUsuario(user);
         }
 
         //Al dar click en la foto

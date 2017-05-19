@@ -10,13 +10,12 @@ using Classes;
 using Android.Preferences;
 using Android.Graphics;
 using System.Net;
-using System.Threading.Tasks;
-using Firebase.Iid;
+
 
 namespace preparate
 {
-    [Activity(Label = "Quiz")]
-    public class Quiz : Activity
+    [Activity(Label = "Oracle")]
+    public class Oracle : Activity
     {
         Button bEnviar;
         //Button bEmpezar;
@@ -27,7 +26,7 @@ namespace preparate
         //Button Enviar;
         //Spinner spinner1;
         //TextView textSegundos;
-//        TextView txtTiempo;
+        //        TextView txtTiempo;
         TextView Validar;
         //      Timer timer;
         //TextView txtSelecciona;
@@ -39,7 +38,7 @@ namespace preparate
         int calificacion;
         int examen;
         string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
-        bool correcta ;
+        bool correcta;
         int respusu = 0;
 
 
@@ -48,19 +47,7 @@ namespace preparate
             examen = 1;
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.Quiz);
-
-
-            if (!GetString(Resource.String.google_app_id).Equals("1:593192999279:android:7fd609f7126dc407"))
-                throw new System.Exception("Invalid Json file");
-            Task.Run(() =>
-            {
-                var instanceId = FirebaseInstanceId.Instance;
-                instanceId.DeleteInstanceId();
-                Android.Util.Log.Debug("TAG", "{0} {1}", instanceId.Token, instanceId.GetToken(GetString(Resource.String.gcm_defaultSenderId), Firebase.Messaging.FirebaseMessaging.InstanceIdScope));
-            });
-
-
+            SetContentView(Resource.Layout.Oracle);
 
             //spinner1 = FindViewById<Spinner>(Resource.Id.spinner1);
             //spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
@@ -118,7 +105,7 @@ namespace preparate
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            
+
             Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alerDialog = builder.Create();
             alerDialog.SetTitle("¡ Advertencia !");
@@ -126,12 +113,12 @@ namespace preparate
             alerDialog.SetMessage("¿Estás seguro que deseas salir?\nTodo tu progreso se perderá");
             alerDialog.SetButton("No", (s, ev) =>
             {
-                
+
             });
             alerDialog.SetButton3("Si", (s, ev) =>
             {
                 StartActivity(typeof(Lista_De_Examenes));
-                
+
 
             });
             alerDialog.Show();
@@ -179,20 +166,20 @@ namespace preparate
 
         }
 
-        
+
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
             //validar si se contest[o la pregunta
             int i;
 
-            for (i = 0; i < (r.Length-1); i++)
+            for (i = 0; i < (r.Length - 1); i++)
             {
                 if (r[i].Selected || r[i].Checked)
                     break;
             }
             //si content[o la pregunta
-            if (i < (r.Length -1))
+            if (i < (r.Length - 1))
             {
                 Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
                 Android.App.AlertDialog alerDialog = builder.Create();
@@ -200,7 +187,7 @@ namespace preparate
                 if (validarRespuesta(pre, i) == 1)
                 {
                     calificacion++;
-                    
+
                     alerDialog.SetTitle("FELICITACIONES");
                     alerDialog.SetIcon(Resource.Drawable.Bien);
                     alerDialog.SetMessage("Felicidades, respuesta correcta");
@@ -209,10 +196,10 @@ namespace preparate
                         correcta = true;
                         respusu = i;
                     });
-                    
 
 
-                    
+
+
                 }
                 else
                 {
@@ -224,10 +211,10 @@ namespace preparate
                         correcta = false;
                         respusu = i;
                     });
-                    
+
 
                 }
-               
+
                 //guarda respuesta usuario
                 //---------------RespuestaUsuario
                 ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
@@ -258,20 +245,21 @@ namespace preparate
                 //valida si tiene que mostrar la soguiente
                 if (contPregunta < 10)
                 {
-                    
+
                     ContadorPreg.Text = (contPregunta + 1) + " de 10";
                     pre = Pregunta.obtenerAleatoria(examen);
                     mostrarPregunta(pre);
                     r[10].Visibility = ViewStates.Gone;
                     r[10].Checked = true;
                     r[10].Selected = true;
-                }else
+                }
+                else
                 {
                     Validar.Visibility = ViewStates.Visible;
                     alerDialog.SetTitle("FELICITACIONES");
                     alerDialog.CancelEvent += OnDialogCancel;
                     alerDialog.SetIcon(Resource.Drawable.CopaGanador);
-                     alerDialog.SetMessage("Haz Obtenido: " + (calificacion) + " Puntos");
+                    alerDialog.SetMessage("Haz Obtenido: " + (calificacion) + " Puntos");
                     alerDialog.SetButton("ACEPTAR", (se, eve) =>
                     {
                         StartActivity(typeof(MenuPrincipal));
@@ -284,10 +272,10 @@ namespace preparate
                 Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
                 Android.App.AlertDialog alerDialog = builder.Create();
                 alerDialog.SetTitle("Error");
-                alerDialog.SetMessage("Debes seleccionar una opción");        
+                alerDialog.SetMessage("Debes seleccionar una opción");
                 alerDialog.Show();
             }
-       }
+        }
 
         private void OnDialogCancel(object sender, EventArgs eventArgs)
         {
@@ -309,7 +297,7 @@ namespace preparate
                         r[i].Visibility = ViewStates.Visible;
                         r[i].Text = p.opciones[i];
                     }
-                    for(i = i; i < r.Length; i++)
+                    for (i = i; i < r.Length; i++)
                     {
                         r[i].Visibility = ViewStates.Gone;
                     }
@@ -322,7 +310,8 @@ namespace preparate
             if (p.imagen == "")
             {
                 imagen.Visibility = ViewStates.Gone;
-            }else
+            }
+            else
             {
 
 

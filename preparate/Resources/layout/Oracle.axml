@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#BDAD8C"
+    android:gravity="center_vertical|left">
+  <TextView
+      android:text="1 de 10"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/ContPreguntas"
+      android:layout_gravity="right"
+      android:gravity="right" />
+  <ImageView
+      android:id="@+id/ImagenQuiz"
+      android:gravity="center"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:minWidth="200dp"
+      android:minHeight="200dp"
+      android:layout_gravity="center" />
+  <ScrollView
+      android:minWidth="25px"
+      android:minHeight="25px"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/scrollView1">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1">
+      <TextView
+          android:text="Aquí va tu pregunta"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:id="@+id/pregunta"
+          android:visibility="visible" />
+      <EditText
+          android:inputType="textPersonName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/TextboxQuiz"
+          android:background="@drawable/edit_text_style"
+          android:layout_marginLeft="15dp"
+          android:layout_marginRight="15dp"
+          android:visibility="invisible"
+          android:layout_marginTop="3dp" />
+      <RadioGroup
+          android:minWidth="25px"
+          android:minHeight="25px"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/Opciones"
+          android:layout_marginTop="1dp"
+          android:visibility="visible"
+          android:layout_marginLeft="10dp">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Opcion1"
+            android:id="@+id/opcion1"
+            android:visibility="invisible"
+            android:layout_marginLeft="20dp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion2"
+            android:id="@+id/Opcion2"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"
+            android:layout_marginTop="20dp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion3"
+            android:id="@+id/Opcion3"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"
+            android:layout_marginTop="20dp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion4"
+            android:id="@+id/Opcion4"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"
+            android:layout_marginTop="20dp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion5"
+            android:id="@+id/Opcion5"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"
+            android:layout_marginTop="20dp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion6"
+            android:id="@+id/Opcion6"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"
+            android:layout_marginTop="20dp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion7"
+            android:id="@+id/Opcion7"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"
+            android:layout_marginTop="20dp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion8"
+            android:id="@+id/Opcion8"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"
+            android:layout_marginTop="20dp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion9"
+            android:id="@+id/Opcion9"
+            android:visibility="invisible"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion10"
+            android:id="@+id/Opcion10"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion11"
+            android:id="@+id/Opcion11"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" />
+      </RadioGroup>
+      <TextView
+          android:text="Correcto"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/txtValidar"
+          android:textSize="15dp"
+          android:visibility="invisible"
+          android:layout_marginTop="10dp"
+          android:gravity="center" />
+      <Button
+          android:id="@+id/bEnviar"
+          android:text="Siguiente"
+          android:textColor="#000"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:visibility="visible"
+          android:gravity="center"
+          android:layout_marginTop="10dp" />
+    </TableLayout>
+  </ScrollView>
+</LinearLayout>

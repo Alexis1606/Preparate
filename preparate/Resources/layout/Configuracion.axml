@@ -4,11 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#BDAD8C">
-    
     <ImageView
         android:src="@drawable/Modificar"
         android:layout_height="60dp"
-        android:id="@+id/bModificar"        
+        android:id="@+id/bModificar"
         android:layout_marginTop="30dp"
         android:layout_width="60dp"
         android:layout_gravity="center" />
@@ -48,6 +47,20 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:id="@+id/TextAviso" />
+  <ImageView
+      android:src="@drawable/FeedBack"
+      android:id="@+id/bFeedBack"
+      android:layout_gravity="center"
+      android:layout_width="60dp"
+      android:layout_height="60dp" />
+  <TextView
+      android:text="FeedBack"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:gravity="center"
+      android:layout_height="wrap_content"
+      android:textColor="#FFFFFF"
+      android:id="@+id/textFeedBack" />
     <TextView
         android:text="Cerrar Sesión"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -56,6 +69,5 @@
         android:id="@+id/txtCerrarSesion"
         android:textColor="#FFFFFF"
         android:gravity="center"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="80dp" />
 </LinearLayout>

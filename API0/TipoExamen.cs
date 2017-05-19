@@ -55,5 +55,20 @@ namespace API0
             }
             return res;
         }
+        public static TipoExamen[] allbyuser(int usuario)
+        {
+            string con = "Data Source=alexisserver.ceq0e9y8bekm.us-west-2.rds.amazonaws.com;Initial Catalog=preparate_dev;Persist Security Info=True;User ID=Alexis;Password=Proyecto2017";
+            Classes.Parameter[] p = new Classes.Parameter[] {
+                new Classes.Parameter("@usuario",usuario)
+            };
+            DataTable dt = MSSql.ExecuteStoredProcedure(con, "sp_obtenerExamenesRealizados", p);
+            TipoExamen[] res = new TipoExamen[dt.Rows.Count];
+            for (int i = 0; i < res.Length; i++)
+            {
+                DataRow dr = dt.Rows[i];
+                res[i] = new API0.TipoExamen(Convert.ToInt32(dr["id"].ToString()), dr["nombre"].ToString());
+            }
+            return res;
+        }
     }
 }

@@ -87,7 +87,7 @@ namespace preparate
 
             if (l.tipodeExamen == "ORACLE")
             {
-//                StartActivity(typeof(Quiz));
+                StartActivity(typeof(Oracle));
             }
         }
 
