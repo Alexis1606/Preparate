@@ -268,9 +268,26 @@ namespace preparate
                 }else
                 {
                     Validar.Visibility = ViewStates.Visible;
-                    alerDialog.SetTitle("FELICITACIONES");
+
+                    
                     alerDialog.CancelEvent += OnDialogCancel;
-                    alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                    if (calificacion<= 3)
+                    {
+                        alerDialog.SetTitle("Necesitas estudiar más.");
+                        alerDialog.SetIcon(Resource.Drawable.CopaTercero);
+                    }
+                    else if(calificacion <= 7)
+                    {
+                        alerDialog.SetTitle("Buen intento, pero aún hay camino por recorrer.");
+                        alerDialog.SetIcon(Resource.Drawable.CopaSegundo);
+                    }
+                    else
+                    {
+                        alerDialog.SetTitle("¡FELICITACIONES!");
+                        alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                    }
+                            
+                    
                      alerDialog.SetMessage("Haz Obtenido: " + (calificacion) + " Puntos");
                     alerDialog.SetButton("ACEPTAR", (se, eve) =>
                     {
