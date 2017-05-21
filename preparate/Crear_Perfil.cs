@@ -63,7 +63,7 @@ namespace preparate
             obtener_datos();
             int genero;
 
-            if (validar_contra() && validar_EditText(txtNombre) && validar_EditText(txtApellidos) && validar_EditText(txtEmail) && txtFechaNac.Text!="")                   
+            if (validar_contra() && validar_EditText(txtNombre) && validar_EditText(txtApellidos) && validar_EditText(txtEmail) && txtFechaNac.Text!="" && validarMail(txtEmail))                   
                 {
                 if (GeneroMasculino.Checked)
                 {
@@ -170,6 +170,23 @@ namespace preparate
                 v = true;
             }
             return v;
+        }
+        private bool validarMail(EditText txtEmail)
+        {
+            if (txtEmail.Text.Contains("@") && (txtEmail.Text.Contains(".com") || txtEmail.Text.Contains(".edu") || txtEmail.Text.Contains(".gob") || txtEmail.Text.Contains(".mx")))
+            {
+                return true;
+            }
+            else
+            {
+                Android.App.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                AlertDialog alertDialog = builder.Create();
+                alertDialog.SetTitle("Correo inválido");
+                alertDialog.SetIcon(Resource.Drawable.Icon);
+                alertDialog.SetMessage("Correo con formato inválido." + System.Environment.NewLine + "Ingresa un correo con el formato" + System.Environment.NewLine + "example@example.com" + System.Environment.NewLine);
+                alertDialog.Show();
+                return false;
+            }
         }
         public override void OnBackPressed()
         {

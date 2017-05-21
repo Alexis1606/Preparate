@@ -40,7 +40,7 @@ namespace preparate
         private void bAcceder_Click(object sender, EventArgs e)
         {
             int numUsuario;
-            if (validar_EditText(Correo) && validar_EditText(Contrasena))
+            if (validar_EditText(Correo) && validar_EditText(Contrasena) && validarMail(Correo))
             {
                 correo2 = Correo.Text;
                 contrasena2 = Contrasena.Text;
@@ -91,7 +91,23 @@ namespace preparate
             }
             return v;
         }
-
+        private bool validarMail(EditText txtEmail)
+        {
+            if (txtEmail.Text.Contains("@") && (txtEmail.Text.Contains(".com") || txtEmail.Text.Contains(".edu") || txtEmail.Text.Contains(".gob") || txtEmail.Text.Contains(".mx")))
+            {
+                return true;
+            }
+            else
+            {
+                Android.App.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                AlertDialog alertDialog = builder.Create();
+                alertDialog.SetTitle("Correo inválido");
+                alertDialog.SetIcon(Resource.Drawable.Icon);
+                alertDialog.SetMessage("Correo con formato inválido." + System.Environment.NewLine + "Ingresa un correo con el formato" + System.Environment.NewLine + "example@example.com" + System.Environment.NewLine);
+                alertDialog.Show();
+                return false;
+            }
+        }
         public override void OnBackPressed()
         {
             var intent = new Intent(this, typeof(Select_Registro));
