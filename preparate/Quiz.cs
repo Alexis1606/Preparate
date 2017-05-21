@@ -192,15 +192,27 @@ namespace preparate
                     break;
             }
             //si content[o la pregunta
-            if (i < (r.Length -1))
+            if (i < (r.Length -1) || pre.tipo == 2)
             {
                 Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
                 Android.App.AlertDialog alerDialog = builder.Create();
                 //valida si est[a bien la pregunta
-                if (validarRespuesta(pre, i) == 1)
+                int validadorpregunta =0;
+                if (pre.tipo == 2)
+                {
+
+                    validadorpregunta = validarRespuesta(pre, Respuesta.Text);
+
+                }
+                else
+                {
+                    validadorpregunta = validarRespuesta(pre, i);
+                }
+
+                if (validadorpregunta == 1)
                 {
                     calificacion++;
-                    
+
                     alerDialog.SetTitle("FELICITACIONES");
                     alerDialog.SetIcon(Resource.Drawable.Bien);
                     alerDialog.SetMessage("Felicidades, respuesta correcta");
@@ -209,10 +221,10 @@ namespace preparate
                         correcta = true;
                         respusu = i;
                     });
-                    
 
 
-                    
+
+
                 }
                 else
                 {
@@ -224,10 +236,10 @@ namespace preparate
                         correcta = false;
                         respusu = i;
                     });
-                    
+
 
                 }
-               
+
                 //guarda respuesta usuario
                 //---------------RespuestaUsuario
                 ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
@@ -317,6 +329,12 @@ namespace preparate
             pregunta.Visibility = ViewStates.Visible;
             switch (p.tipo)
             {
+
+                case 2:
+                    Opciones.Visibility = ViewStates.Gone;
+                    Respuesta.Text = "";
+                    Respuesta.Visibility = ViewStates.Visible;
+                    break;
                 case 3:
                     Opciones.Visibility = ViewStates.Visible;
                     Respuesta.Visibility = ViewStates.Gone;
@@ -377,7 +395,20 @@ namespace preparate
             else
                 return 0;
         }
+        private int validarRespuesta(Pregunta p, string respuesta)
+        {
+            int res = 0;
+            foreach (string opc in pre.opciones)
+            {
+                if(respuesta.Trim().ToLower()== opc.Trim().ToLower())
+                {
+                    res = 1;
+                }
+            }
 
+
+            return res;
+        }
 
     }
 }
