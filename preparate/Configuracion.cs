@@ -11,7 +11,7 @@ using Android.Widget;
 
 namespace preparate
 {
-    [Activity(Label = "Configuración")]
+    [Activity(Label = "Configuración", NoHistory = true)]
     public class Configuracion : Activity
     {
         ImageView Modificar;
@@ -55,16 +55,18 @@ namespace preparate
             //Icono
             alerDialog.SetIcon(Resource.Drawable.Icon);
             //Pregunta
-            alerDialog.SetMessage("¿Estás Seguro?");
+            alerDialog.SetMessage("¿Estás Seguro que deseas cerrar sesión?");
             alerDialog.SetButton("NO", (s, ev) =>
             {
                 StartActivity(typeof(Configuracion));
+                Finish();
             });
             alerDialog.SetButton3("Si", (s, ev) =>
             {
                 appCode.ChangeLoginStatus(this, 0);
                 appCode.SaveUser(this, 0);
                 StartActivity(typeof(MainActivity));
+                Finish();
 
             });
             alerDialog.Show();
@@ -74,6 +76,7 @@ namespace preparate
         private void bModificar_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(ModificarPerfil));
+            Finish();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -85,6 +88,7 @@ namespace preparate
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             StartActivity(typeof(MenuPrincipal));
+            Finish();
             return base.OnOptionsItemSelected(item);
         }
 
@@ -105,14 +109,21 @@ namespace preparate
         private void Aviso_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(AvisoDePrivacidad));
+            Finish();
         }
 
         private void Acerca_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(AcercaDe));
+            Finish();
         }
 
-
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(MenuPrincipal));
+            StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
+        }
 
     }
 }

@@ -14,7 +14,7 @@ using Android.Preferences;
 
 namespace preparate
 {
-    [Activity(Label = "Modificar Datos", Icon = "@drawable/Icon")]
+    [Activity(Label = "Modificar Datos", Icon = "@drawable/Icon", NoHistory = true)]
     public class ModificarPerfil : Activity
     {
         EditText txtNombre;
@@ -76,6 +76,7 @@ namespace preparate
         public override bool OnOptionsItemSelected(IMenuItem item)
         {   
                 StartActivity(typeof(Configuracion));
+            Finish();
             return base.OnOptionsItemSelected(item);
         }
 
@@ -120,6 +121,7 @@ namespace preparate
                     alertDialog.SetButton("OK", (s, ev) =>
                     {
                         StartActivity(typeof(MenuPrincipal));
+                        Finish();
                     });
                     alertDialog.Show();
 
@@ -161,6 +163,13 @@ namespace preparate
             }
             return v;
         }
+
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(Configuracion));
+            StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
+        }
     }
 
 
@@ -201,6 +210,6 @@ namespace preparate
 
 
     //}
-
+   
 
 }

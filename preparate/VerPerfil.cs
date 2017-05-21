@@ -14,7 +14,7 @@ using System.IO;
 
 namespace preparate
 {
-    [Activity(Label = "Perfil")]
+    [Activity(Label = "Perfil",NoHistory = true)]
     public class VerPerfil : Activity
     {
         ImageView perfil;
@@ -154,5 +154,13 @@ namespace preparate
             });
             alerDialog.Show();
         }
+
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(MenuPrincipal));
+            StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
+        }
+
     }
 }

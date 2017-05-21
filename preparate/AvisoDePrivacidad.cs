@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace preparate
 {
-    [Activity(Label = "Nuestro Aviso De Privacidad")]
+    [Activity(Label = "Nuestro Aviso De Privacidad", NoHistory = true)]
     public class AvisoDePrivacidad : Activity
     {
         Button bAceptar;
@@ -36,11 +36,19 @@ namespace preparate
         {
             StartActivity(typeof(Configuracion));
             return base.OnOptionsItemSelected(item);
+            Finish();
         }
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MenuPrincipal));
+            Finish();
+        }
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(Configuracion));
+            StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
         }
     }
 }

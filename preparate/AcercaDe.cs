@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace preparate
 {
-    [Activity(Label = "Acerca De Prepárate")]
+    [Activity(Label = "Acerca De Prepárate", NoHistory = true)]
     public class AcercaDe : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -31,9 +31,17 @@ namespace preparate
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             StartActivity(typeof(Configuracion));
+            Finish();
             return base.OnOptionsItemSelected(item);
+            
         }
 
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(Configuracion));
+            StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
+        }
         //public override bool OnOptionsItemSelected(IMenuItem item)
         //{
         //    switch (item.ItemId)

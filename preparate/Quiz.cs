@@ -51,14 +51,14 @@ namespace preparate
             SetContentView(Resource.Layout.Quiz);
 
 
-            if (!GetString(Resource.String.google_app_id).Equals("1:593192999279:android:7fd609f7126dc407"))
-                throw new System.Exception("Invalid Json file");
-            Task.Run(() =>
-            {
-                var instanceId = FirebaseInstanceId.Instance;
-                instanceId.DeleteInstanceId();
-                Android.Util.Log.Debug("TAG", "{0} {1}", instanceId.Token, instanceId.GetToken(GetString(Resource.String.gcm_defaultSenderId), Firebase.Messaging.FirebaseMessaging.InstanceIdScope));
-            });
+            //if (!GetString(Resource.String.google_app_id).Equals("1:593192999279:android:7fd609f7126dc407"))
+            //    throw new System.Exception("Invalid Json file");
+            //Task.Run(() =>
+            //{
+            //    var instanceId = FirebaseInstanceId.Instance;
+            //    instanceId.DeleteInstanceId();
+            //    Android.Util.Log.Debug("TAG", "{0} {1}", instanceId.Token, instanceId.GetToken(GetString(Resource.String.gcm_defaultSenderId), Firebase.Messaging.FirebaseMessaging.InstanceIdScope));
+            //});
 
 
 
@@ -131,7 +131,7 @@ namespace preparate
             alerDialog.SetButton3("Si", (s, ev) =>
             {
                 StartActivity(typeof(Lista_De_Examenes));
-                
+                Finish(); 
 
             });
             alerDialog.Show();
@@ -304,6 +304,7 @@ namespace preparate
                     alerDialog.SetButton("ACEPTAR", (se, eve) =>
                     {
                         StartActivity(typeof(MenuPrincipal));
+                        Finish();
                     });
                 }
                 alerDialog.Show();

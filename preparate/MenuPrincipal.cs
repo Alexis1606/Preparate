@@ -16,7 +16,7 @@ using System.IO;
 
 namespace preparate
 {
-    [Activity(Label = "MenuPrincipal", Icon = "@drawable/icon", Theme = "@style/MyTheme")]
+    [Activity(Label = "MenuPrincipal", Icon = "@drawable/icon", Theme = "@style/MyTheme", NoHistory = true)]
     public class MenuPrincipal : AppCompatActivity
     {
         //Button test;
@@ -152,5 +152,24 @@ namespace preparate
             }
 
         }
+
+        public override void OnBackPressed()
+        {
+            Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alerDialog = builder.Create();
+            alerDialog.SetTitle("Gracias");
+            //poner imagen de respuesta incorrecta
+            //alerDialog.SetIcon(Resource.Drawable.Icon);
+            alerDialog.SetMessage("Por favor danos tu feedback sobre tu experiencia con la aplicación");
+            alerDialog.CancelEvent += OnDialogCancel;
+            alerDialog.Show();
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
+        }
+
+        private void OnDialogCancel(object sender, EventArgs eventArgs)
+        {
+            Finish();
+        }
+
     }
 }

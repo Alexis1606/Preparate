@@ -13,7 +13,7 @@ using Android.Widget;
 namespace preparate
 {
     //
-    [Activity(Label = "Acceder")]
+    [Activity(Label = "Acceder", NoHistory = true)]
     public class Acceder : Activity
     {
         EditText Correo;
@@ -55,6 +55,7 @@ namespace preparate
                     alertDialog.SetButton("OK", (s, ev) =>
                     {
                         StartActivity(typeof(Acceder));
+                        Finish();
                     });
                     alertDialog.Show();
                 }
@@ -63,6 +64,7 @@ namespace preparate
                     appCode.ChangeLoginStatus(this, 1);
                     appCode.SaveUser(this, numUsuario);
                     StartActivity(typeof(MenuPrincipal));
+                    Finish();
                 }
             }
         }
@@ -88,6 +90,13 @@ namespace preparate
                 v = true;
             }
             return v;
+        }
+
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(Select_Registro));
+           StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
         }
     }
 }

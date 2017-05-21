@@ -12,7 +12,7 @@ using Android.Util;
 
 namespace preparate
 {
-    [Activity(Label = "Crear Perfil", Icon = "@drawable/Icon")]
+    [Activity(Label = "Crear Perfil", Icon = "@drawable/Icon", NoHistory = true)]
     public class Crear_Perfil : Activity
     {
         EditText txtNombre;
@@ -98,6 +98,7 @@ namespace preparate
                             alertDialog.SetButton("OK", (s, ev) =>
                             {
                                 StartActivity(typeof(MenuPrincipal));
+                                Finish();
                             });
                             alertDialog.Show();
                             break;
@@ -170,6 +171,12 @@ namespace preparate
             }
             return v;
         }
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(Select_Registro));
+            StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
+        }
     }
 
 
@@ -208,7 +215,8 @@ namespace preparate
 
         }
 
-        
+       
+
     }
 
 

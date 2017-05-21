@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace preparate
 {
-    [Activity(Label = "Prepárate")]
+    [Activity(Label = "Prepárate", NoHistory = true)]
     public class Select_Registro : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

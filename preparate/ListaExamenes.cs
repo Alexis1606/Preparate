@@ -11,7 +11,7 @@ using Android.Widget;
 
 namespace preparate
 {
-    [Activity(Label = "Quiz")]
+    [Activity(Label = "Quiz", NoHistory = true)]
 
 
     public class Lista_De_Examenes : Activity
@@ -90,7 +90,12 @@ namespace preparate
                 StartActivity(typeof(Oracle));
             }
         }
-
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(MenuPrincipal));
+            StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
+        }
 
     }
 }

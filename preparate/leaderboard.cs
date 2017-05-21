@@ -13,7 +13,7 @@ using Android.Preferences;
 
 namespace preparate
 {
-    [Activity(Label = "leaderboard")]
+    [Activity(Label = "leaderboard", NoHistory = true)]
     public class leaderboard : Activity
     {
         Spinner s1;
@@ -101,7 +101,12 @@ namespace preparate
 
         }
 
-
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(MenuPrincipal));
+            StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
+        }
 
     }
 }
