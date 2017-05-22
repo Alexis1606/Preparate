@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Bluetooth;
+using static Android.Bluetooth.BluetoothClass;
 
 namespace preparate
 {
@@ -17,10 +19,37 @@ namespace preparate
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+           
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AcercaDe);
             // Create your application here
+            Button button = FindViewById<Button>(Resource.Id.ok);
+            button.Click += delegate {
+                var uri = Android.Net.Uri.Parse("tel:01(55)44534567");
+                var intent = new Intent(Intent.ActionDial, uri);
+                StartActivity(intent);
+            };
+
+            Button emailButton = FindViewById<Button>(Resource.Id.correo);
+            emailButton.Click += delegate
+            {
+                var email = new Intent(Android.Content.Intent.ActionSend);
+                email.PutExtra(Android.Content.Intent.ExtraEmail, new string[] {
+            "susairajs@outlook.com",
+            "susairajs18@gmail.com"
+        });
+                email.PutExtra(Android.Content.Intent.ExtraCc, new string[] {
+            "susairajs18@live.com"
+        });
+                email.PutExtra(Android.Content.Intent.ExtraSubject, "Hello Xamarin");
+                email.PutExtra(Android.Content.Intent.ExtraText, "Hello Xamarin This is My Test Mail...!");
+                email.SetType("message/rfc822");
+                StartActivity(email);
+            };
+
+
         }
+
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -42,6 +71,9 @@ namespace preparate
             StartActivity(intent);
             //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
         }
+
+        
+
         //public override bool OnOptionsItemSelected(IMenuItem item)
         //{
         //    switch (item.ItemId)
