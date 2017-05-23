@@ -60,11 +60,12 @@ namespace preparate
 
         private void BValidar_Click(object sender, EventArgs e)
         {
+
             obtener_datos();
             int genero;
 
-            if (validar_contra() && validar_EditText(txtNombre) && validar_EditText(txtApellidos) && validar_EditText(txtEmail) && txtFechaNac.Text!="" && validarMail(txtEmail))                   
-                {
+            if (validar_contra() && validar_EditText(txtNombre) && validar_EditText(txtApellidos) && validar_EditText(txtEmail) && txtFechaNac.Text != "" && validarMail(txtEmail))
+            {
                 if (GeneroMasculino.Checked)
                 {
                     genero = 1;
@@ -74,17 +75,33 @@ namespace preparate
                     genero = 0;
                 }
 
+                Android.App.AlertDialog.Builder builder5 = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alerDialog5 = builder5.Create();
+            //Titulo
+            alerDialog5.SetTitle("Compra");
+            //Icono
+            alerDialog5.SetIcon(Resource.Drawable.Icon);
+            //Pregunta
+            alerDialog5.SetMessage("Al dar Click en continuar aceptas nuestro Aviso de Privacidad.\n el cual lo puedes consultar en: www.preparate.com/AvisoDePrivacidad");
+                alerDialog5.SetButton("Continuar", (si, eve) =>
+                {
+                    StartActivity(typeof(Crear_Perfil));
+                   
+                });
+            
+            alerDialog5.SetButton3("Cancelar", (se, eve) =>
+            {
                 try
                 {
 
-                    string res =API0.User.InsertUser(txtNombre.Text, txtApellidos.Text, "", Convert.ToDateTime(txtFechaNac.Text), tContra1.Text, txtEmail.Text, genero, 1, 1, "a");
+                    string res = API0.User.InsertUser(txtNombre.Text, txtApellidos.Text, "", Convert.ToDateTime(txtFechaNac.Text), tContra1.Text, txtEmail.Text, genero, 1, 1, "a");
                     Android.App.AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     AlertDialog alertDialog = builder.Create();
                     alertDialog.SetTitle("REGISTRO");
                     switch (res)
                     {
                         case "-2":
-                           txtEmail.SetBackgroundColor(Android.Graphics.Color.Red);
+                            txtEmail.SetBackgroundColor(Android.Graphics.Color.Red);
                             alertDialog.SetMessage("La dirección de correo ya existe, por favor ingresa otra dirección ó inicia sesión.");
                             alertDialog.SetButton("OK", (s, ev) =>
                             {
@@ -92,7 +109,7 @@ namespace preparate
                             alertDialog.Show();
                             break;
                         default:
-                           
+
                             alertDialog.SetIcon(Resource.Drawable.Icon);
                             alertDialog.SetMessage("Registro Exitoso");
                             alertDialog.SetButton("OK", (s, ev) =>
@@ -103,17 +120,32 @@ namespace preparate
                             alertDialog.Show();
                             break;
                     }
-                    
+
 
 
                 }
 
                 catch (Exception ex)
                 {
-                 
+
+                }
+
+            });
+            alerDialog5.Show();
+
+
+
+
+
+
+
+
+
+
+
+
                 }
             }
-        }
 
         public void obtener_datos()
         {
