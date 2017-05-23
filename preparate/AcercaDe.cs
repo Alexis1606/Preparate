@@ -35,14 +35,14 @@ namespace preparate
             {
                 var email = new Intent(Android.Content.Intent.ActionSend);
                 email.PutExtra(Android.Content.Intent.ExtraEmail, new string[] {
-            "susairajs@outlook.com",
-            "susairajs18@gmail.com"
+            "susairajs@preparate.com",
+            "susairajs18@preparate.com"
         });
                 email.PutExtra(Android.Content.Intent.ExtraCc, new string[] {
-            "susairajs18@live.com"
+            "susairajs18@preparate.com"
         });
-                email.PutExtra(Android.Content.Intent.ExtraSubject, "Hello Xamarin");
-                email.PutExtra(Android.Content.Intent.ExtraText, "Hello Xamarin This is My Test Mail...!");
+                email.PutExtra(Android.Content.Intent.ExtraSubject, "Comentario");
+                email.PutExtra(Android.Content.Intent.ExtraText, "Danos tu comentario");
                 email.SetType("message/rfc822");
                 StartActivity(email);
             };
