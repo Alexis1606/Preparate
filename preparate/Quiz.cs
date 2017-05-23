@@ -15,7 +15,7 @@ using Firebase.Iid;
 
 namespace preparate
 {
-    [Activity(Label = "Quiz")]
+    [Activity(Label = "Quiz",NoHistory =true)]
     public class Quiz : Activity
     {
         Button bEnviar;
@@ -409,6 +409,13 @@ namespace preparate
 
 
             return res;
+        }
+
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(MenuPrincipal));
+            StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
         }
 
     }

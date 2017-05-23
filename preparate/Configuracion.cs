@@ -11,7 +11,7 @@ using Android.Widget;
 
 namespace preparate
 {
-    [Activity(Label = "Configuración", NoHistory = true)]
+    [Activity(Label = "Configuración", NoHistory = false)]
     public class Configuracion : Activity
     {
         ImageView Modificar;
@@ -43,7 +43,9 @@ namespace preparate
 
         private void FeedBack_Click(object sender, EventArgs e)
         {
-            //Abrir la encuesta
+            var uri = Android.Net.Uri.Parse("http://www.google.com");
+            var intent = new Intent(Intent.ActionView, uri);
+            StartActivity(intent);
         }
 
         private void CerrarSesion_Click(object sender, EventArgs e)
@@ -122,6 +124,7 @@ namespace preparate
         {
             var intent = new Intent(this, typeof(MenuPrincipal));
             StartActivity(intent);
+            Finish();
             //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
         }
 

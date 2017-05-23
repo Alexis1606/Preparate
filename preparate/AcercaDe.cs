@@ -14,7 +14,7 @@ using static Android.Bluetooth.BluetoothClass;
 
 namespace preparate
 {
-    [Activity(Label = "Acerca De Prepárate", NoHistory = true)]
+    [Activity(Label = "Acerca De Prepárate")]
     public class AcercaDe : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -69,6 +69,7 @@ namespace preparate
         {
             var intent = new Intent(this, typeof(Configuracion));
             StartActivity(intent);
+            Finish();
             //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
         }
 
