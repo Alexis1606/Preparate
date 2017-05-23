@@ -1652,13 +1652,13 @@ namespace preparate
 			public const int Bien = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int CopaGanador = 2130837592;
+			public const int CopaGanador1 = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int CopaSegundo = 2130837593;
+			public const int CopaSegundo2 = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int CopaTercero = 2130837594;
+			public const int CopaTercero3 = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
 			public const int CrearPerfil = 2130837595;

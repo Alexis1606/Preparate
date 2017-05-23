@@ -286,17 +286,17 @@ namespace preparate
                     if (calificacion<= 3)
                     {
                         alerDialog.SetTitle("Necesitas estudiar más.");
-                        alerDialog.SetIcon(Resource.Drawable.CopaTercero);
+                        alerDialog.SetIcon(Resource.Drawable.CopaTercero3);
                     }
                     else if(calificacion <= 7)
                     {
                         alerDialog.SetTitle("Buen intento, pero aún hay camino por recorrer.");
-                        alerDialog.SetIcon(Resource.Drawable.CopaSegundo);
+                        alerDialog.SetIcon(Resource.Drawable.CopaSegundo2);
                     }
                     else
                     {
                         alerDialog.SetTitle("¡FELICITACIONES!");
-                        alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                        alerDialog.SetIcon(Resource.Drawable.CopaGanador1);
                     }
                             
                     
