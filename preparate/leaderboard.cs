@@ -59,7 +59,10 @@ namespace preparate
         private void spinner1_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
 
-            et.Text = API0.Leaderboard.get_leadboard(te[e.Position].id);
+            //et.Text = API0.Leaderboard.get_leadboard(te[e.Position].id);
+
+
+
 
             ////Spinner spinner = (Spinner)sender;
 

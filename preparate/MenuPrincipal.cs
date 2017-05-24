@@ -46,14 +46,14 @@ namespace preparate
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.MenuPrincipal);
 
-            if (!GetString(Resource.String.google_app_id).Equals("1:593192999279:android:7fd609f7126dc407"))
-                throw new System.Exception("Invalid Json file");
-            Task.Run(() =>
-            {
-                var instanceId = FirebaseInstanceId.Instance;
-                instanceId.DeleteInstanceId();
-                Android.Util.Log.Debug("TAG", "{0} {1}", instanceId.Token, instanceId.GetToken(GetString(Resource.String.gcm_defaultSenderId), Firebase.Messaging.FirebaseMessaging.InstanceIdScope));
-            });
+            //if (!GetString(Resource.String.google_app_id).Equals("1:593192999279:android:7fd609f7126dc407"))
+            //    throw new System.Exception("Invalid Json file");
+            //Task.Run(() =>
+            //{
+            //    var instanceId = FirebaseInstanceId.Instance;
+            //    instanceId.DeleteInstanceId();
+            //    Android.Util.Log.Debug("TAG", "{0} {1}", instanceId.Token, instanceId.GetToken(GetString(Resource.String.gcm_defaultSenderId), Firebase.Messaging.FirebaseMessaging.InstanceIdScope));
+            //});
 
 
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
@@ -155,7 +155,7 @@ namespace preparate
             else
                 if (l == "LeaderBoard")
             {
-                StartActivity(typeof(leaderboard));
+                StartActivity(typeof(LeaderBoard2));
             }
             else
                 if (l == "Configuración")
