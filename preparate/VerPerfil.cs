@@ -14,7 +14,7 @@ using System.IO;
 
 namespace preparate
 {
-    [Activity(Label = "Perfil",NoHistory = true)]
+    [Activity(Label = "Perfil",NoHistory = false)]
     public class VerPerfil : Activity
     {
         ImageView perfil;
@@ -123,6 +123,7 @@ namespace preparate
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             StartActivity(typeof(MenuPrincipal));
+            Finish();
             return base.OnOptionsItemSelected(item);
         }
 
@@ -159,6 +160,7 @@ namespace preparate
         {
             var intent = new Intent(this, typeof(MenuPrincipal));
             StartActivity(intent);
+            Finish();
             //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
         }
 
