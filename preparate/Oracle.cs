@@ -14,7 +14,7 @@ using System.Net;
 
 namespace preparate
 {
-    [Activity(Label = "Oracle")]
+    [Activity(Label = "Oracle", NoHistory = true)]
     public class Oracle : Activity
     {
         Button bEnviar;
@@ -44,10 +44,22 @@ namespace preparate
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            examen = 1;
+            examen = 2;
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.Oracle);
+            SetContentView(Resource.Layout.Quiz);
+
+
+            //if (!GetString(Resource.String.google_app_id).Equals("1:593192999279:android:7fd609f7126dc407"))
+            //    throw new System.Exception("Invalid Json file");
+            //Task.Run(() =>
+            //{
+            //    var instanceId = FirebaseInstanceId.Instance;
+            //    instanceId.DeleteInstanceId();
+            //    Android.Util.Log.Debug("TAG", "{0} {1}", instanceId.Token, instanceId.GetToken(GetString(Resource.String.gcm_defaultSenderId), Firebase.Messaging.FirebaseMessaging.InstanceIdScope));
+            //});
+
+
 
             //spinner1 = FindViewById<Spinner>(Resource.Id.spinner1);
             //spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
@@ -118,7 +130,7 @@ namespace preparate
             alerDialog.SetButton3("Si", (s, ev) =>
             {
                 StartActivity(typeof(Lista_De_Examenes));
-
+                Finish();
 
             });
             alerDialog.Show();
@@ -179,12 +191,24 @@ namespace preparate
                     break;
             }
             //si content[o la pregunta
-            if (i < (r.Length - 1))
+            if (i < (r.Length - 1) || pre.tipo == 2)
             {
                 Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
                 Android.App.AlertDialog alerDialog = builder.Create();
                 //valida si est[a bien la pregunta
-                if (validarRespuesta(pre, i) == 1)
+                int validadorpregunta = 0;
+                if (pre.tipo == 2)
+                {
+
+                    validadorpregunta = validarRespuesta(pre, Respuesta.Text);
+
+                }
+                else
+                {
+                    validadorpregunta = validarRespuesta(pre, i);
+                }
+
+                if (validadorpregunta == 1)
                 {
                     calificacion++;
 
@@ -256,13 +280,31 @@ namespace preparate
                 else
                 {
                     Validar.Visibility = ViewStates.Visible;
-                    alerDialog.SetTitle("FELICITACIONES");
+
+
                     alerDialog.CancelEvent += OnDialogCancel;
-                    alerDialog.SetIcon(Resource.Drawable.CopaGanador1);
+                    if (calificacion <= 3)
+                    {
+                        alerDialog.SetTitle("Necesitas estudiar más.");
+                        alerDialog.SetIcon(Resource.Drawable.CopaTercero3);
+                    }
+                    else if (calificacion <= 7)
+                    {
+                        alerDialog.SetTitle("Buen intento, pero aún hay camino por recorrer.");
+                        alerDialog.SetIcon(Resource.Drawable.CopaSegundo2);
+                    }
+                    else
+                    {
+                        alerDialog.SetTitle("¡FELICITACIONES!");
+                        alerDialog.SetIcon(Resource.Drawable.CopaGanador1);
+                    }
+
+
                     alerDialog.SetMessage("Haz Obtenido: " + (calificacion) + " Puntos");
                     alerDialog.SetButton("ACEPTAR", (se, eve) =>
                     {
                         StartActivity(typeof(MenuPrincipal));
+                        Finish();
                     });
                 }
                 alerDialog.Show();
@@ -288,6 +330,12 @@ namespace preparate
             pregunta.Visibility = ViewStates.Visible;
             switch (p.tipo)
             {
+
+                case 2:
+                    Opciones.Visibility = ViewStates.Gone;
+                    Respuesta.Text = "";
+                    Respuesta.Visibility = ViewStates.Visible;
+                    break;
                 case 3:
                     Opciones.Visibility = ViewStates.Visible;
                     Respuesta.Visibility = ViewStates.Gone;
@@ -349,7 +397,27 @@ namespace preparate
             else
                 return 0;
         }
+        private int validarRespuesta(Pregunta p, string respuesta)
+        {
+            int res = 0;
+            foreach (string opc in pre.opciones)
+            {
+                if (respuesta.Trim().ToLower() == opc.Trim().ToLower())
+                {
+                    res = 1;
+                }
+            }
 
+
+            return res;
+        }
+
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(MenuPrincipal));
+            StartActivity(intent);
+            //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
+        }
 
     }
 }

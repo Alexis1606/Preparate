@@ -172,7 +172,19 @@ namespace preparate
             alerDialog.SetTitle("Gracias");
             //poner imagen de respuesta incorrecta
             //alerDialog.SetIcon(Resource.Drawable.Icon);
-            alerDialog.SetMessage("Por favor danos tu feedback sobre tu experiencia con la aplicación");
+            alerDialog.SetMessage("Por favor danos tu opinión sobre tu experiencia con la aplicación");
+            alerDialog.SetButton("Ir a feedback", (se, eve) =>
+            {
+                var uri = Android.Net.Uri.Parse("http://www.google.com");
+                var intent = new Intent(Intent.ActionView, uri);
+                StartActivity(intent);
+                Finish();
+            });
+            alerDialog.SetButton2("Ahora no", (se, eve) =>
+            {
+                
+                Finish();
+            });
             alerDialog.CancelEvent += OnDialogCancel;
             alerDialog.Show();
             //base.OnBackPressed(); -> DO NOT CALL THIS LINE OR WILL NAVIGATE BACK
