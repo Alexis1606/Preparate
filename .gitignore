@@ -241,3 +241,5 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /preparate/AvisoDePrivacidadPefil.cs
+/preparate/Resources/drawable/CopaSegundo.png
+/preparate/Resources/drawable/CopaTercero.png

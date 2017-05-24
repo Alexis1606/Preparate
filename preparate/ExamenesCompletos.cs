@@ -125,7 +125,7 @@ namespace preparate
             //Titulo
             alerDialog.SetTitle("FELICITACIONES");
             //Icono
-            alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+            alerDialog.SetIcon(Resource.Drawable.CopaGanador1);
             //Pregunta
             alerDialog.SetMessage("Haz Obtenido: " + "100" + " Puntos");
             alerDialog.SetButton("ACEPTAR", (se, eve) =>

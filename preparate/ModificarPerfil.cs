@@ -148,7 +148,10 @@ namespace preparate
                 alertDialog.SetTitle("Correo inválido");
                 alertDialog.SetIcon(Resource.Drawable.Icon);
                 alertDialog.SetMessage("Correo con formato inválido." + System.Environment.NewLine + "Ingresa un correo con el formato" + System.Environment.NewLine + "example@example.com" + System.Environment.NewLine);
-                alertDialog.Show();
+                alertDialog.SetButton("OK", (s, ev) =>
+                {
+                });
+                alertDialog.Show();                
                 return false;
             }
         }

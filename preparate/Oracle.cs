@@ -258,7 +258,7 @@ namespace preparate
                     Validar.Visibility = ViewStates.Visible;
                     alerDialog.SetTitle("FELICITACIONES");
                     alerDialog.CancelEvent += OnDialogCancel;
-                    alerDialog.SetIcon(Resource.Drawable.CopaGanador);
+                    alerDialog.SetIcon(Resource.Drawable.CopaGanador1);
                     alerDialog.SetMessage("Haz Obtenido: " + (calificacion) + " Puntos");
                     alerDialog.SetButton("ACEPTAR", (se, eve) =>
                     {
