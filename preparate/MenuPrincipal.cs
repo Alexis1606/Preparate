@@ -175,7 +175,7 @@ namespace preparate
             alerDialog.SetMessage("Por favor danos tu opinión sobre tu experiencia con la aplicación");
             alerDialog.SetButton("Ir a feedback", (se, eve) =>
             {
-                var uri = Android.Net.Uri.Parse("http://www.google.com");
+                var uri = Android.Net.Uri.Parse("https://docs.google.com/forms/d/e/1FAIpQLSe_BMvCLkessoOfpOSJsg1bcb49K3U_oj3OQH8r2yYMZX0tRA/viewform?usp=sf_link");
                 var intent = new Intent(Intent.ActionView, uri);
                 StartActivity(intent);
                 Finish();
