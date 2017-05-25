@@ -12,6 +12,8 @@ using Android.Widget;
 using Java.Lang;
 using Android.Net;
 using Android.Util;
+using Android.Preferences;
+using API0;
 
 namespace preparate
 {
@@ -35,6 +37,17 @@ namespace preparate
             DetectNetwork();
             DetectNetworks();
             DetectNetworkT();
+
+            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            int user = prefs.GetInt("user", 0);
+            User Datos = new User(user);
+
+            API0.InicioSesion.InsertInicioSesion(user);
+
+
+
+
+
 
             //--------------------------------------------
 

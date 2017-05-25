@@ -48,6 +48,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Estadisticas.cs" />
     <Compile Include="Examen.cs" />
+    <Compile Include="InicioSesion.cs" />
     <Compile Include="Leaderboard.cs" />
     <Compile Include="Materia.cs" />
     <Compile Include="Pantalla.cs" />
