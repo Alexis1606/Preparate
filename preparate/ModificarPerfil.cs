@@ -91,6 +91,10 @@ namespace preparate
 
         private void BValidar_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+            
             //obtener_datos();
             int genero;
 
@@ -133,6 +137,11 @@ namespace preparate
                     string x = ex.ToString();
                     int x1 = 0;
                 }
+            }
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, "Parece que hubo un error al intentar modificar los datos. Inténtalo de nuevo.", ToastLength.Long).Show();
             }
         }
 

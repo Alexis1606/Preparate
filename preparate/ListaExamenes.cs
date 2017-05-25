@@ -82,12 +82,24 @@ namespace preparate
             }
             if (l.tipodeExamen == "CCNA")
             {
+                try
+                {
                 StartActivity(typeof(Quiz));
+                }catch(Exception ex)
+                {
+
+                }
             }
 
             if (l.tipodeExamen == "ORACLE")
             {
+                try { 
                 StartActivity(typeof(Oracle));
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
         }
         public override void OnBackPressed()

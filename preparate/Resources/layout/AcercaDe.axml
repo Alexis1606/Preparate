@@ -30,7 +30,7 @@
         android:id="@+id/textView4" />
     <Button
         android:id="@+id/correo"
-        android:text="Mandanos un correo"
+        android:text="Mándanos un correo"
         android:textColor="#FFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="60dp" />
     <TextView
-        android:text="Correo Electronico: Preparate@egel.edu.mx"
+        android:text="Correo Electrónico: Preparate@egel.edu.mx"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
         android:layout_marginTop="20dp"
         android:id="@+id/textView7" />
     <TextView
-        android:text="Contácto: 01(55)44534567"
+        android:text="Contácto: (55)44533405"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
         android:id="@+id/textView5" />
     <Button
         android:id="@+id/ok"
-        android:text="Llamanos"
+        android:text="Llámanos"
         android:textColor="#FFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

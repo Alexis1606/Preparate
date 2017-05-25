@@ -134,6 +134,11 @@ namespace preparate
 
         private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
+            try
+            {
+
+            
+
             var listView = sender as ListView;
             var l = gridViewString[e.Position];
             if (l == "Quiz")
@@ -162,7 +167,11 @@ namespace preparate
             {
                 StartActivity(typeof(Configuracion));
             }
+            }
+            catch (Exception ex)
+            {
 
+            }
         }
 
         public override void OnBackPressed()
@@ -175,14 +184,21 @@ namespace preparate
             alerDialog.SetMessage("Por favor danos tu opinión sobre tu experiencia con la aplicación");
             alerDialog.SetButton("Ir a feedback", (se, eve) =>
             {
+                try
+                {
+
+                
                 var uri = Android.Net.Uri.Parse("https://docs.google.com/forms/d/e/1FAIpQLSe_BMvCLkessoOfpOSJsg1bcb49K3U_oj3OQH8r2yYMZX0tRA/viewform?usp=sf_link");
                 var intent = new Intent(Intent.ActionView, uri);
                 StartActivity(intent);
                 Finish();
+                }catch(Exception e)
+                {
+
+                }
             });
             alerDialog.SetButton2("Ahora no", (se, eve) =>
-            {
-                
+            {                
                 Finish();
             });
             alerDialog.CancelEvent += OnDialogCancel;

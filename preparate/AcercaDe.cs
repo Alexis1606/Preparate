@@ -25,9 +25,15 @@ namespace preparate
             // Create your application here
             Button button = FindViewById<Button>(Resource.Id.ok);
             button.Click += delegate {
-                var uri = Android.Net.Uri.Parse("tel:01(55)44534567");
+                try
+                {
+
+                
+                var uri = Android.Net.Uri.Parse("tel:(55)44533405");
                 var intent = new Intent(Intent.ActionDial, uri);
                 StartActivity(intent);
+                }catch(Exception ex) { 
+}
             };
 
             Button emailButton = FindViewById<Button>(Resource.Id.correo);
