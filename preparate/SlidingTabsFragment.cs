@@ -124,14 +124,16 @@ namespace preparate
                     //string respuestas = API0.Estadisticas.GetPorcentajeTemamenor80(user);
                     TextView prueba = view.FindViewById<TextView>(Resource.Id.Prueba);
                     prueba.Text = " ";
-
+                    Spinner s1 = view.FindViewById<Spinner>(Resource.Id.spinner1);
+                    s1.Visibility = ViewStates.Gone;
+                    prueba.Visibility = ViewStates.Gone;
 
                     TextView prueba2 = view.FindViewById<TextView>(Resource.Id.Prueba2);
                     prueba2.Text = "CCNA";
                     string respuestasccna = API0.Estadisticas.GetPorcentajeTemamenor80CCNA(user);
                     TextView prueba3 = view.FindViewById<TextView>(Resource.Id.Prueba3);
                     prueba3.Text = respuestasccna;
-
+                    
                     TextView prueba4 = view.FindViewById<TextView>(Resource.Id.Prueba4);
                     prueba4.Text = "ORACLE";
                     string respuestasORACLE = API0.Estadisticas.GetPorcentajeTemamenor80ORACLE(user);

@@ -39,33 +39,41 @@ namespace preparate
 
         private void bAcceder_Click(object sender, EventArgs e)
         {
-            int numUsuario;
-            if (validar_EditText(Correo) && validar_EditText(Contrasena) && validarMail(Correo))
+            try
             {
-                correo2 = Correo.Text;
-                contrasena2 = Contrasena.Text;
-                numUsuario = API0.User.login(correo2, contrasena2);
-                if (numUsuario == 0)
+                
+                int numUsuario;
+                if (validar_EditText(Correo) && validar_EditText(Contrasena) && validarMail(Correo))
                 {
-                    Android.App.AlertDialog.Builder build = new AlertDialog.Builder(this);
-                    AlertDialog alertDialog = build.Create();
-                    alertDialog.SetTitle("Mensaje");
-                    alertDialog.SetIcon(Android.Resource.Drawable.IcDialogAlert);
-                    alertDialog.SetMessage("Parece que hubo un error al intentar iniciar sesión");
-                    alertDialog.SetButton("OK", (s, ev) =>
+                    correo2 = Correo.Text;
+                    contrasena2 = Contrasena.Text;
+                    numUsuario = API0.User.login(correo2, contrasena2);
+                    if (numUsuario == 0)
                     {
-                        StartActivity(typeof(Acceder));
+                        Android.App.AlertDialog.Builder build = new AlertDialog.Builder(this);
+                        AlertDialog alertDialog = build.Create();
+                        alertDialog.SetTitle("Mensaje");
+                        alertDialog.SetIcon(Android.Resource.Drawable.IcDialogAlert);
+                        alertDialog.SetMessage("Datos incorrectos.\nIntentalo de nuevo");
+                        alertDialog.SetButton("OK", (s, ev) =>
+                        {
+                            StartActivity(typeof(Acceder));
+                            Finish();
+                        });
+                        alertDialog.Show();
+                    }
+                    else
+                    {
+                        appCode.ChangeLoginStatus(this, 1);
+                        appCode.SaveUser(this, numUsuario);
+                        StartActivity(typeof(MenuPrincipal));
                         Finish();
-                    });
-                    alertDialog.Show();
+                    }
                 }
-                else
-                {
-                    appCode.ChangeLoginStatus(this, 1);
-                    appCode.SaveUser(this, numUsuario);
-                    StartActivity(typeof(MenuPrincipal));
-                    Finish();
-                }
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, "Parece que hubo un error al intentar iniciar sesión.\nInténtalo de nuevo.", ToastLength.Long).Show();
             }
         }
 

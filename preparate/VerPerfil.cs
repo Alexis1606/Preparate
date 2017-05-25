@@ -85,6 +85,7 @@ namespace preparate
         //ver foto
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
+            try { 
             base.OnActivityResult(requestCode, resultCode, data);
             Bitmap bitmap = (Bitmap)data.Extras.Get("data");
             perfil.SetImageBitmap(bitmap);
@@ -111,7 +112,11 @@ namespace preparate
                 bitmap.Compress(Bitmap.CompressFormat.Jpeg, 95, os);
                 os.Close();
             }
-            
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -132,6 +137,7 @@ namespace preparate
         //Al dar click en la foto
         private void perfil_Click(object sender, EventArgs e)
         {
+
             Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alerDialog = builder.Create();
             //Titulo
@@ -146,10 +152,17 @@ namespace preparate
             });
             alerDialog.SetButton3("Si", (s, ev) =>
             {
+                try
+                {
 
+                
                 Intent intent = new Intent(MediaStore.ActionImageCapture);
                 StartActivityForResult(intent, 0);
-                //StartActivity(typeof(MenuPrincipal));
+                }
+                catch (Exception ex)
+                {
+
+                }
             });
             alerDialog.Show();
         }
