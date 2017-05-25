@@ -16,6 +16,7 @@ namespace preparate
     [Activity(Label = "preparate", MainLauncher = true, Theme = "@style/Theme.Splash", NoHistory = true, Icon = "@drawable/Icon")]
     public class MainActivity : Activity
     {
+        ISharedPreferences prefs;
         public bool IsConnected
         {
             get
@@ -31,13 +32,16 @@ namespace preparate
             //Display Splash Screen for 4 Sec
             Thread.Sleep(2000);
 
-
-
-            ISharedPreferences prefs1 = PreferenceManager.GetDefaultSharedPreferences(this);
-            int user = prefs1.GetInt("user", 0);
-            User Datos = new User(user);
+            prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            int user = prefs.GetInt("user", 0);
 
             API0.InicioSesion.InsertInicioSesion(user);
+
+            //ISharedPreferences prefs1 = PreferenceManager.GetDefaultSharedPreferences(this);
+            //int user = prefs1.GetInt("user", 0);
+            //User Datos = new User(user);
+
+            //API0.InicioSesion.InsertInicioSesion(user);
 
 
 
@@ -55,7 +59,7 @@ namespace preparate
                     StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionSettings));
                 }
                 else{
-                    ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+                    prefs = PreferenceManager.GetDefaultSharedPreferences(this);
                     int Logged_status = prefs.GetInt("Logged_in", 0);
                     if (Logged_status == 0)
                     {
@@ -81,8 +85,10 @@ namespace preparate
 
         private void goToLogin()
         {
+           
             //aqui va el c[odigo para llevar a la  poantalla de login
             StartActivity(typeof(Select_Registro));
+         
         }
 
     }
