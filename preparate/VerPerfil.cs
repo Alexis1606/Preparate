@@ -127,9 +127,7 @@ namespace preparate
             return base.OnOptionsItemSelected(item);
         }
 
-        public void RespuestasCorrectas() {
-            RespuestaCorrecta = API0.Estadisticas.GetRespuestasCorrectasXUsuario(user);
-        }
+     
 
         //Al dar click en la foto
         private void perfil_Click(object sender, EventArgs e)

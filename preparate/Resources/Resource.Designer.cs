@@ -2700,20 +2700,20 @@ namespace preparate
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060026
-			public const int ApplicationName = 2131099686;
+			// aapt resource value: 0x7f06002d
+			public const int ApplicationName = 2131099693;
 			
-			// aapt resource value: 0x7f060022
-			public const int Hello = 2131099682;
+			// aapt resource value: 0x7f060029
+			public const int Hello = 2131099689;
 			
-			// aapt resource value: 0x7f060025
-			public const int SpinCantidadPreg = 2131099685;
+			// aapt resource value: 0x7f06002c
+			public const int SpinCantidadPreg = 2131099692;
 			
-			// aapt resource value: 0x7f060023
-			public const int SpinTiempo = 2131099683;
+			// aapt resource value: 0x7f06002a
+			public const int SpinTiempo = 2131099690;
 			
-			// aapt resource value: 0x7f060024
-			public const int SpinTiempo3 = 2131099684;
+			// aapt resource value: 0x7f06002b
+			public const int SpinTiempo3 = 2131099691;
 			
 			// aapt resource value: 0x7f060001
 			public const int abc_action_bar_home_description = 2131099649;
@@ -2811,11 +2811,32 @@ namespace preparate
 			// aapt resource value: 0x7f060000
 			public const int common_google_play_services_unknown_issue = 2131099648;
 			
-			// aapt resource value: 0x7f060028
-			public const int sample_hide_log = 2131099688;
+			// aapt resource value: 0x7f060024
+			public const int default_web_client_id = 2131099684;
+			
+			// aapt resource value: 0x7f060025
+			public const int firebase_database_url = 2131099685;
+			
+			// aapt resource value: 0x7f060022
+			public const int gcm_defaultSenderId = 2131099682;
+			
+			// aapt resource value: 0x7f060026
+			public const int google_api_key = 2131099686;
+			
+			// aapt resource value: 0x7f060023
+			public const int google_app_id = 2131099683;
 			
 			// aapt resource value: 0x7f060027
-			public const int sample_show_log = 2131099687;
+			public const int google_crash_reporting_api_key = 2131099687;
+			
+			// aapt resource value: 0x7f060028
+			public const int google_storage_bucket = 2131099688;
+			
+			// aapt resource value: 0x7f06002f
+			public const int sample_hide_log = 2131099695;
+			
+			// aapt resource value: 0x7f06002e
+			public const int sample_show_log = 2131099694;
 			
 			// aapt resource value: 0x7f060014
 			public const int search_menu_title = 2131099668;

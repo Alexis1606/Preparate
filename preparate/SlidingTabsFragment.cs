@@ -70,12 +70,16 @@ namespace preparate
             EditText et;
             API0.TipoExamen[] te;
             int user = 0;
-            int IDExam = 1;
+            int IDExam = 0;
+            View view;
+            ViewGroup container;
+            TextView prueba3;
+            TextView prueba;
             public override Java.Lang.Object InstantiateItem(ViewGroup container, int position)
             {
                 
 
-                View view = LayoutInflater.From(container.Context).Inflate(Resource.Layout.pager_item, container, false);
+                view = LayoutInflater.From(container.Context).Inflate(Resource.Layout.pager_item, container, false);
                 container.AddView(view);
                 
 
@@ -84,9 +88,9 @@ namespace preparate
                 {
                     ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(container.Context);
                     int  user = prefs.GetInt("user", 0);
-                    string respuestas = API0.Estadisticas.GetRespuestasCorrectasXUsuario(user);
-                    TextView prueba = view.FindViewById<TextView>(Resource.Id.Prueba2);
-                    prueba.Text = respuestas;
+                    //string respuestas = API0.Estadisticas.GetRespuestasCorrectasXUsuario(user);
+                    prueba = view.FindViewById<TextView>(Resource.Id.Prueba2);
+                    //prueba.Text = respuestas;
 
                     TextView Examenes = view.FindViewById<TextView>(Resource.Id.Prueba4);
                     string examenes = API0.Estadisticas.GetExamenesHechos(user);
@@ -105,9 +109,9 @@ namespace preparate
                     var adapter = new ArrayAdapter<string>(container.Context, Android.Resource.Layout.SimpleSpinnerItem, items);
                     s1.Adapter = adapter;
                     s1.ItemSelected += spinner1_ItemSelected;
-                    IDExam = te[1].id;
-                    TextView prueba3 = view.FindViewById<TextView>(Resource.Id.Prueba6);
-                    prueba3.Text = API0.Estadisticas.GetVecesRealizadasXExamen(user, IDExam);
+                    //IDExam = te[].id;
+                    prueba3 = view.FindViewById<TextView>(Resource.Id.Prueba6);
+                    //prueba3.Text = API0.Estadisticas.GetVecesRealizadasXExamen(user, IDExam);
                 }
 
 
@@ -117,18 +121,22 @@ namespace preparate
        
                     ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(container.Context);
                      user = prefs.GetInt("user", 0);
-                    string respuestas = API0.Estadisticas.GetPorcentajeTemamenor80(user);
+                    //string respuestas = API0.Estadisticas.GetPorcentajeTemamenor80(user);
                     TextView prueba = view.FindViewById<TextView>(Resource.Id.Prueba);
-                    prueba.Text = respuestas;
+                    prueba.Text = " ";
+
 
                     TextView prueba2 = view.FindViewById<TextView>(Resource.Id.Prueba2);
-                    prueba2.Text = " ";
+                    prueba2.Text = "CCNA";
+                    string respuestasccna = API0.Estadisticas.GetPorcentajeTemamenor80CCNA(user);
                     TextView prueba3 = view.FindViewById<TextView>(Resource.Id.Prueba3);
-                    prueba3.Text = " ";
+                    prueba3.Text = respuestasccna;
+
                     TextView prueba4 = view.FindViewById<TextView>(Resource.Id.Prueba4);
-                    prueba4.Text = " ";
+                    prueba4.Text = "ORACLE";
+                    string respuestasORACLE = API0.Estadisticas.GetPorcentajeTemamenor80ORACLE(user);
                     TextView prueba5 = view.FindViewById<TextView>(Resource.Id.Prueba5);
-                    prueba5.Text = " ";
+                    prueba5.Text = respuestasORACLE;
                     TextView prueba6 = view.FindViewById<TextView>(Resource.Id.Prueba6);
                     prueba6.Text = " ";
 
@@ -159,7 +167,11 @@ namespace preparate
             private void spinner1_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
             {
 
+                IDExam = te[e.Position].id;
                 //et.Text = API0.Estadisticas.GetVecesRealizadasXExamen(user, 1);
+                prueba3.Text = API0.Estadisticas.GetVecesRealizadasXExamen(user, IDExam);
+                prueba.Text = API0.Estadisticas.GetRespuestasCorrectasXUsuario(user , IDExam);
+
 
             }
 
