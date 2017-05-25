@@ -17,7 +17,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -54,6 +54,7 @@
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -123,6 +124,11 @@
     <Compile Include="CustomGridViewAdapter.cs" />
     <Compile Include="ExamenesCompletos.cs" />
     <Compile Include="leaderboard.cs" />
+    <Compile Include="LeaderBoard\AdaptarLeader.cs" />
+    <Compile Include="LeaderBoard\ExtMethods.cs" />
+    <Compile Include="LeaderBoard\Leader.cs" />
+    <Compile Include="LeaderBoard\LeaderBoard2.cs" />
+    <Compile Include="LeaderBoard\MyAnimation.cs" />
     <Compile Include="ListaExamenes.cs" />
     <Compile Include="ListaExamenesCompletos.cs" />
     <Compile Include="MainActivity.cs" />
@@ -211,6 +217,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Oracle.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\LeaderBoard2.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\row_Leader.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -373,6 +385,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\CopaTercero3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_action_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\actionbarSearch.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
