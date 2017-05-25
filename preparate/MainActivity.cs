@@ -17,6 +17,8 @@ namespace preparate
     public class MainActivity : Activity
     {
         ISharedPreferences prefs;
+        int user = 0;
+
         public bool IsConnected
         {
             get
@@ -32,10 +34,10 @@ namespace preparate
             //Display Splash Screen for 4 Sec
             Thread.Sleep(2000);
 
-            prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            int user = prefs.GetInt("user", 0);
+            //prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            //int user = prefs.GetInt("user", 0);
+            //API0.InicioSesion.InsertInicioSesion(user);
 
-            API0.InicioSesion.InsertInicioSesion(user);
 
             //ISharedPreferences prefs1 = PreferenceManager.GetDefaultSharedPreferences(this);
             //int user = prefs1.GetInt("user", 0);
@@ -61,13 +63,24 @@ namespace preparate
                 else{
                     prefs = PreferenceManager.GetDefaultSharedPreferences(this);
                     int Logged_status = prefs.GetInt("Logged_in", 0);
+                    user = prefs.GetInt("user", 0);
+
+                    if (user != 0)
+                    {
+                        API0.InicioSesion.InsertInicioSesion(user);
+                    }
+                    
                     if (Logged_status == 0)
                     {
+                        
                         goToLogin();
 
                     }
                     else
                     {
+                        //prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+                        //user = prefs.GetInt("user", 0);
+                        //API0.InicioSesion.InsertInicioSesion(user);
                         StartActivity(typeof(MenuPrincipal));
                     }
                 }
@@ -85,10 +98,8 @@ namespace preparate
 
         private void goToLogin()
         {
-           
             //aqui va el c[odigo para llevar a la  poantalla de login
             StartActivity(typeof(Select_Registro));
-         
         }
 
     }
