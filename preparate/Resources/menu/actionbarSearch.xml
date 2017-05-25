@@ -1,0 +1,11 @@
+﻿<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item android:id="@+id/search"
+        android:showAsAction="always"
+        android:title="Búscar"
+        android:icon="@drawable/ic_action_search"/>
+  <item android:id="@+id/menu"
+       android:showAsAction="always"
+       android:title="Regresar al menú"
+       android:icon="@drawable/Inicio"/>
+</menu>

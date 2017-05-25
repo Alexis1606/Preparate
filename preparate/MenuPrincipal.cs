@@ -46,14 +46,14 @@ namespace preparate
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.MenuPrincipal);
 
-            if (!GetString(Resource.String.google_app_id).Equals("1:593192999279:android:7fd609f7126dc407"))
-                throw new System.Exception("Invalid Json file");
-            Task.Run(() =>
-            {
-                var instanceId = FirebaseInstanceId.Instance;
-                instanceId.DeleteInstanceId();
-                Android.Util.Log.Debug("TAG", "{0} {1}", instanceId.Token, instanceId.GetToken(GetString(Resource.String.gcm_defaultSenderId), Firebase.Messaging.FirebaseMessaging.InstanceIdScope));
-            });
+            //if (!GetString(Resource.String.google_app_id).Equals("1:593192999279:android:7fd609f7126dc407"))
+            //    throw new System.Exception("Invalid Json file");
+            //Task.Run(() =>
+            //{
+            //    var instanceId = FirebaseInstanceId.Instance;
+            //    instanceId.DeleteInstanceId();
+            //    Android.Util.Log.Debug("TAG", "{0} {1}", instanceId.Token, instanceId.GetToken(GetString(Resource.String.gcm_defaultSenderId), Firebase.Messaging.FirebaseMessaging.InstanceIdScope));
+            //});
 
 
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
@@ -155,7 +155,7 @@ namespace preparate
             else
                 if (l == "LeaderBoard")
             {
-                StartActivity(typeof(leaderboard));
+                StartActivity(typeof(LeaderBoard2));
             }
             else
                 if (l == "Configuración")
@@ -175,7 +175,7 @@ namespace preparate
             alerDialog.SetMessage("Por favor danos tu opinión sobre tu experiencia con la aplicación");
             alerDialog.SetButton("Ir a feedback", (se, eve) =>
             {
-                var uri = Android.Net.Uri.Parse("http://www.google.com");
+                var uri = Android.Net.Uri.Parse("https://docs.google.com/forms/d/e/1FAIpQLSe_BMvCLkessoOfpOSJsg1bcb49K3U_oj3OQH8r2yYMZX0tRA/viewform?usp=sf_link");
                 var intent = new Intent(Intent.ActionView, uri);
                 StartActivity(intent);
                 Finish();
