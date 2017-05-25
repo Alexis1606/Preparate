@@ -57,8 +57,8 @@ namespace preparate
             //Icono
             alerDialog.SetIcon(Resource.Drawable.Icon);
             //Pregunta
-            alerDialog.SetMessage("¿Estás Seguro que deseas cerrar sesión?");
-            alerDialog.SetButton("NO", (s, ev) =>
+            alerDialog.SetMessage("¿Estás seguro que deseas cerrar la sesión?");
+            alerDialog.SetButton("No", (s, ev) =>
             {
                 StartActivity(typeof(Configuracion));
                 Finish();
