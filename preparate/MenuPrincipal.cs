@@ -18,7 +18,7 @@ using Firebase.Iid;
 
 namespace preparate
 {
-    [Activity(Label = "MenuPrincipal", Icon = "@drawable/icon", Theme = "@style/MyTheme", NoHistory = true)]
+    [Activity(Label = "MenuPrincipal", Icon = "@drawable/icon", Theme = "@style/MyTheme", NoHistory = false)]
     public class MenuPrincipal : AppCompatActivity
     {
         //Button test;

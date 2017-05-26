@@ -202,9 +202,17 @@ namespace preparate
                     int validadorpregunta = 0;
                     if (pre.tipo == 2)
                     {
-
-                        validadorpregunta = validarRespuesta(pre, Respuesta.Text);
-
+                        if (Respuesta.Text != " ")
+                        {
+                            validadorpregunta = validarRespuesta(pre, Respuesta.Text);
+                        }
+                        else {
+                            Android.App.AlertDialog.Builder builder1 = new Android.App.AlertDialog.Builder(this);
+                            Android.App.AlertDialog alerDialog1 = builder1.Create();
+                            alerDialog1.SetTitle("Error");
+                            alerDialog1.SetMessage("Debes seleccionar una opción");
+                            alerDialog1.Show();
+                        }
                     }
                     else
                     {
@@ -223,9 +231,6 @@ namespace preparate
                             correcta = true;
                             respusu = i;
                         });
-
-
-
 
                     }
                     else
@@ -419,10 +424,9 @@ namespace preparate
                     res = 1;
                 }
             }
-
-
             return res;
         }
+
 
         public override void OnBackPressed()
         {
