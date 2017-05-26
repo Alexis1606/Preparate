@@ -15,10 +15,11 @@ using Android.Preferences;
 using System.IO;
 using System.Threading.Tasks;
 using Firebase.Iid;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "MenuPrincipal", Icon = "@drawable/icon", Theme = "@style/MyTheme", NoHistory = false)]
+    [Activity(Label = "MenuPrincipal", Icon = "@drawable/icon", Theme = "@style/MyTheme", NoHistory = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MenuPrincipal : AppCompatActivity
     {
         //Button test;
@@ -46,14 +47,18 @@ namespace preparate
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.MenuPrincipal);
 
-            //if (!GetString(Resource.String.google_app_id).Equals("1:593192999279:android:7fd609f7126dc407"))
-            //    throw new System.Exception("Invalid Json file");
-            //Task.Run(() =>
-            //{
-            //    var instanceId = FirebaseInstanceId.Instance;
-            //    instanceId.DeleteInstanceId();
-            //    Android.Util.Log.Debug("TAG", "{0} {1}", instanceId.Token, instanceId.GetToken(GetString(Resource.String.gcm_defaultSenderId), Firebase.Messaging.FirebaseMessaging.InstanceIdScope));
-            //});
+            ////Comentarear Si marca error, es la notificación
+
+            if (!GetString(Resource.String.google_app_id).Equals("1:593192999279:android:7fd609f7126dc407"))
+                throw new System.Exception("Invalid Json file");
+            Task.Run(() =>
+            {
+                var instanceId = FirebaseInstanceId.Instance;
+                instanceId.DeleteInstanceId();
+                Android.Util.Log.Debug("TAG", "{0} {1}", instanceId.Token, instanceId.GetToken(GetString(Resource.String.gcm_defaultSenderId), Firebase.Messaging.FirebaseMessaging.InstanceIdScope));
+            });
+
+            ///////
 
 
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);

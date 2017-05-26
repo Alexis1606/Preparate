@@ -57,7 +57,7 @@ namespace preparate
 
                 if (connect == false)
                 {
-                    Toast.MakeText(this, "Por favor, segurese de estar conectado a internet y vuelva a intentarlo.", ToastLength.Long).Show();
+                    Toast.MakeText(this, "Por favor, Asegurate de estar conectado a internet y vuelve a intentarlo.", ToastLength.Long).Show();
                     StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionSettings));
                 }
                 else{

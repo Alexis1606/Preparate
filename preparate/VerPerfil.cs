@@ -11,10 +11,11 @@ using Android.Preferences;
 using API0;
 using Java.IO;
 using System.IO;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Perfil",NoHistory = false)]
+    [Activity(Label = "Perfil",NoHistory = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class VerPerfil : Activity
     {
         ImageView perfil;

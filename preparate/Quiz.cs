@@ -12,10 +12,11 @@ using Android.Graphics;
 using System.Net;
 using System.Threading.Tasks;
 using Firebase.Iid;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Quiz",NoHistory =true)]
+    [Activity(Label = "Quiz",NoHistory =true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Quiz : Activity
     {
         Button bEnviar;

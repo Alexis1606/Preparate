@@ -9,10 +9,11 @@ using System.Collections.Generic;
 using Android.Views.InputMethods;
 using System.Linq;
 using System.Data;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "LEADERBOARD", Icon = "@drawable/Icon")]
+    [Activity(Label = "LEADERBOARD", Icon = "@drawable/Icon", ScreenOrientation = ScreenOrientation.Portrait)]
     public class LeaderBoard2 : Activity
     {
         private List<Leader> mFriends;

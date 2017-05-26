@@ -17,7 +17,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -123,7 +123,6 @@
     <Compile Include="Crear_Perfil.cs" />
     <Compile Include="CustomGridViewAdapter.cs" />
     <Compile Include="ExamenesCompletos.cs" />
-    <Compile Include="leaderboard.cs" />
     <Compile Include="LeaderBoard\AdaptarLeader.cs" />
     <Compile Include="LeaderBoard\ExtMethods.cs" />
     <Compile Include="LeaderBoard\Leader.cs" />
@@ -193,9 +192,6 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ExamenesCompletos.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\leaderboard.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ListaExamenes.axml">

@@ -9,11 +9,12 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using System.Timers;    
+using System.Timers;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Exámen Completo")]
+    [Activity(Label = "Exámen Completo", ScreenOrientation = ScreenOrientation.Portrait)]
     public class ExamenesCompletos : Activity
     {
         Button bEnviar;

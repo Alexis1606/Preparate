@@ -11,10 +11,11 @@ using Android.Widget;
 using Android.Util;
 using API0;
 using Android.Preferences;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Modificar Datos", Icon = "@drawable/Icon", NoHistory = true)]
+    [Activity(Label = "Modificar Datos", Icon = "@drawable/Icon", NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class ModificarPerfil : Activity
     {
         EditText txtNombre;

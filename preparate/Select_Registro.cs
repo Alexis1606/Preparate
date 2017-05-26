@@ -9,12 +9,16 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Prepárate", NoHistory = true)]
+    
+    [Activity(Label = "Prepárate", NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Select_Registro : Activity
     {
+        
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
