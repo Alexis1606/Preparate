@@ -129,7 +129,14 @@ namespace preparate
         //
         private void perfil_Click(object sender, EventArgs e)
         {
+            try
+            {            
             StartActivity(typeof(VerPerfil));
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, "Aún no haz contestado ningún examen", ToastLength.Long).Show();
+            }
         }
 
         private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)

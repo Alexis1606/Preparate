@@ -146,7 +146,7 @@ namespace preparate
                                         alertDialog.SetMessage("Registro Exitoso");
                                         alertDialog.SetButton("OK", (s, ev) =>
                                         {
-                                            StartActivity(typeof(MenuPrincipal));
+                                            StartActivity(typeof(Select_Registro));
                                             Finish();
                                         });
                                         alertDialog.Show();

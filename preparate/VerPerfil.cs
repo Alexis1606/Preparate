@@ -22,11 +22,14 @@ namespace preparate
         TextView Puntaje;
         int user = 0;
         string RespuestaCorrecta = " ";
+
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.VerPerfil);
-
+            try
+            {
             ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
             user = prefs.GetInt("user", 0);
             User Datos = new User(user);
@@ -44,6 +47,11 @@ namespace preparate
 
             Nombre.Text = Datos.Nombre.ToUpper();
 
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, "Aún no haz contestado ningún examen", ToastLength.Long).Show();
+            }
             try
             {
                 ISharedPreferences preferencess = PreferenceManager.GetDefaultSharedPreferences(this);
