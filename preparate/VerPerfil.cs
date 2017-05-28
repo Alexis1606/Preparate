@@ -11,10 +11,11 @@ using Android.Preferences;
 using API0;
 using Java.IO;
 using System.IO;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Perfil",NoHistory = false)]
+    [Activity(Label = "Perfil",NoHistory = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class VerPerfil : Activity
     {
         ImageView perfil;
@@ -22,11 +23,14 @@ namespace preparate
         TextView Puntaje;
         int user = 0;
         string RespuestaCorrecta = " ";
+
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.VerPerfil);
-
+            try
+            {
             ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
             user = prefs.GetInt("user", 0);
             User Datos = new User(user);
@@ -44,6 +48,11 @@ namespace preparate
 
             Nombre.Text = Datos.Nombre.ToUpper();
 
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, "Aún no haz contestado ningún examen", ToastLength.Long).Show();
+            }
             try
             {
                 ISharedPreferences preferencess = PreferenceManager.GetDefaultSharedPreferences(this);

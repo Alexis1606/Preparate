@@ -11,10 +11,11 @@ using Android.Views;
 using Android.Widget;
 using Android.Bluetooth;
 using static Android.Bluetooth.BluetoothClass;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Acerca De Prepárate")]
+    [Activity(Label = "Acerca De Prepárate", ScreenOrientation = ScreenOrientation.Portrait)]
     public class AcercaDe : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

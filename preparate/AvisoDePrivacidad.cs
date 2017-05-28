@@ -9,10 +9,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Nuestro Aviso De Privacidad", NoHistory = true)]
+    [Activity(Label = "Nuestro Aviso De Privacidad", NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class AvisoDePrivacidad : Activity
     {
         Button bAceptar;

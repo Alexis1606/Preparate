@@ -10,11 +10,11 @@ using Classes;
 using Android.Preferences;
 using Android.Graphics;
 using System.Net;
-
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Oracle", NoHistory = true)]
+    [Activity(Label = "Oracle", NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Oracle : Activity
     {
         Button bEnviar;

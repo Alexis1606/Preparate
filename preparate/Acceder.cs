@@ -9,11 +9,12 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Content.PM;
 
 namespace preparate
 {
     //
-    [Activity(Label = "Acceder", NoHistory = true)]
+    [Activity(Label = "Acceder", NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Acceder : Activity
     {
         EditText Correo;

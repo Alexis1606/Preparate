@@ -8,10 +8,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Configuración", NoHistory = false)]
+    [Activity(Label = "Configuración", NoHistory = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Configuracion : Activity
     {
         ImageView Modificar;

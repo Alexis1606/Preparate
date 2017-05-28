@@ -8,10 +8,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Quiz", NoHistory = true)]
+    [Activity(Label = "Quiz", NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
 
 
     public class Lista_De_Examenes : Activity

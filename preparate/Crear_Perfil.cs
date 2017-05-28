@@ -9,10 +9,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Util;
+using Android.Content.PM;
 
 namespace preparate
 {
-    [Activity(Label = "Crear Perfil", Icon = "@drawable/Icon", NoHistory = true)]
+    [Activity(Label = "Crear Perfil", Icon = "@drawable/Icon", NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Crear_Perfil : Activity
     {
         EditText txtNombre;
@@ -146,7 +147,7 @@ namespace preparate
                                         alertDialog.SetMessage("Registro Exitoso");
                                         alertDialog.SetButton("OK", (s, ev) =>
                                         {
-                                            StartActivity(typeof(MenuPrincipal));
+                                            StartActivity(typeof(Select_Registro));
                                             Finish();
                                         });
                                         alertDialog.Show();

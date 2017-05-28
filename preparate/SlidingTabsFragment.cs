@@ -97,7 +97,7 @@ namespace preparate
                     Examenes.Text = examenes;
 
                     s1 = view.FindViewById<Spinner>(Resource.Id.spinner1);
-                    et = view.FindViewById<EditText>(Resource.Id.editText1);
+                    //et = view.FindViewById<EditText>(Resource.Id.editText1);
 
                     te = API0.TipoExamen.allbyuser(user);
                     var items = new List<string>()
