@@ -195,25 +195,31 @@ namespace preparate
                         break;
                 }
                 //si content[o la pregunta
-                if (i < (r.Length - 1) || pre.tipo == 2)
+                if (i < (r.Length - 1) || pre.tipo == 2 && Respuesta.Text != "")
                 {
                     Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
                     Android.App.AlertDialog alerDialog = builder.Create();
+                    Android.App.AlertDialog.Builder builder1 = new Android.App.AlertDialog.Builder(this);
+                    Android.App.AlertDialog alerDialog1 = builder1.Create();
                     //valida si est[a bien la pregunta
                     int validadorpregunta = 0;
                     if (pre.tipo == 2)
                     {
-                        if (Respuesta.Text != " ")
-                        {
-                            validadorpregunta = validarRespuesta(pre, Respuesta.Text);
-                        }
-                        else {
-                            Android.App.AlertDialog.Builder builder1 = new Android.App.AlertDialog.Builder(this);
-                            Android.App.AlertDialog alerDialog1 = builder1.Create();
-                            alerDialog1.SetTitle("Error");
-                            alerDialog1.SetMessage("Debes seleccionar una opción");
-                            alerDialog1.Show();
-                        }
+                        //if (Respuesta.Text != "")
+                        //{
+                        validadorpregunta = validarRespuesta(pre, Respuesta.Text);
+                        //}
+                        //else
+                        //{
+                        //    //validadorpregunta = validarRespuesta(pre, Respuesta.Text);
+                        //    alerDialog1.SetTitle("Lo sentimos");
+                        //    alerDialog1.SetMessage("Ya que dejaste en blanco la pregunta te cuenta como un error.");
+                        //    alerDialog1.SetButton("OK", (s, ev) =>
+                        //    {
+
+                        //    });
+                        //    alerDialog1.Show();
+                        //}
                     }
                     else
                     {
@@ -320,11 +326,24 @@ namespace preparate
                 }//no contest[o la pregunta
                 else
                 {
-                    Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
-                    Android.App.AlertDialog alerDialog = builder.Create();
-                    alerDialog.SetTitle("Error");
-                    alerDialog.SetMessage("Debes seleccionar una opción");
-                    alerDialog.Show();
+                    if (pre.tipo == 2)
+                    {
+                        Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+                        Android.App.AlertDialog alerDialog = builder.Create();
+                        alerDialog.SetTitle("Cuidado!");
+                        alerDialog.SetMessage("Debes escribir una opción");
+                        alerDialog.Show();
+                    }
+                    else
+                    {
+                        Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+                        Android.App.AlertDialog alerDialog = builder.Create();
+                        alerDialog.SetTitle("Cuidado!");
+                        alerDialog.SetMessage("Debes seleccionar una opción");
+                        alerDialog.Show();
+                    }
+
+                    
                 }
             }
             catch (Exception ex)
@@ -348,13 +367,19 @@ namespace preparate
 
                 case 2:
                     Opciones.Visibility = ViewStates.Gone;
-                    Respuesta.Text = "";
+                        int i;
+                        for (i = 0; i < p.opciones.Length; i++)
+                        {
+                            r[i].Selected = false;
+                            r[i].Checked = false;
+                            r[i].Text = p.opciones[i];
+                        }
+                        Respuesta.Text = "";
                     Respuesta.Visibility = ViewStates.Visible;
                     break;
                 case 3:
                     Opciones.Visibility = ViewStates.Visible;
                     Respuesta.Visibility = ViewStates.Gone;
-                    int i;
                     for (i = 0; i < p.opciones.Length; i++)
                     {
                         r[i].Visibility = ViewStates.Visible;
